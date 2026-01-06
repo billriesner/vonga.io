@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
                'unknown';
 
     // Basic deduplication: only alert for specific microsite visits
-    const alertPaths = ['/indy-ignite', '/williams-racing'];
+    const alertPaths = ['/indy-ignite', '/williams-racing', '/cadillac-f1'];
     if (!alertPaths.includes(pathname)) {
       return NextResponse.json({ success: true, message: 'Visit tracked (not alerting)' });
     }
@@ -28,6 +28,8 @@ export async function POST(request: NextRequest) {
       const label =
         pathname === '/indy-ignite'
           ? 'Indy Ignite Microsite Visit'
+          : pathname === '/cadillac-f1'
+          ? 'Cadillac F1 Microsite Visit'
           : 'Williams Racing Microsite Visit';
 
       const slackMessage = {
