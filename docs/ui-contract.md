@@ -195,6 +195,6 @@
 - Custom motion curves.  
 - "Sustainability" or "eco" references (not a pillar).  
 - New UI components without contract update.
-- **Em dashes (—)** in any copy — use periods or commas instead.
+- **Em dashes (—)** NEVER allowed in any copy. Always use periods or commas instead.
 
 ---

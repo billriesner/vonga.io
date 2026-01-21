@@ -77,8 +77,8 @@ Each layout must reflect the three brand pillars:
 🚫 Don't:
 - Introduce new CTA language.  
 - Overuse animation or gradients.  
-- Add "sustainability" or "eco" messaging — it's not a core pillar.
-- Use em dashes (—) — use periods or commas instead.
+- Add "sustainability" or "eco" messaging (it's not a core pillar).
+- **NEVER use em dashes (—).** Always use periods or commas instead.
 
 ---
 

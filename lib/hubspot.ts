@@ -1,216 +1,209 @@
-// /lib/hubspot.ts
-const HS_BASE = 'https://api.hubapi.com';
+/**
+ * HubSpot CRM Integration
+ * Creates contacts and deals from lead form submissions
+ */
 
-export async function hsUpsert({ token, contact, companyDomain, deal, payload }:{
-  token: string,
-  contact: { email: string, firstname?: string, lastname?: string },
-  companyDomain?: string,
-  deal: { name: string, pipeline: string, stage: string, amount?: number },
-  payload: Record<string, any>
-}) {
-  const headers = { 
-    'Content-Type': 'application/json', 
-    'Authorization': `Bearer ${token}` 
-  };
+import { Client } from "@hubspot/api-client";
+
+const hubspotClient = process.env.HUBSPOT_ACCESS_TOKEN
+  ? new Client({ accessToken: process.env.HUBSPOT_ACCESS_TOKEN })
+  : null;
+
+export interface LeadData {
+  name: string;
+  email: string;
+  organization: string;
+  role?: string;
+  message?: string;
+}
+
+/**
+ * Parse full name into first and last name
+ */
+function parseName(fullName: string): { firstname: string; lastname: string } {
+  const parts = fullName.trim().split(" ");
+  if (parts.length === 1) {
+    return { firstname: parts[0], lastname: "" };
+  }
+  const firstname = parts[0];
+  const lastname = parts.slice(1).join(" ");
+  return { firstname, lastname };
+}
+
+/**
+ * Create or update a contact in HubSpot
+ */
+export async function createHubSpotContact(data: LeadData) {
+  if (!hubspotClient) {
+    console.warn("HubSpot client not initialized. Skipping contact creation.");
+    return null;
+  }
 
   try {
-    console.log('Starting HubSpot integration for:', contact.email);
-    console.log('HubSpot token (first 10 chars):', token.substring(0, 10) + '...');
-    
-    // Contact upsert (search first, then create if not found)
-    const searchRes = await fetch(`${HS_BASE}/crm/v3/objects/contacts/search`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        filterGroups: [{
-          filters: [{
-            propertyName: 'email',
-            operator: 'EQ',
-            value: contact.email
-          }]
-        }]
-      })
-    });
+    const { firstname, lastname } = parseName(data.name);
 
-    let contactId: string;
-    const searchData = await searchRes.json();
-    console.log('HubSpot contact search response:', searchRes.status, searchData);
-    
-    if (searchData.results && searchData.results.length > 0) {
-      // Contact exists, update it
-      contactId = searchData.results[0].id;
-      await fetch(`${HS_BASE}/crm/v3/objects/contacts/${contactId}`, {
-        method: 'PATCH',
-        headers,
-        body: JSON.stringify({
-          properties: { 
-            email: contact.email, 
-            firstname: contact.firstname, 
-            lastname: contact.lastname 
-          }
-        })
-      });
-    } else {
-      // Create new contact
-      const cRes = await fetch(`${HS_BASE}/crm/v3/objects/contacts`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          properties: { 
-            email: contact.email, 
-            firstname: contact.firstname, 
-            lastname: contact.lastname 
-          }
-        })
-      });
-      const c = await cRes.json();
-      if (!cRes.ok) {
-        throw new Error(`HubSpot contact creation failed: ${JSON.stringify(c)}`);
-      }
-      contactId = c.id;
+    // Create contact properties
+    const properties: Record<string, string> = {
+      email: data.email,
+      firstname,
+      lastname,
+      company: data.organization,
+      hs_lead_status: "NEW",
+    };
+
+    // Add optional fields
+    if (data.role) {
+      properties.jobtitle = data.role;
     }
 
-    // Company (optional)
-    let companyId: string | undefined;
-    if (companyDomain) {
-      const coRes = await fetch(`${HS_BASE}/crm/v3/objects/companies`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ 
-          properties: { 
-            domain: companyDomain,
-            name: companyDomain // Use domain as company name if no other name provided
-          } 
-        })
-      });
-      const co = await coRes.json();
-      if (!coRes.ok) {
-        console.warn(`HubSpot company creation failed: ${JSON.stringify(co)}`);
-      } else {
-        companyId = co.id;
-        // Associate contact↔company
-        await fetch(`${HS_BASE}/crm/v4/associations/companies/contacts/batch/create`, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            inputs: [{ from: { id: companyId }, to: { id: contactId }, type: 'company_to_contact' }]
-          })
-        });
+    // Create or update contact
+    const response = await hubspotClient.crm.contacts.basicApi.create({
+      properties,
+      associations: [],
+    });
+
+    console.log("HubSpot contact created:", response.id);
+
+    // Add message as a note if provided
+    if (data.message) {
+      await createContactNote(response.id, data.message);
+    }
+
+    return response;
+  } catch (error: any) {
+    // If contact already exists, update it
+    if (error.body?.category === "CONFLICT") {
+      console.log("Contact already exists, attempting to update...");
+      try {
+        const { firstname, lastname } = parseName(data.name);
+        const properties: Record<string, string> = {
+          firstname,
+          lastname,
+          company: data.organization,
+        };
+        if (data.role) {
+          properties.jobtitle = data.role;
+        }
+
+        const updateResponse = await hubspotClient.crm.contacts.basicApi.update(
+          error.body.id,
+          { properties }
+        );
+
+        // Add message as note
+        if (data.message) {
+          await createContactNote(error.body.id, data.message);
+        }
+
+        return updateResponse;
+      } catch (updateError) {
+        console.error("Error updating HubSpot contact:", updateError);
+        throw updateError;
       }
     }
 
-    // Deal
-    const dRes = await fetch(`${HS_BASE}/crm/v3/objects/deals`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        properties: {
-          dealname: deal.name,
-          pipeline: deal.pipeline,
-          dealstage: deal.stage,
-          amount: deal.amount || 0
-        }
-      })
-    });
-    const d = await dRes.json();
-    if (!dRes.ok) {
-      throw new Error(`HubSpot deal creation failed: ${JSON.stringify(d)}`);
-    }
-    const dealId = d.id;
-
-    // Associate deal↔contact
-    await fetch(`${HS_BASE}/crm/v4/associations/deals/contacts/batch/create`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({ 
-        inputs: [{ from: { id: dealId }, to: { id: contactId }, type: 'deal_to_contact' }]
-      })
-    });
-
-    // Associate deal↔company if company exists
-    if (companyId) {
-      await fetch(`${HS_BASE}/crm/v4/associations/deals/companies/batch/create`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ 
-          inputs: [{ from: { id: dealId }, to: { id: companyId }, type: 'deal_to_company' }]
-        })
-      });
-    }
-
-    // Log note with full intake payload + score
-    const noteRes = await fetch(`${HS_BASE}/crm/v3/objects/notes`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        properties: { 
-          hs_note_body: `Inbound intake:\n\`\`\`json\n${JSON.stringify(payload, null, 2)}\n\`\`\`` 
-        }
-      })
-    });
-    
-    if (noteRes.ok) {
-      const note = await noteRes.json();
-      await fetch(`${HS_BASE}/crm/v4/associations/notes/deals/batch/create`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ 
-          inputs: [{ from: { id: note.id }, to: { id: dealId }, type: 'note_to_deal' }]
-        })
-      });
-    }
-
-    return { contactId, dealId, companyId };
-  } catch (error) {
-    console.error('HubSpot integration error:', error);
+    console.error("Error creating HubSpot contact:", error);
     throw error;
   }
 }
 
-export async function hsUpdateDealProps(token: string, dealId: string, props: Record<string, any>) {
-  const headers = { 'Content-Type':'application/json', 'Authorization': `Bearer ${token}` };
-  const res = await fetch(`${HS_BASE}/crm/v3/objects/deals/${dealId}`, {
-    method: 'PATCH',
-    headers,
-    body: JSON.stringify({ properties: props })
-  });
-  if (!res.ok) throw new Error(`HubSpot deal update failed: ${res.status}`);
-  return res.json();
+/**
+ * Create a note on a contact
+ */
+async function createContactNote(contactId: string, message: string) {
+  if (!hubspotClient) return;
+
+  try {
+    await hubspotClient.crm.objects.notes.basicApi.create({
+      properties: {
+        hs_note_body: `Lead Form Message:\n\n${message}`,
+        hs_timestamp: Date.now().toString(),
+      },
+      associations: [
+        {
+          to: { id: contactId },
+          types: [
+            {
+              associationCategory: "HUBSPOT_DEFINED",
+              associationTypeId: 202, // Note to Contact
+            },
+          ],
+        },
+      ],
+    });
+  } catch (error) {
+    console.error("Error creating contact note:", error);
+  }
 }
 
-export async function hsUpdateContactProps(token: string, contactId: string, props: Record<string, any>) {
-  const headers = { 'Content-Type':'application/json', 'Authorization': `Bearer ${token}` };
-  const res = await fetch(`${HS_BASE}/crm/v3/objects/contacts/${contactId}`, {
-    method: 'PATCH',
-    headers,
-    body: JSON.stringify({ properties: props })
-  });
-  if (!res.ok) throw new Error(`HubSpot contact update failed: ${res.status}`);
-  return res.json();
+/**
+ * Create a deal in HubSpot and associate with contact
+ */
+export async function createHubSpotDeal(
+  contactId: string,
+  organization: string
+) {
+  if (!hubspotClient) {
+    console.warn("HubSpot client not initialized. Skipping deal creation.");
+    return null;
+  }
+
+  try {
+    const dealName = `${organization} - Pilot Inquiry`;
+
+    const response = await hubspotClient.crm.deals.basicApi.create({
+      properties: {
+        dealname: dealName,
+        dealstage: "appointmentscheduled", // HubSpot default first stage
+        amount: "0",
+        pipeline: "default", // Use default sales pipeline
+      },
+      associations: [
+        {
+          to: { id: contactId },
+          types: [
+            {
+              associationCategory: "HUBSPOT_DEFINED",
+              associationTypeId: 3, // Deal to Contact
+            },
+          ],
+        },
+      ],
+    });
+
+    console.log("HubSpot deal created:", response.id);
+    return response;
+  } catch (error) {
+    console.error("Error creating HubSpot deal:", error);
+    throw error;
+  }
 }
 
-export async function hsCreateEngagementNote(token: string, body: string, dealId?: string, contactId?: string) {
-  const headers = { 'Content-Type':'application/json', 'Authorization': `Bearer ${token}` };
-  const res = await fetch(`${HS_BASE}/crm/v3/objects/notes`, {
-    method:'POST',
-    headers,
-    body: JSON.stringify({ properties: { hs_note_body: body } })
-  });
-  const note = await res.json();
+/**
+ * Main function: Create contact and deal in HubSpot
+ */
+export async function createHubSpotLead(data: LeadData) {
+  try {
+    // Create or update contact
+    const contact = await createHubSpotContact(data);
 
-  const assocCalls: Promise<any>[] = [];
-  if (dealId) {
-    assocCalls.push(fetch(`${HS_BASE}/crm/v4/associations/notes/deals/batch/create`, {
-      method:'POST', headers,
-      body: JSON.stringify({ inputs:[{ from:{id:note.id}, to:{id:dealId}, type:'note_to_deal' }]})
-    }));
+    if (!contact) {
+      return { success: false, error: "HubSpot not configured" };
+    }
+
+    // Create deal associated with contact
+    const deal = await createHubSpotDeal(contact.id, data.organization);
+
+    return {
+      success: true,
+      contactId: contact.id,
+      dealId: deal?.id,
+    };
+  } catch (error: any) {
+    console.error("Error in HubSpot lead creation:", error);
+    return {
+      success: false,
+      error: error.message || "Unknown error",
+    };
   }
-  if (contactId) {
-    assocCalls.push(fetch(`${HS_BASE}/crm/v4/associations/notes/contacts/batch/create`, {
-      method:'POST', headers,
-      body: JSON.stringify({ inputs:[{ from:{id:note.id}, to:{id:contactId}, type:'note_to_contact' }]})
-    }));
-  }
-  await Promise.all(assocCalls);
-  return note;
 }

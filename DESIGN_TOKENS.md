@@ -21,8 +21,9 @@ This project uses a comprehensive design token system built on CSS variables and
 - **Always use inline styles** for cyan text: `style={{ color: '#33BECC' }}` to ensure proper rendering
 
 ### Writing Guidelines
-- **No em dashes (—)**: Always use periods or commas instead. Em dashes clutter copy and reduce readability.
+- **NEVER use em dashes (—)**: Em dashes are strictly forbidden. Always use periods or commas instead. Em dashes clutter copy and reduce readability.
   - ❌ Bad: "No apps needed — just tap"
+  - ✅ Good: "No apps needed. Just tap."
   - ✅ Good: "No apps needed. Just tap"
 - **Short sentences**: Break long sentences into multiple shorter ones
 - **Active voice**: Use direct, active language

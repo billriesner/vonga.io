@@ -18,7 +18,7 @@
 ## Language We Avoid
 - book a demo, request pricing, AI-powered, blockchain, web3, gamification, KPI soup (unless required in proof docs).
 - Jargon overuse: engagement, funnel, activation (use **belonging**, **moments**, **stories** instead).
-- **Em dashes (—)**: Always use periods or commas instead. Em dashes clutter copy and reduce readability.
+- **Em dashes**: NEVER use em dashes (—). Always use periods or commas instead. Em dashes clutter copy and reduce readability.
 
 ## Style
 - Short, cinematic sentences.  
