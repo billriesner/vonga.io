@@ -12,6 +12,56 @@ import { LeadForm } from "@/components/sections/LeadForm";
 import { homepage } from "@/content/homepage";
 import { experienceTypes } from "@/content/experience-types";
 import { trustStatements } from "@/content/trust-statements";
+import type { Metadata } from "next";
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://vonga.io";
+
+export const metadata: Metadata = {
+  title: "Create Experiences That Matter Through NFC-Enabled Team Apparel",
+  description: "Turn moments into experiences with NFC-enabled team apparel. Create meaningful fan connections, unlock exclusive content, and build lasting belonging—no app required. The experience platform for sports teams, universities, and communities.",
+  keywords: [
+    "NFC-enabled apparel",
+    "connected merchandise",
+    "fan engagement platform",
+    "team apparel experiences",
+    "smart sports apparel",
+    "NFC jerseys",
+    "fan experience platform",
+    "location-aware fan engagement",
+    "no-app fan engagement",
+    "sports team merchandise platform",
+    "NFC team apparel",
+    "connected sports merchandise",
+    "interactive team apparel",
+    "fan connection platform",
+    "sports fan experiences",
+  ],
+  openGraph: {
+    title: "Vonga | Create Experiences That Matter Through Connected Apparel",
+    description: "Turn moments into experiences with NFC-enabled team apparel. Create meaningful fan connections without requiring app downloads.",
+    url: baseUrl,
+    siteName: "Vonga",
+    images: [
+      {
+        url: `${baseUrl}/images/logos/Vonga Sq Logo - White - 512px.png`,
+        width: 512,
+        height: 512,
+        alt: "Vonga - NFC-Enabled Team Apparel Platform",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vonga | Create Experiences That Matter",
+    description: "NFC-enabled team apparel that creates meaningful fan experiences—no app required.",
+    images: [`${baseUrl}/images/logos/Vonga Sq Logo - White - 512px.png`],
+  },
+  alternates: {
+    canonical: baseUrl,
+  },
+};
 
 export default function HomePage() {
   return (
@@ -44,11 +94,11 @@ export default function HomePage() {
           context={homepage.category.context}
         />
 
-        {/* 5. Video Demo: Placeholder for 60-90s demo */}
+        {/* 5. Video Demo: Product demo video */}
         <VideoDemo
           headline={homepage.video.headline}
           description={homepage.video.description}
-          placeholderText={homepage.video.placeholderText}
+          videoUrl="/videos/demo-video.mp4"
           caption={homepage.video.caption}
         />
 

@@ -27,7 +27,7 @@ export async function POST(request: Request) {
 
     // Log results
     if (emailResult.status === "fulfilled") {
-      console.log("Email sent successfully:", emailResult.value.id);
+      console.log("Email sent successfully:", emailResult.value);
     } else {
       console.error("Email sending failed:", emailResult.reason);
     }

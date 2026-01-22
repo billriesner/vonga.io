@@ -13,7 +13,10 @@
     "test:headed": "playwright test --headed",
     "test:copy": "playwright test copy-quality",
     "test:visual": "playwright test visual-regression",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "remotion:studio": "remotion studio remotion/index.ts",
+    "remotion:render": "remotion render remotion/index.ts DemoVideo output/demo-video.mp4",
+    "remotion:preview": "remotion preview remotion/index.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -27,6 +30,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.64.0",
+    "remotion": "4.0.234",
+    "@remotion/cli": "4.0.234",
     "resend": "^6.1.2",
     "tailwind-merge": "^3.3.0",
     "zod": "^4.1.12"

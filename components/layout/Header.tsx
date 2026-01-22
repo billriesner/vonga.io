@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -47,7 +48,7 @@ export function Header({
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <div className="h-16 w-auto overflow-hidden">
                 <img 
                   src="/images/logos/logo.svg" 
@@ -59,7 +60,7 @@ export function Header({
                   }}
                 />
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* CTA Button */}

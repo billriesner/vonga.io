@@ -124,7 +124,7 @@ async function createContactNote(contactId: string, message: string) {
           to: { id: contactId },
           types: [
             {
-              associationCategory: "HUBSPOT_DEFINED",
+              associationCategory: "HUBSPOT_DEFINED" as any,
               associationTypeId: 202, // Note to Contact
             },
           ],
@@ -163,7 +163,7 @@ export async function createHubSpotDeal(
           to: { id: contactId },
           types: [
             {
-              associationCategory: "HUBSPOT_DEFINED",
+              associationCategory: "HUBSPOT_DEFINED" as any,
               associationTypeId: 3, // Deal to Contact
             },
           ],

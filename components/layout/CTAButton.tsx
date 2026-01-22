@@ -6,7 +6,7 @@ interface CTAButtonProps {
   text?: string;
   href?: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "coral";
+  variant?: "primary" | "secondary" | "coral" | "outline";
   size?: "sm" | "md" | "lg";
 }
 

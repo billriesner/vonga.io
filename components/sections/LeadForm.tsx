@@ -17,7 +17,7 @@ interface LeadFormProps {
   privacyNote?: string;
   successMessage?: string;
   errorMessage?: string;
-  nextSteps?: string[];
+  nextSteps?: readonly string[];
 }
 
 export function LeadForm({

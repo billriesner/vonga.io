@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd archive/v1-current-site && npm run build",
-  "outputDirectory": "archive/v1-current-site/.next",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
   "framework": "nextjs",
-  "installCommand": "cd archive/v1-current-site && npm install"
+  "installCommand": "npm install"
 }
 

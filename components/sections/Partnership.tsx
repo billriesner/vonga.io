@@ -9,7 +9,7 @@ import PartnershipJourney from "./PartnershipJourney";
 interface PartnershipProps {
   headline: string;
   subhead?: string;
-  points: string[];
+  points: readonly string[];
   image?: string;
 }
 

@@ -1,15 +1,15 @@
 /**
  * Homepage Copy - Single Source of Truth
- * Strategic positioning: Revenue-Generating Apparel (not engagement platform)
- * Based on verified research and competitive moat
+ * Strategic positioning: Experience-Focused Connection Platform
+ * Focus on creating meaningful experiences that build belonging and connection
  */
 
 export const homepage = {
   hero: {
-    headline: "Turn Team Apparel Into a Revenue-Generating Asset",
-    subhead: "Make apparel a year-round engagement channel. Deepen fan relationships. Grow revenue per fan.",
+    headline: "Turn Moments Into Experiences",
+    subhead: "Make apparel a year-round connection channel. Create meaningful fan experiences. Build lasting belonging.",
     primaryCTA: {
-      text: "Schedule a Call",
+      text: "Let's Connect",
       href: "#contact"
     },
     secondaryCTA: {
@@ -19,25 +19,25 @@ export const homepage = {
   },
 
   problem: {
-    headline: "The Dormant Asset Problem",
-    description: "Fans engage with your team 100+ times per year. Revenue happens at 3-5 events. That gap is your opportunity.",
-    statement: "Turn year-round engagement into year-round revenue."
+    headline: "The Connection Gap",
+    description: "Fans wear your apparel 100+ times per year. But most moments pass without connection. That gap is your opportunity.",
+    statement: "Turn every moment into a meaningful experience."
   },
 
 
   category: {
-    categoryName: "Apparel-as-a-Channel",
-    translation: "A revenue channel that works 365 days a year, delivered through team kits.",
-    explanation: "Most teams sell apparel once. We turn it into ongoing revenue. Your kit knows where fans are and unlocks the right offer at the right time.",
-    proofMechanism: "Engaged customers shop 2.8× more often and spend 4.3× more. Vonga delivers that through apparel fans already wear.",
+    categoryName: "Apparel-as-a-Connection",
+    translation: "A connection channel that works 365 days a year, delivered through team kits.",
+    explanation: "Most teams sell apparel once. We turn it into ongoing connection. Your kit knows where fans are and unlocks the right experience at the right moment.",
+    proofMechanism: "Connected fans feel seen, stay loyal, and become advocates. Vonga delivers that through apparel fans already wear.",
     context: "No app to download. No algorithm to fight. No spam filters. Just fans wearing your kit."
   },
 
   video: {
     headline: "See It In Action",
-    description: "Watch how Vonga creates ongoing fan engagement and measurable revenue opportunities through premium team apparel.",
+    description: "Watch how Vonga turns moments into experiences. See how fans unlock exclusive content and how teams create meaningful connections through premium apparel.",
     placeholderText: "Demo video coming soon",
-    caption: "60-second demo showing fan experience and team dashboard"
+    caption: ""
   },
 
   diy: {
@@ -66,19 +66,19 @@ export const homepage = {
 
   partnership: {
     headline: "How We Work Together",
-    subhead: "From design to launch to ongoing optimization, we partner with you to create the fan experiences that drive engagement and revenue.",
+    subhead: "From design to launch to ongoing optimization, we partner with you to create the fan experiences that build connection and belonging.",
     points: [
       "Collaborative design: Your brand, our platform",
       "Fast launch: As little as 6-8 weeks for standard programs",
       "Low-risk pilot: Start with 300 kits, scale when ready",
-      "Continuous improvement: Optimize based on real fan data",
+      "Continuous improvement: Optimize based on real fan engagement",
       "Limited 2026 spots: Early partners lock in pricing"
     ]
   },
 
   form: {
-    headline: "Ready to Increase Revenue Per Fan?",
-    subhead: "Tell us about your team. We'll show you exactly how Vonga fits your goals. Limited 2026 pilot spots available.",
+    headline: "Ready to Create Experiences That Matter?",
+    subhead: "Tell us about your team. We'll show you exactly how Vonga helps you connect with fans in meaningful ways. Limited 2026 pilot spots available.",
     privacyNote: "We respect your privacy. Your information will only be used to follow up on your inquiry.",
     successMessage: "Thanks for reaching out! We'll be in touch within 24 hours to discuss how Vonga can help your team.",
     errorMessage: "Something went wrong. Please try again or email us directly at hello@vonga.io",
@@ -91,16 +91,16 @@ export const homepage = {
   },
 
   footerCTA: {
-    headline: "Your fans wear your kit 100+ times a year. Start earning revenue every time.",
-    ctaText: "Schedule a Call",
+    headline: "Your fans wear your kit 100+ times a year. Start creating experiences every time.",
+    ctaText: "Let's Connect",
     ctaHref: "#contact"
   },
 
   riskReversal: {
-    headline: "Proven Revenue Model, Not Experiment",
+    headline: "Proven Connection Platform, Not Experiment",
     points: [
-      "Engaged customers shop 2.8× more often and spend 4.3× more",
-      "Repeat buyers in sports spend 2-4× more than one-time purchasers",
+      "Connected fans feel seen and stay loyal",
+      "Meaningful experiences build lasting relationships",
       "Pilot programs start at 100 kits with full platform access",
       "Launch in 6-8 weeks from approval",
       "Early partners get pricing locked for 2026-2027 seasons"
