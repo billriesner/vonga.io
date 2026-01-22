@@ -14,7 +14,7 @@ interface HeaderProps {
 export function Header({ 
   transparent = true, 
   ctaHref = "#contact",
-  ctaText = "Schedule a Call" 
+  ctaText = "Let's Connect" 
 }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
 
