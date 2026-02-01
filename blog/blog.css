@@ -1411,10 +1411,17 @@
         line-height: 1.5;
     }
 
-    /* Newsletter - Stack vertically */
+    /* Newsletter - Use more screen width */
     .newsletter-box {
         padding: var(--space-lg);
-        margin: 0 var(--space-md);
+        margin: 0 var(--space-sm);
+        max-width: none;
+        width: calc(100% - var(--space-md));
+    }
+    
+    .blog-hero .hero-subtitle {
+        max-width: none;
+        padding: 0 var(--space-md);
     }
     
     .newsletter-form {
@@ -1426,9 +1433,9 @@
         font-size: 16px; /* Prevents iOS zoom on focus */
     }
 
-    /* Featured Post - Better mobile layout */
+    /* Featured Post - Use more screen width */
     .featured-post {
-        margin: 0 var(--space-md) var(--space-3xl);
+        margin: 0 var(--space-sm) var(--space-3xl);
     }
     
     .featured-link {
@@ -1472,9 +1479,16 @@
         margin-bottom: var(--space-md);
     }
 
-    /* Article Content - Optimized readability */
+    /* Article Content - Optimized readability, use more width */
     .article-content {
         padding: var(--space-2xl) var(--space-lg);
+        max-width: none;
+    }
+    
+    /* Article sections - full width on mobile */
+    .container-narrow {
+        max-width: none;
+        padding: 0 var(--space-lg);
     }
 
     .article-content h2 {
@@ -1515,11 +1529,11 @@
         border-radius: var(--radius);
     }
 
-    /* Blog Grid - Single column */
+    /* Blog Grid - Single column, use more width */
     .blog-grid {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
-        padding: 0 var(--space-md);
+        padding: 0 var(--space-sm);
     }
     
     .blog-card {
@@ -1575,10 +1589,10 @@
         margin-bottom: var(--space-md);
     }
 
-    /* Author Bio - Center on mobile */
+    /* Author Bio - Center on mobile, use more width */
     .author-bio {
         padding: var(--space-lg);
-        margin: var(--space-2xl) var(--space-md);
+        margin: var(--space-2xl) var(--space-sm);
     }
     
     .author-bio-content {
@@ -1592,12 +1606,12 @@
         margin-bottom: var(--space-sm);
     }
 
-    /* Related/Resource Grids - Single column */
+    /* Related/Resource Grids - Single column, use more width */
     .related-grid,
     .resource-cards {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
-        padding: 0 var(--space-md);
+        padding: 0 var(--space-sm);
     }
     
     /* CTA Buttons - Full width on mobile */
