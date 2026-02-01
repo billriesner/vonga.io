@@ -142,6 +142,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   width: 100%;
 }
 
@@ -176,6 +177,42 @@ nav a {
 
 nav a:hover {
   color: var(--aqua);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+header.scrolled .mobile-menu-toggle span {
+  background: var(--text);
 }
 
 /* Hero Section */
@@ -659,8 +696,43 @@ footer {
   h2 { font-size: 28px; }
   h3 { font-size: 20px; }
   
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
   nav ul {
-    display: none; /* Mobile nav needs implementation */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--navy);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px 30px 30px;
+    gap: var(--space-lg);
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+  
+  nav ul.active {
+    right: 0;
+  }
+  
+  nav ul li {
+    width: 100%;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 12px 0;
+    font-size: 18px;
+  }
+  
+  nav ul li a.btn {
+    text-align: center;
   }
   
   .hero {
