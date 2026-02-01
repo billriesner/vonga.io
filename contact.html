@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Connect. Vonga</title>
+    <meta name="description" content="Start a conversation. See how Vonga can help you build lasting connections with your community.">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/testimonials.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="images/logos/logo.svg" alt="Vonga"></a>
+            <ul>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="case-studies.html">Stories</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Let's Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 60vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl);">
+        <div class="container" style="max-width: var(--max-width); text-align: center;">
+            <h1 style="margin-bottom: var(--space-lg);">Get Custom Pricing in 24 Hours</h1>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.85);">Tell us about your program. We'll send you pricing tailored to your needs and examples of how similar programs are using Vonga.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section>
+        <div class="container">
+            <div class="grid grid-2" style="gap: var(--space-3xl); align-items: start;">
+                <!-- Form -->
+                <div>
+                    <h2 style="margin-bottom: var(--space-md);">Get Custom Pricing</h2>
+                    <p style="margin-bottom: var(--space-2xl);"><strong>Takes 60 seconds.</strong> We'll follow up within 24 hours with pricing tailored to your program and examples from similar organizations.</p>
+                    
+                    <form id="contactForm" action="#" method="POST" class="mt-2">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="you@organization.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Organization *</label>
+                            <input type="text" id="organization" name="organization" required placeholder="Your team, school, or university">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Your Role *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role...</option>
+                                <option value="athletic-director">Athletic Director</option>
+                                <option value="marketing-director">Marketing Director</option>
+                                <option value="merchandise-manager">Merchandise Manager</option>
+                                <option value="fan-engagement">Fan Engagement Manager</option>
+                                <option value="coach">Coach</option>
+                                <option value="admin">Administrator</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="intent">What brings you to Vonga today? *</label>
+                            <select id="intent" name="intent" required>
+                                <option value="">Select one...</option>
+                                <option value="active">We're actively looking for fan engagement solutions</option>
+                                <option value="exploring-next-season">Exploring options for next season</option>
+                                <option value="learning-nfc">Just learning about NFC technology</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Anything else we should know?</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your goals, challenges, or questions..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-md);">Submit</button>
+                        
+                        <p style="font-size: 14px; color: var(--gray-500); margin-top: var(--space-lg); line-height: 1.5;">
+                            By submitting this form, you agree to be contacted by Vonga about our solutions. We respect your privacy and never share your information.
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Info Sidebar -->
+                <div>
+                    <div class="card">
+                        <h3>What Happens Next</h3>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-lg); margin-top: var(--space-md);">
+                            <div>
+                                <h4 style="margin-bottom: var(--space-xs);">1. We'll Schedule a Conversation</h4>
+                                <p>Within 24 hours, we'll reach out to find a time that works. Calls typically last 30 minutes.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: var(--space-xs);">2. We'll Show You Vonga</h4>
+                                <p>See the fan experience and the analytics dashboard. Live demo, real examples.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: var(--space-xs);">3. We'll Discuss Your Goals</h4>
+                                <p>Tell us about your challenges. We'll show how Vonga can help.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-dark">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="margin-bottom: var(--space-3xl);">Join Organizations Already Living Connected</h2>
+            
+            <div id="testimonials-contact" data-testimonials="2"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
+                <p style="font-weight: 600; color: white; font-size: 18px;">Live Connected.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="case-studies.html">Stories</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Let's Talk</h4>
+                <ul>
+                    <li><a href="contact.html">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vonga. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Prevent duplicate handlers
+        const form = document.getElementById('contactForm');
+        const newHandler = async function(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            
+            // Collect form data
+            const formData = {
+                type: 'form',
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                organization: document.getElementById('organization').value,
+                role: document.getElementById('role').value,
+                intent: document.getElementById('intent').value,
+                message: document.getElementById('message').value || '',
+                timestamp: new Date().toISOString(),
+                page: window.location.href
+            };
+            
+            // Show loading state
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Send to notification server
+                const response = await fetch('http://localhost:3001/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                console.log('[Form Submission] Success:', result);
+                
+                // Store locally for dashboard
+                const submissions = JSON.parse(localStorage.getItem('vonga_form_submissions') || '[]');
+                submissions.push(formData);
+                localStorage.setItem('vonga_form_submissions', JSON.stringify(submissions));
+                
+                // Track conversion in A/B system
+                if (window.ABTester) {
+                    const userData = JSON.parse(localStorage.getItem('vonga_ab_test') || '{}');
+                    if (userData.sessionId) {
+                        const event = {
+                            sessionId: userData.sessionId,
+                            heroVariant: userData.heroVariant?.id,
+                            ctaVariant: userData.ctaVariant?.id,
+                            eventType: 'conversion',
+                            metadata: { type: 'form_submit' },
+                            timestamp: new Date().toISOString()
+                        };
+                        const events = JSON.parse(localStorage.getItem('vonga_ab_events') || '[]');
+                        events.push(event);
+                        localStorage.setItem('vonga_ab_events', JSON.stringify(events));
+                    }
+                }
+                
+                // Show success message
+                document.querySelector('.container > div').innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <div style="font-size: 64px; margin-bottom: 20px;">✅</div>
+                        <h2 style="margin-bottom: 16px;">Thanks, ${formData.name.split(' ')[0]}!</h2>
+                        <p style="font-size: 18px; color: #6b7280; margin-bottom: 32px;">
+                            We've received your information and will reach out within 24 hours with pricing tailored to ${formData.organization}.
+                        </p>
+                        <p style="color: #6b7280;">
+                            In the meantime, check out our <a href="case-studies.html" style="color: #33BECC;">case studies</a> 
+                            or browse <a href="pricing.html" style="color: #33BECC;">pricing details</a>.
+                        </p>
+                    </div>
+                `;
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+            } catch (error) {
+                console.error('[Form Submission] Error:', error);
+                alert('There was an error submitting the form. Please email us directly at bill@vonga.io');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        };
+        
+        // Remove any existing handlers and add new one
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+        newForm.addEventListener('submit', newHandler);
+    </script>
+</body>
+</html>

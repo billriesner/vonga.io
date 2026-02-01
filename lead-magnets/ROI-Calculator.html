@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonga ROI Calculator</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0A1F3D 0%, #33BECC 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #0A1F3D;
+            margin-bottom: 12px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+        .section {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            color: #33BECC;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #33BECC;
+        }
+        .helper {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+        .results {
+            background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+            padding: 32px;
+            border-radius: 12px;
+            border-left: 4px solid #33BECC;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .result-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .result-label {
+            font-weight: 600;
+            color: #374151;
+        }
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #33BECC;
+        }
+        .highlight {
+            background: #33BECC;
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        .highlight .big-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .highlight .label {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        .btn {
+            background: #33BECC;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 24px;
+        }
+        .btn:hover {
+            background: #2aa8b8;
+        }
+        .assumptions {
+            background: #fef3c7;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            margin-top: 24px;
+        }
+        .assumptions h3 {
+            color: #92400e;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .assumptions ul {
+            color: #92400e;
+            font-size: 14px;
+            padding-left: 20px;
+        }
+        .assumptions li {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Vonga ROI Calculator</h1>
+        <p class="subtitle">Calculate the potential return on investment for your fan engagement program</p>
+        
+        <!-- Current State -->
+        <div class="section">
+            <h2>📊 Your Current State</h2>
+            
+            <div class="input-group">
+                <label for="fanBase">Fan Base Size</label>
+                <input type="number" id="fanBase" value="5000" min="0" step="100">
+                <div class="helper">Approximate number of active fans (season ticket holders, regular attendees, engaged alumni)</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="avgMerchRevenue">Average Merchandise Revenue Per Fan/Year</label>
+                <input type="number" id="avgMerchRevenue" value="30" min="0" step="1">
+                <div class="helper">How much does an average fan spend on merchandise annually?</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="currentSponsorValue">Current Annual Sponsor Revenue</label>
+                <input type="number" id="currentSponsorValue" value="50000" min="0" step="1000">
+                <div class="helper">Total annual revenue from sponsors/partners</div>
+            </div>
+        </div>
+        
+        <!-- Vonga Implementation -->
+        <div class="section">
+            <h2>🚀 With Vonga</h2>
+            
+            <div class="input-group">
+                <label for="nfcGarments">NFC-Enabled Garments to Distribute</label>
+                <input type="number" id="nfcGarments" value="2000" min="0" step="100">
+                <div class="helper">How many NFC-enabled items will you distribute?</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="pricePremium">Price Premium Per Garment</label>
+                <input type="number" id="pricePremium" value="10" min="0" step="1">
+                <div class="helper">How much more can you charge for NFC-enabled premium apparel?</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="platformCost">Annual Platform Cost</label>
+                <select id="platformCost">
+                    <option value="10000">Starter ($10,000/year)</option>
+                    <option value="25000" selected>Professional ($25,000/year)</option>
+                    <option value="60000">Enterprise ($60,000/year)</option>
+                    <option value="0">Custom (enter below)</option>
+                </select>
+            </div>
+            
+            <div class="input-group" id="customCostGroup" style="display: none;">
+                <label for="customPlatformCost">Custom Platform Cost</label>
+                <input type="number" id="customPlatformCost" value="25000" min="0" step="1000">
+            </div>
+        </div>
+        
+        <!-- Results -->
+        <div class="results">
+            <h2 style="color: #0A1F3D; margin-bottom: 24px;">💰 Your Projected ROI</h2>
+            
+            <div class="result-row">
+                <span class="result-label">Merchandise Revenue Increase (34% avg)</span>
+                <span class="result-value" id="merchIncrease">$0</span>
+            </div>
+            
+            <div class="result-row">
+                <span class="result-label">Sponsor Value Increase (measurable data)</span>
+                <span class="result-value" id="sponsorIncrease">$0</span>
+            </div>
+            
+            <div class="result-row">
+                <span class="result-label">Total Revenue Increase</span>
+                <span class="result-value" id="totalIncrease">$0</span>
+            </div>
+            
+            <div class="result-row">
+                <span class="result-label">Total Investment (Platform + NFC costs)</span>
+                <span class="result-value" id="totalInvestment">$0</span>
+            </div>
+            
+            <div class="highlight">
+                <div class="big-number" id="netROI">$0</div>
+                <div class="label">NET FIRST-YEAR RETURN</div>
+            </div>
+            
+            <div class="highlight" style="background: #10b981; margin-top: 12px;">
+                <div class="big-number" id="roiPercent">0%</div>
+                <div class="label">ROI PERCENTAGE</div>
+            </div>
+        </div>
+        
+        <div class="assumptions">
+            <h3>📋 Assumptions Used</h3>
+            <ul>
+                <li>Average tap rate: 50% (industry average 40-60%)</li>
+                <li>Merchandise revenue increase: 34% (based on case study data)</li>
+                <li>Sponsor value increase: 20% (conservative estimate from measurable engagement)</li>
+                <li>NFC chip cost: $1.50 per garment (volume pricing)</li>
+                <li>Apparel margin: 60% (you keep this)</li>
+            </ul>
+        </div>
+        
+        <button class="btn" onclick="downloadResults()">📥 Download Full Report (PDF)</button>
+        <button class="btn" style="background: #6b7280; margin-top: 12px;" onclick="window.location.href='../website/contact.html'">🎯 Get Custom Quote from Vonga</button>
+    </div>
+    
+    <script>
+        // Show/hide custom cost input
+        document.getElementById('platformCost').addEventListener('change', function() {
+            document.getElementById('customCostGroup').style.display = 
+                this.value === '0' ? 'block' : 'none';
+        });
+        
+        // Calculate ROI
+        function calculate() {
+            const fanBase = parseFloat(document.getElementById('fanBase').value) || 0;
+            const avgMerchRevenue = parseFloat(document.getElementById('avgMerchRevenue').value) || 0;
+            const currentSponsorValue = parseFloat(document.getElementById('currentSponsorValue').value) || 0;
+            const nfcGarments = parseFloat(document.getElementById('nfcGarments').value) || 0;
+            const pricePremium = parseFloat(document.getElementById('pricePremium').value) || 0;
+            
+            let platformCost = parseFloat(document.getElementById('platformCost').value);
+            if (platformCost === 0) {
+                platformCost = parseFloat(document.getElementById('customPlatformCost').value) || 0;
+            }
+            
+            // Calculate revenue increases
+            const merchIncrease = nfcGarments * pricePremium * 0.6; // 60% margin
+            const sponsorIncrease = currentSponsorValue * 0.20; // 20% increase from measurable data
+            const totalIncrease = merchIncrease + sponsorIncrease;
+            
+            // Calculate investment
+            const nfcCost = nfcGarments * 1.5; // $1.50 per chip
+            const totalInvestment = platformCost + nfcCost;
+            
+            // Calculate net ROI
+            const netROI = totalIncrease - totalInvestment;
+            const roiPercent = totalInvestment > 0 ? ((netROI / totalInvestment) * 100) : 0;
+            
+            // Update display
+            document.getElementById('merchIncrease').textContent = '$' + merchIncrease.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('sponsorIncrease').textContent = '$' + sponsorIncrease.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('totalIncrease').textContent = '$' + totalIncrease.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('totalInvestment').textContent = '$' + totalInvestment.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('netROI').textContent = '$' + netROI.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('roiPercent').textContent = roiPercent.toFixed(0) + '%';
+        }
+        
+        // Auto-calculate on any input change
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('input', calculate);
+            el.addEventListener('change', calculate);
+        });
+        
+        // Initial calculation
+        calculate();
+        
+        // Download results (placeholder)
+        function downloadResults() {
+            alert('PDF download will be implemented. For now, take a screenshot or contact us at bill@vonga.io for a custom analysis.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonga Command Center</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f9fafb;
+        }
+        .dashboard-header {
+            background: linear-gradient(135deg, #0A1F3D 0%, #33BECC 100%);
+            color: white;
+            padding: 24px 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .dashboard-header h1 {
+            margin: 0 0 8px 0;
+            font-size: 28px;
+        }
+        .dashboard-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .dashboard-nav {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0 40px;
+            display: flex;
+            gap: 32px;
+        }
+        .dashboard-nav button {
+            background: none;
+            border: none;
+            padding: 16px 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: #6b7280;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .dashboard-nav button:hover {
+            color: #111827;
+        }
+        .dashboard-nav button.active {
+            color: #33BECC;
+            border-bottom-color: #33BECC;
+        }
+        .dashboard-content {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .dashboard-section {
+            display: none;
+        }
+        .dashboard-section.active {
+            display: block;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        .metric-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-left: 4px solid #33BECC;
+        }
+        .metric-label {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+        .metric-change {
+            font-size: 13px;
+            color: #10b981;
+        }
+        .metric-change.negative {
+            color: #ef4444;
+        }
+        .panel {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+        .panel h3 {
+            margin: 0 0 20px 0;
+            color: #111827;
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            font-size: 13px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        td {
+            font-size: 14px;
+        }
+        .winner {
+            background: #10b981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #33BECC;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2aa8b8;
+        }
+        .btn-secondary {
+            background: #6b7280;
+        }
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+        .btn-danger {
+            background: #ef4444;
+        }
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h1>🤖 Vonga Command Center</h1>
+        <p>Real-time metrics, A/B test results, and business intelligence</p>
+    </div>
+
+    <div class="dashboard-nav">
+        <button class="nav-btn active" data-section="overview">Overview</button>
+        <button class="nav-btn" data-section="ab-testing">A/B Testing</button>
+        <button class="nav-btn" data-section="exit-intent">Exit Intent</button>
+        <button class="nav-btn" data-section="chat">Live Chat</button>
+        <button class="nav-btn" data-section="conversions">Conversions</button>
+    </div>
+
+    <div class="dashboard-content">
+        <!-- Overview Section -->
+        <div class="dashboard-section active" id="overview">
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Visitors</div>
+                    <div class="metric-value" id="overview-visitors">0</div>
+                    <div class="metric-change">+0% from last week</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Conversions</div>
+                    <div class="metric-value" id="overview-conversions">0</div>
+                    <div class="metric-change">+0% from last week</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Conversion Rate</div>
+                    <div class="metric-value" id="overview-rate">0%</div>
+                    <div class="metric-change">Average 15-25%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Chat Messages</div>
+                    <div class="metric-value" id="overview-chats">0</div>
+                    <div class="metric-change">New feature</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Quick Actions</h3>
+                <div class="actions">
+                    <button class="btn" onclick="refreshAllData()">🔄 Refresh All Data</button>
+                    <button class="btn btn-secondary" onclick="exportAllData()">💾 Export All Data</button>
+                    <button class="btn btn-danger" onclick="clearAllData()">🗑️ Clear All Data</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>System Status</h3>
+                <table>
+                    <tr>
+                        <td><strong>A/B Testing</strong></td>
+                        <td><span style="color: #10b981;">● Active</span></td>
+                        <td>5 hero variants + 5 CTA variants</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Exit Intent</strong></td>
+                        <td><span style="color: #10b981;">● Active</span></td>
+                        <td>3 lead magnets rotating</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Live Chat</strong></td>
+                        <td><span style="color: #10b981;">● Active</span></td>
+                        <td>AI responses + escalation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tracking</strong></td>
+                        <td><span style="color: #10b981;">● Active</span></td>
+                        <td>localStorage + console logs</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- A/B Testing Section -->
+        <div class="dashboard-section" id="ab-testing">
+            <div class="panel">
+                <h3>Hero Variants Performance</h3>
+                <table id="hero-results">
+                    <thead>
+                        <tr>
+                            <th>Variant</th>
+                            <th>Headline</th>
+                            <th>Visitors</th>
+                            <th>Conversions</th>
+                            <th>Conv. Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="panel">
+                <h3>Closing CTA Variants Performance</h3>
+                <table id="cta-results">
+                    <thead>
+                        <tr>
+                            <th>Variant</th>
+                            <th>Headline</th>
+                            <th>Visitors</th>
+                            <th>Conversions</th>
+                            <th>Conv. Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Exit Intent Section -->
+        <div class="dashboard-section" id="exit-intent">
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Popups Shown</div>
+                    <div class="metric-value" id="exit-shown">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Emails Captured</div>
+                    <div class="metric-value" id="exit-captured">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Conversion Rate</div>
+                    <div class="metric-value" id="exit-rate">0%</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Lead Magnet Performance</h3>
+                <table id="exit-magnets-table">
+                    <thead>
+                        <tr>
+                            <th>Lead Magnet</th>
+                            <th>Shown</th>
+                            <th>Converted</th>
+                            <th>Conv. Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="dashboard-section" id="chat">
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Chats</div>
+                    <div class="metric-value" id="chat-total">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Escalations Needed</div>
+                    <div class="metric-value" id="chat-escalations">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Avg Response Time</div>
+                    <div class="metric-value" id="chat-response-time">< 2s</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Recent Chat Messages</h3>
+                <div id="chat-messages-list"></div>
+            </div>
+        </div>
+
+        <!-- Conversions Section -->
+        <div class="dashboard-section" id="conversions">
+            <div class="panel">
+                <h3>Recent Contact Form Submissions</h3>
+                <div id="conversions-list">
+                    <div class="empty-state">
+                        <div>📝</div>
+                        <p>No form submissions yet. Keep testing!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update nav
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update content
+                const section = btn.dataset.section;
+                document.querySelectorAll('.dashboard-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(section).classList.add('active');
+                
+                // Refresh data for that section
+                refreshSectionData(section);
+            });
+        });
+
+        function refreshSectionData(section) {
+            switch(section) {
+                case 'overview':
+                    renderOverview();
+                    break;
+                case 'ab-testing':
+                    renderABTesting();
+                    break;
+                case 'exit-intent':
+                    renderExitIntent();
+                    break;
+                case 'chat':
+                    renderChat();
+                    break;
+                case 'conversions':
+                    renderConversions();
+                    break;
+            }
+        }
+
+        function renderOverview() {
+            const abEvents = JSON.parse(localStorage.getItem('vonga_ab_events') || '[]');
+            const exitEvents = JSON.parse(localStorage.getItem('vonga_exit_events') || '[]');
+            const submissions = JSON.parse(localStorage.getItem('vonga_form_submissions') || '[]');
+            
+            // Count visitors
+            const sessions = new Set();
+            const conversions = new Set();
+            abEvents.forEach(e => {
+                sessions.add(e.sessionId);
+                if (e.eventType === 'conversion') conversions.add(e.sessionId);
+            });
+            
+            // Add form submissions to conversions
+            const totalConversions = conversions.size + submissions.length;
+            
+            // Count chats
+            let chatCount = 0;
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('vonga_chat_')) chatCount++;
+            });
+            
+            document.getElementById('overview-visitors').textContent = sessions.size;
+            document.getElementById('overview-conversions').textContent = totalConversions;
+            document.getElementById('overview-rate').textContent = 
+                sessions.size > 0 ? ((totalConversions / sessions.size) * 100).toFixed(1) + '%' : '0%';
+            document.getElementById('overview-chats').textContent = chatCount;
+        }
+
+        function renderABTesting() {
+            const events = JSON.parse(localStorage.getItem('vonga_ab_events') || '[]');
+            
+            // Group by variant
+            const heroVariants = {};
+            const ctaVariants = {};
+
+            events.forEach(event => {
+                // Track hero variants
+                if (!heroVariants[event.heroVariant]) {
+                    heroVariants[event.heroVariant] = { visitors: new Set(), conversions: new Set() };
+                }
+                heroVariants[event.heroVariant].visitors.add(event.sessionId);
+                if (event.eventType === 'conversion') {
+                    heroVariants[event.heroVariant].conversions.add(event.sessionId);
+                }
+
+                // Track CTA variants
+                if (!ctaVariants[event.ctaVariant]) {
+                    ctaVariants[event.ctaVariant] = { visitors: new Set(), conversions: new Set() };
+                }
+                ctaVariants[event.ctaVariant].visitors.add(event.sessionId);
+                if (event.eventType === 'conversion') {
+                    ctaVariants[event.ctaVariant].conversions.add(event.sessionId);
+                }
+            });
+
+            // Render tables (same logic as before)
+            const heroTable = document.getElementById('hero-results').querySelector('tbody');
+            heroTable.innerHTML = '';
+            
+            const heroConfig = [
+                { id: 'hero-1', headline: 'Prove Sponsor ROI...' },
+                { id: 'hero-2', headline: 'Turn Merchandise Into...' },
+                { id: 'hero-3', headline: 'Stop Guessing...' },
+                { id: 'hero-4', headline: 'Your Merchandise Isn\'t...' },
+                { id: 'hero-5', headline: 'The Fan Engagement Platform...' }
+            ];
+
+            let bestHeroRate = 0;
+            let bestHero = null;
+
+            heroConfig.forEach(config => {
+                const data = heroVariants[config.id] || { visitors: new Set(), conversions: new Set() };
+                const visitors = data.visitors.size;
+                const conversions = data.conversions.size;
+                const rate = visitors > 0 ? ((conversions / visitors) * 100).toFixed(1) : 0;
+
+                if (parseFloat(rate) > bestHeroRate && visitors > 5) {
+                    bestHeroRate = parseFloat(rate);
+                    bestHero = config.id;
+                }
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${config.id} ${config.id === bestHero ? '<span class="winner">WINNER</span>' : ''}</td>
+                    <td>${config.headline}</td>
+                    <td>${visitors}</td>
+                    <td>${conversions}</td>
+                    <td><strong>${rate}%</strong></td>
+                `;
+                heroTable.appendChild(row);
+            });
+
+            // CTA table (similar logic)
+            const ctaTable = document.getElementById('cta-results').querySelector('tbody');
+            ctaTable.innerHTML = '';
+            
+            const ctaConfig = [
+                { id: 'cta-1', headline: 'Ready to Prove Sponsor ROI?' },
+                { id: 'cta-2', headline: 'Ready to See What\'s Possible?' },
+                { id: 'cta-3', headline: 'Turn Your Merch Into...' },
+                { id: 'cta-4', headline: 'See What Similar Programs...' },
+                { id: 'cta-5', headline: 'Stop Selling Shirts...' }
+            ];
+
+            ctaConfig.forEach(config => {
+                const data = ctaVariants[config.id] || { visitors: new Set(), conversions: new Set() };
+                const visitors = data.visitors.size;
+                const conversions = data.conversions.size;
+                const rate = visitors > 0 ? ((conversions / visitors) * 100).toFixed(1) : 0;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${config.id}</td>
+                    <td>${config.headline}</td>
+                    <td>${visitors}</td>
+                    <td>${conversions}</td>
+                    <td><strong>${rate}%</strong></td>
+                `;
+                ctaTable.appendChild(row);
+            });
+        }
+
+        function renderExitIntent() {
+            const events = JSON.parse(localStorage.getItem('vonga_exit_events') || '[]');
+            
+            const shown = events.filter(e => e.eventType === 'popup_shown').length;
+            const captured = events.filter(e => e.eventType === 'lead_captured').length;
+            const rate = shown > 0 ? ((captured / shown) * 100).toFixed(1) : 0;
+            
+            document.getElementById('exit-shown').textContent = shown;
+            document.getElementById('exit-captured').textContent = captured;
+            document.getElementById('exit-rate').textContent = rate + '%';
+
+            // Lead magnet performance
+            const magnets = {
+                'roi-calculator': { shown: 0, converted: 0 },
+                'sponsor-guide': { shown: 0, converted: 0 },
+                'case-study-pack': { shown: 0, converted: 0 }
+            };
+
+            events.forEach(e => {
+                if (e.eventType === 'popup_shown') {
+                    magnets[e.leadMagnet].shown++;
+                }
+                if (e.eventType === 'lead_captured') {
+                    magnets[e.leadMagnet].converted++;
+                }
+            });
+
+            const table = document.getElementById('exit-magnets-table').querySelector('tbody');
+            table.innerHTML = '';
+            
+            Object.entries(magnets).forEach(([id, data]) => {
+                const rate = data.shown > 0 ? ((data.converted / data.shown) * 100).toFixed(1) : 0;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${id}</td>
+                    <td>${data.shown}</td>
+                    <td>${data.converted}</td>
+                    <td><strong>${rate}%</strong></td>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        function renderChat() {
+            let totalChats = 0;
+            let totalEscalations = 0;
+            
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('vonga_chat_')) {
+                    totalChats++;
+                }
+            });
+            
+            document.getElementById('chat-total').textContent = totalChats;
+            document.getElementById('chat-escalations').textContent = totalEscalations;
+        }
+
+        function renderConversions() {
+            const submissions = JSON.parse(localStorage.getItem('vonga_form_submissions') || '[]');
+            const container = document.getElementById('conversions-list');
+            
+            if (submissions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div>📝</div>
+                        <p>No form submissions yet. Keep testing!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Organization</th>
+                            <th>Role</th>
+                            <th>Intent</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${submissions.reverse().map(sub => `
+                            <tr>
+                                <td><strong>${sub.name}</strong></td>
+                                <td>${sub.organization}</td>
+                                <td>${sub.role}</td>
+                                <td>${sub.intent}</td>
+                                <td><a href="mailto:${sub.email}">${sub.email}</a></td>
+                                <td>${new Date(sub.timestamp).toLocaleString()}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function refreshAllData() {
+            renderOverview();
+            renderABTesting();
+            renderExitIntent();
+            renderChat();
+            renderConversions();
+            alert('Data refreshed!');
+        }
+
+        function exportAllData() {
+            const data = {
+                ab_events: JSON.parse(localStorage.getItem('vonga_ab_events') || '[]'),
+                exit_events: JSON.parse(localStorage.getItem('vonga_exit_events') || '[]'),
+                timestamp: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `vonga-data-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        }
+
+        function clearAllData() {
+            if (confirm('Are you sure? This will delete ALL tracking data.')) {
+                localStorage.clear();
+                refreshAllData();
+                alert('All data cleared');
+            }
+        }
+
+        // Initial render
+        renderOverview();
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            const activeSection = document.querySelector('.nav-btn.active').dataset.section;
+            refreshSectionData(activeSection);
+        }, 30000);
+    </script>
+</body>
+</html>

@@ -1,174 +1,126 @@
-# Vonga Website
+# Vonga Website - MVP Build
 
-Official website for Vonga - The official kit provider for sports teams.
+## ✅ Completed Pages (Phase 1 MVP)
 
-## Quick Start
+1. **Home Page** (`index.html`) - Complete
+   - Hero with clear value prop
+   - Problem statement (4 pain points)
+   - Solution overview with stats
+   - How it works (3 steps)
+   - Pillar previews (all 5)
+   - Social proof (testimonials)
+   - CTAs throughout
 
+2. **How It Works** (`how-it-works.html`) - Complete
+   - For Fans section (3-step process)
+   - For Programs section (4 key features)
+   - Technology explanation
+   - FAQ section (8 questions)
+   - CTAs
+
+3. **Solution: Fan Engagement** (`solution-fan-engagement.html`) - Complete
+   - Problem deep-dive (4 pain points)
+   - Solution explanation with stats
+   - Case study with real metrics
+   - Implementation guide
+   - Content ideas (6 examples)
+   - Best practices
+   - CTAs
+
+4. **Contact/Demo Request** (`contact.html`) - Complete
+   - Comprehensive demo request form
+   - "What to Expect" sidebar
+   - Contact alternatives (phone, email)
+   - Social proof (testimonials)
+   - Form validation ready (needs backend integration)
+
+## 🚧 Phase 2 Pages (To Build)
+
+5. **Solution: Revenue Growth** (`solution-revenue.html`)
+6. **Solution: Authentic Connection** (`solution-connection.html`)
+7. **Solution: Future-Ready Athletics** (`solution-future-ready.html`)
+8. **Solution: Measurable Impact** (`solution-measurement.html`)
+9. **Case Studies Hub** (`case-studies.html`)
+10. **Pricing Page** (`pricing.html`)
+11. **About Page** (`about.html`)
+
+## 🎨 Design & Structure
+
+- **CSS Framework:** Custom responsive design (`css/main.css`)
+- **Mobile-First:** Fully responsive across all device sizes
+- **Color Scheme:** Primary blue (#1a73e8), secondary green (#34a853)
+- **Typography:** System font stack for fast load times
+- **Components:** Cards, buttons, forms, testimonials, stats, steps, grids
+
+## 🚀 How to View Locally
+
+### Option 1: Simple HTTP Server (Python)
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
+cd /Users/bob/clawd/vonga/website
+python3 -m http.server 8081
 ```
+Then open: `http://localhost:8081`
 
-Visit http://localhost:3000
+### Option 2: Direct File Open
+Simply open `index.html` in any browser (some features may not work without a server)
 
-## Repository Structure
+### Option 3: Access on Local Network
+1. Start the server (Option 1)
+2. Find your Mac's IP: System Settings > Network
+3. From other device: `http://[Mac-IP]:8081`
 
-### **New Website (Root Directory)** ✨
-The new conversion-focused website is complete and ready to deploy.
+## 📝 Next Steps
 
-**Key directories:**
-- `app/` - Next.js 15 App Router pages
-- `components/` - Reusable React components
-- `content/` - Copy and messaging (single source of truth)
-- `docs/website-kit/` - Strategic documentation and specs
-- `styles/` - Design tokens and global styles
+### Immediate:
+- [ ] Backend integration for contact form
+- [ ] Build remaining 4 pillar pages
+- [ ] Add real testimonial images/logos
+- [ ] Create case study pages
 
-**Technology:**
-- Next.js 15 + React 19 + TypeScript
-- Tailwind CSS 4 with brand design system
-- Framer Motion for animations
-- React Hook Form + Zod validation
+### Short-term:
+- [ ] Add analytics tracking (Google Analytics, etc.)
+- [ ] Set up form submission (CRM integration)
+- [ ] Add actual product images/screenshots
+- [ ] SEO optimization (meta tags, schema markup)
 
-**Documentation:**
-- See `docs/website-kit/BUILD_SUMMARY.md` for complete build overview
-- See `docs/website-kit/homepage-blueprint.md` for page structure
-- See `docs/website-kit/messaging-framework.md` for copy guidelines
+### Long-term:
+- [ ] Blog section
+- [ ] Video content integration
+- [ ] Interactive ROI calculator
+- [ ] Customer portal/dashboard
 
-### `archive/v1-current-site/`
-Previous production website (Next.js). Currently deployed until new site is ready.
+## 🔧 Technical Notes
 
-**To run archived site:**
-```bash
-cd archive/v1-current-site
-npm install
-npm run dev
-```
+**Form Submission:**
+The contact form currently shows an alert. Needs integration with:
+- Email service (SendGrid, Mailgun, etc.)
+- CRM (HubSpot, Salesforce, etc.)
+- Or custom backend API
 
-### `automation/`
-Python agents and automation tools (separate from website project).
+**Analytics:**
+Add Google Analytics, Facebook Pixel, or similar tracking code before launch.
 
-**Includes:**
-- AI agents (Chief of Staff, CMO, Strategist, etc.)
-- Marketing and CRM tools
-- Knowledge base and learning systems
+**Hosting:**
+Static site - can be hosted on:
+- Netlify (recommended - free SSL, forms, etc.)
+- Vercel
+- GitHub Pages
+- AWS S3 + CloudFront
+- Traditional web hosting
 
-## Website Overview
+**Domain:**
+Ready for deployment at vonga.com (or custom domain)
 
-### Purpose
-Conversion-focused website to generate qualified leads from sports team operators.
+## 📊 Content Strategy
 
-### Target Audience
-- Presidents / General Managers
-- CRO / Revenue Leaders
-- Partnerships / Sponsorship Leaders
-- Merch / E-commerce Leaders
-- Athletic Directors
+All content aligns with:
+- `/Users/bob/clawd/vonga/CONTENT_PILLARS.md`
+- `/Users/bob/clawd/vonga/MESSAGING_FRAMEWORK.md`
+- `/Users/bob/clawd/vonga/WEBSITE_STRUCTURE.md`
 
-### Core Message
-"Turn team apparel into your most valuable channel."
+## ⚡ Performance
 
-Vonga sells connection, not just clothes. Living engagement infrastructure delivered through premium kits.
-
-### Homepage Structure (10 Sections)
-1. **Hero** - Hook + positioning + CTA
-2. **Problem** - Continuity problem (merch ends at checkout)
-3. **Contrast** - Clothes vs Connection comparison
-4. **Category** - What Vonga is (plain English)
-5. **Video** - Demo placeholder
-6. **Experiences** - 5 platform capabilities
-7. **Partnership** - White-glove service
-8. **Trust** - Risk removal statements
-9. **Form** - Lead capture
-10. **Footer CTA** - Final conversion
-
-## Content Management
-
-All copy lives in `/content/` directory:
-
-```bash
-content/
-├── homepage.ts           # Homepage copy
-├── experience-types.ts   # 5 experience cards
-└── trust-statements.ts   # Trust statements
-```
-
-**To update copy:** Edit these files directly. No need to touch component code.
-
-## Brand System
-
-**Colors:**
-- Navy: #303E55 (primary text, headlines)
-- Aqua: #33BECC (primary CTAs, accents)
-- Coral: #F5856E (secondary CTAs, emphasis)
-
-**Primary CTA:** "Let's Connect" (everywhere except form submit)  
-**Form Submit:** "Submit"
-
-**Voice:** Direct, category-defining, operator language. No buzzwords.
-
-## Development
-
-### Build for Production
-```bash
-npm run build
-npm start
-```
-
-### Type Checking
-```bash
-npx tsc --noEmit
-```
-
-### Linting
-```bash
-npm run lint
-```
-
-## Email Integration
-
-Form submissions are handled in `app/api/contact/route.ts`.
-
-**To enable email:**
-1. Uncomment Resend integration in the API route
-2. Add `RESEND_API_KEY` to `.env.local`
-3. Or integrate with your preferred email service
-
-## Deployment
-
-### Current Deployment
-Vercel deploys from `archive/v1-current-site/` (see `vercel.json`)
-
-### Deploy New Site
-1. Test thoroughly locally
-2. Update `vercel.json` to remove archive configuration
-3. Deploy from root directory
-4. Archive becomes historical reference
-
-## Documentation
-
-**Website Kit (Strategic Docs):**
-- `docs/website-kit/BUILD_SUMMARY.md` - Complete build overview
-- `docs/website-kit/conversion-strategy.md` - Conversion goals and strategy
-- `docs/website-kit/homepage-blueprint.md` - 10-section blueprint
-- `docs/website-kit/messaging-framework.md` - Voice, messaging, copy rules
-- `docs/website-kit/component-specs.md` - Technical component specs
-
-**Brand Docs:**
-- `docs/brand-system.md` - Brand essence and positioning
-- `docs/web-style-guide.md` - Web design guidelines
-- `docs/phrasing-rules.md` - Language and copy rules
-- `docs/visual-style-guide.md` - Visual design standards
-
-## Success Metrics
-
-**Primary:** Form submissions (qualified leads)  
-**Target:** 5-8% conversion rate  
-**Secondary:** Time on page, scroll depth, video engagement
-
----
-
-**Status:** New website complete and ready to deploy  
-**Last Updated:** January 2026
+- No external dependencies (CSS/JS inline or local)
+- Fast load times
+- Mobile-optimized
+- No large images yet (will need optimization when added)
