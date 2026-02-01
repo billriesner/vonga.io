@@ -291,33 +291,6 @@
     font-size: 14px;
 }
 
-/* Share buttons */
-.article-share-top {
-    display: flex;
-    gap: 12px;
-}
-
-.share-btn {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.share-btn:hover {
-    background: rgba(255,255,255,0.2);
-    border-color: var(--aqua);
-}
-
-.share-btn svg {
-    color: white;
-}
 
 .article-content {
     max-width: 720px;
