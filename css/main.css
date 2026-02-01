@@ -696,8 +696,21 @@ footer {
   h2 { font-size: 28px; }
   h3 { font-size: 20px; }
   
+  nav {
+    justify-content: center;
+  }
+  
+  nav .logo {
+    position: relative;
+    z-index: 1001;
+  }
+  
   .mobile-menu-toggle {
     display: block;
+    position: absolute;
+    right: var(--space-2xl);
+    top: 50%;
+    transform: translateY(-50%);
   }
   
   nav ul {
