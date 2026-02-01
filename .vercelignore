@@ -1,0 +1,4 @@
+# Ignore Next.js build artifacts
+.next/
+node_modules/
+*.log
