@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonga Blog - Athletic Sponsorship, Fan Engagement & NFC Technology</title>
+    <meta name="description" content="Expert insights on athletic sponsorship, fan engagement, and NFC technology for college sports and professional teams.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="blog.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo"><img src="../images/logos/logo.svg" alt="Vonga"></a>
+            <ul>
+                <li><a href="../how-it-works.html">How It Works</a></li>
+                <li><a href="../case-studies.html">Stories</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="index.html" class="active">Blog</a></li>
+                <li><a href="../contact.html" class="btn btn-primary">Let's Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>The Vonga Blog</h1>
+            <p class="hero-subtitle">Actionable insights on athletic sponsorship, fan engagement, and the future of sports marketing.</p>
+            
+            <!-- Newsletter CTA -->
+            <div class="newsletter-box">
+                <h3>Get Weekly Insights</h3>
+                <p>Join 500+ athletic directors and marketing leaders who receive our newsletter every Thursday.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address" id="newsletter-email">
+                    <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+                </div>
+                <p class="small-text">Want more? <a href="https://vonga.substack.com" target="_blank" rel="noopener">Follow us on Substack →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section>
+        <div class="container">
+            <div class="featured-badge">Featured Post</div>
+            <article class="featured-post">
+                <a href="how-to-prove-sponsor-roi-in-college-athletics.html" class="featured-link">
+                    <div class="featured-content">
+                        <div class="post-meta">
+                            <span class="category">Sponsorship</span>
+                            <span class="read-time">9 min read</span>
+                        </div>
+                        <h2>How to Prove Sponsor ROI in College Athletics: The 5 Metrics That Actually Matter</h2>
+                        <p>Sponsors are demanding better ROI proof. Learn the 5 metrics that actually matter—and how to measure them without losing your mind.</p>
+                        <div class="author-date">
+                            <span class="author">Bill Riesner</span>
+                            <span class="date">February 1, 2026</span>
+                        </div>
+                    </div>
+                    <div class="featured-image">
+                        <img src="../images/blog/sponsor-roi-featured.jpg" alt="Proving Sponsor ROI" onerror="this.src='../images/placeholder-blog.jpg'">
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- All Posts -->
+    <section class="all-posts-section">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="../images/blog/sponsor-roi.jpg" alt="Sponsor ROI" onerror="this.src='../images/placeholder-blog.jpg'">
+                        <span class="category-badge">Sponsorship</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="read-time">9 min read</span>
+                            <span class="date">Feb 1, 2026</span>
+                        </div>
+                        <h3><a href="how-to-prove-sponsor-roi-in-college-athletics.html">How to Prove Sponsor ROI in College Athletics</a></h3>
+                        <p>The 5 metrics that sponsors actually care about—and how to measure them.</p>
+                        <a href="how-to-prove-sponsor-roi-in-college-athletics.html" class="read-more">Read Article →</a>
+                    </div>
+                </article>
+
+                <!-- Placeholder for upcoming posts -->
+                <article class="blog-card coming-soon">
+                    <div class="blog-card-image">
+                        <img src="../images/blog/nfc-vs-qr.jpg" alt="Coming Soon" onerror="this.src='../images/placeholder-blog.jpg'">
+                        <span class="category-badge">Technology</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="read-time">6 min read</span>
+                            <span class="date">Coming Soon</span>
+                        </div>
+                        <h3>Why NFC Technology is Replacing QR Codes in Sports Marketing</h3>
+                        <p>The technical and behavioral reasons behind NFC's 8-12× engagement advantage.</p>
+                        <span class="coming-soon-badge">Publishing Soon</span>
+                    </div>
+                </article>
+
+                <article class="blog-card coming-soon">
+                    <div class="blog-card-image">
+                        <img src="../images/blog/case-study.jpg" alt="Coming Soon" onerror="this.src='../images/placeholder-blog.jpg'">
+                        <span class="category-badge">Case Study</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="read-time">12 min read</span>
+                            <span class="date">Coming Soon</span>
+                        </div>
+                        <h3>Case Study: How a D1 School Increased Sponsor Revenue by 34%</h3>
+                        <p>Real numbers, real timeline, real challenges—and how they overcame them.</p>
+                        <span class="coming-soon-badge">Publishing Soon</span>
+                    </div>
+                </article>
+
+                <article class="blog-card coming-soon">
+                    <div class="blog-card-image">
+                        <img src="../images/blog/engagement.jpg" alt="Coming Soon" onerror="this.src='../images/placeholder-blog.jpg'">
+                        <span class="category-badge">Fan Engagement</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="read-time">8 min read</span>
+                            <span class="date">Coming Soon</span>
+                        </div>
+                        <h3>The Complete Guide to Fan Engagement Measurement</h3>
+                        <p>Beyond attendance: how to measure what fans actually care about.</p>
+                        <span class="coming-soon-badge">Publishing Soon</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-dark">
+        <div class="container text-center">
+            <h2>Ready to Prove Your Sponsor ROI?</h2>
+            <p class="section-subtitle">Let's show you how Vonga turns merchandise into measurable engagement.</p>
+            <a href="../contact.html" class="btn btn-coral">Schedule a Demo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Vonga</h4>
+                    <p>Live Connected.</p>
+                    <p class="small-text">Transforming apparel into engagement platforms for athletic programs and professional teams.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="../how-it-works.html">How It Works</a></li>
+                        <li><a href="../pricing.html">Pricing</a></li>
+                        <li><a href="../case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="https://vonga.substack.com" target="_blank" rel="noopener">Newsletter (Substack)</a></li>
+                        <li><a href="../lead-magnets/sponsor-roi-guide.pdf">Free ROI Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../contact.html">Book a Demo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vonga, LLC. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-email').value;
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            // TODO: Integrate with email service (Mailchimp, SendGrid, etc.)
+            alert('Newsletter signup coming soon! For now, follow us on Substack: https://vonga.substack.com');
+        }
+    </script>
+</body>
+</html>
