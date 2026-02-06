@@ -1,4 +1,26 @@
 {
+  "redirects": [
+    {
+      "source": "/lead-magnets/ROI-Calculator.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/lead-magnets/Sponsor-ROI-Guide.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/lead-magnets/Case-Study-Pack.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/lead-magnets/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
