@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Image Options - Preview | Vonga</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        body {
+            background: #f8fafc;
+            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        
+        .preview-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .preview-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .preview-header h1 {
+            font-size: 42px;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        
+        .preview-header p {
+            font-size: 18px;
+            color: #64748b;
+        }
+        
+        .hero-option {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .option-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .option-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            background: #33BECC;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .option-style {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        
+        .option-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #64748b;
+            margin-bottom: 24px;
+            padding: 16px 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .hero-image-wrapper {
+            border: 3px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .image-specs {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #94a3b8;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 3px solid #e2e8f0;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .comparison-card h3 {
+            font-size: 18px;
+            color: #0f172a;
+            margin: 0 0 12px 0;
+            text-align: center;
+        }
+        
+        .comparison-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .download-section {
+            margin-top: 40px;
+            padding: 24px;
+            background: linear-gradient(135deg, #0f172a 0%, #1a2332 100%);
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .download-section h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .download-section p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+        }
+        
+        .download-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #33BECC;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .download-btn:hover {
+            background: #2da5b3;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 968px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .preview-header h1 {
+                font-size: 32px;
+            }
+            
+            .option-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .option-style {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="preview-header">
+            <h1>Hero Image Options</h1>
+            <p>Blog Post: "Your Fans Have 47 Apps. They Don't Want Yours."</p>
+        </div>
+
+        <!-- Option 1 -->
+        <div class="hero-option">
+            <div class="option-header">
+                <span class="option-number">Option 1</span>
+                <span class="option-style">AI-Conceptual Illustration</span>
+            </div>
+            <div class="option-description">
+                <strong>Concept:</strong> Phone screen overwhelmed with colorful app icons (represented as squares/circles) with one glowing NFC tap icon breaking through the clutter. Dark navy background with aqua glow effect. Modern, editorial feel with clean title overlay.
+                <br><br>
+                <strong>Best for:</strong> LinkedIn sharing, tech-forward audiences, visualizing the "overwhelm" problem.
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="../images/blog/hero-option-1-conceptual.png" alt="Hero Option 1: AI-Conceptual Illustration">
+            </div>
+            <div class="image-specs">1200×630px | PNG | Optimized for social sharing</div>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="hero-option">
+            <div class="option-header">
+                <span class="option-number">Option 2</span>
+                <span class="option-style">Sports Atmosphere Split Design</span>
+            </div>
+            <div class="option-description">
+                <strong>Concept:</strong> Split-screen design contrasting chaos vs. simplicity. Left side: abstract shapes and patterns evoking app overload in coral/red tones. Right side: clean gradient with single glowing tap icon. Bold typography bridges both worlds.
+                <br><br>
+                <strong>Best for:</strong> Athletic programs, emphasizing the before/after contrast, sports marketing feel.
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="../images/blog/hero-option-2-branded.png" alt="Hero Option 2: Sports Atmosphere Split Design">
+            </div>
+            <div class="image-specs">1200×630px | PNG | Optimized for social sharing</div>
+        </div>
+
+        <!-- Option 3 -->
+        <div class="hero-option">
+            <div class="option-header">
+                <span class="option-number">Option 3</span>
+                <span class="option-style">Abstract Geometric / Data Visualization</span>
+            </div>
+            <div class="option-description">
+                <strong>Concept:</strong> Clean, minimal, premium. Typography-forward design with title as the hero element. Below: geometric dot grid visualization (47 total dots, only 9 lit in aqua) representing "80 apps installed, 9 actively used." Data-driven metaphor.
+                <br><br>
+                <strong>Best for:</strong> Executive audiences, emphasizing the data/statistics, premium editorial feel, thought leadership.
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="../images/blog/hero-option-3-abstract.png" alt="Hero Option 3: Abstract Geometric">
+            </div>
+            <div class="image-specs">1200×630px | PNG | Optimized for social sharing</div>
+        </div>
+
+        <!-- Side-by-Side Comparison -->
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <h3>Option 1: Conceptual</h3>
+                <img src="../images/blog/hero-option-1-conceptual.png" alt="Option 1 Thumbnail">
+            </div>
+            <div class="comparison-card">
+                <h3>Option 2: Sports Split</h3>
+                <img src="../images/blog/hero-option-2-branded.png" alt="Option 2 Thumbnail">
+            </div>
+            <div class="comparison-card">
+                <h3>Option 3: Geometric</h3>
+                <img src="../images/blog/hero-option-3-abstract.png" alt="Option 3 Thumbnail">
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section">
+            <h3>Ready to Use</h3>
+            <p>All images are 1200×630px (social sharing standard), optimized PNG format.</p>
+            <div class="download-links">
+                <a href="../images/blog/hero-option-1-conceptual.png" download class="download-btn">Download Option 1</a>
+                <a href="../images/blog/hero-option-2-branded.png" download class="download-btn">Download Option 2</a>
+                <a href="../images/blog/hero-option-3-abstract.png" download class="download-btn">Download Option 3</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<svg width="1000" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bar1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#33BECC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fb7185;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f43f5e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1000" height="600" fill="#ffffff" rx="16"/>
+  
+  <text x="500" y="60" font-family="-apple-system, sans-serif" font-size="32" font-weight="700" fill="#0f172a" text-anchor="middle">
+    The App Decay Reality
+  </text>
+  
+  <!-- Stage 1 -->
+  <text x="50" y="165" font-family="-apple-system, sans-serif" font-size="18" font-weight="600" fill="#334155">
+    Your Audience
+  </text>
+  <rect x="250" y="130" width="600" height="80" fill="url(#bar1)" rx="8"/>
+  <text x="280" y="180" font-family="-apple-system, sans-serif" font-size="36" font-weight="900" fill="#ffffff">
+    10,000 fans
+  </text>
+  <text x="900" y="180" font-family="-apple-system, sans-serif" font-size="24" font-weight="700" fill="#64748b" text-anchor="end">
+    100%
+  </text>
+  
+  <!-- Stage 2 -->
+  <text x="50" y="285" font-family="-apple-system, sans-serif" font-size="18" font-weight="600" fill="#334155">
+    Downloads
+  </text>
+  <rect x="250" y="250" width="180" height="80" fill="url(#bar2)" rx="8"/>
+  <text x="280" y="300" font-family="-apple-system, sans-serif" font-size="36" font-weight="900" fill="#ffffff">
+    300
+  </text>
+  <text x="900" y="300" font-family="-apple-system, sans-serif" font-size="24" font-weight="700" fill="#64748b" text-anchor="end">
+    3%
+  </text>
+  
+  <!-- Stage 3 -->
+  <text x="50" y="395" font-family="-apple-system, sans-serif" font-size="18" font-weight="600" fill="#334155">
+    Active After First Use
+  </text>
+  <rect x="250" y="370" width="135" height="80" fill="url(#bar3)" rx="8"/>
+  <text x="280" y="420" font-family="-apple-system, sans-serif" font-size="36" font-weight="900" fill="#ffffff">
+    225
+  </text>
+  <text x="900" y="420" font-family="-apple-system, sans-serif" font-size="24" font-weight="700" fill="#64748b" text-anchor="end">
+    2.25%
+  </text>
+  
+  <!-- Stage 4 -->
+  <text x="50" y="525" font-family="-apple-system, sans-serif" font-size="18" font-weight="600" fill="#334155">
+    Still Active After 90 Days
+  </text>
+  <rect x="250" y="490" width="72" height="80" fill="url(#bar4)" rx="8"/>
+  <text x="280" y="540" font-family="-apple-system, sans-serif" font-size="36" font-weight="900" fill="#ffffff">
+    12
+  </text>
+  <text x="900" y="540" font-family="-apple-system, sans-serif" font-size="24" font-weight="700" fill="#64748b" text-anchor="end">
+    0.12%
+  </text>
+</svg>

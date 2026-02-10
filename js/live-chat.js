@@ -432,7 +432,7 @@ class VongaChat {
         // ROI / Results questions
         if (lowerMessage.includes('roi') || lowerMessage.includes('result') || lowerMessage.includes('work')) {
             return {
-                message: `Programs typically see:\n• 40-60% fan tap rates\n• 34% increase in merchandise revenue\n• Measurable engagement data for sponsors\n• 4+ taps per garment over a season\n\nWant to see specific case studies from programs like yours?`,
+                message: `Industry research shows NFC engagement rates of 8-12% — 3-5x higher than QR codes. And because it's built into apparel fans already wear, engagement continues well beyond game day.\n\nWe're launching our first pilots now. Want to explore what a pilot could look like for your program?`,
                 escalate: false
             };
         }
@@ -466,7 +466,7 @@ class VongaChat {
         // Case studies / examples
         if (lowerMessage.includes('case') || lowerMessage.includes('example') || lowerMessage.includes('story') || lowerMessage.includes('stories')) {
             return {
-                message: `We have detailed case studies from:<br>• State University (62% engagement, 34% revenue increase)<br>• Minor League Baseball team (67% tap rate, $8.40 per fan lift)<br>• Private University (23% reunion attendance increase)<br><br><a href="case-studies.html" target="_blank" style="color: #33BECC;">See Real Results →</a>`,
+                message: `We're in our early pilot phase — which means you'd be among the first programs to have real data.<br><br>Check out our <a href="case-studies.html" target="_blank" style="color: #33BECC;">approach and industry benchmarks →</a>`,
                 escalate: false
             };
         }

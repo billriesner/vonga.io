@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Fatigue Hero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        .hero {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(51, 190, 204, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(251, 113, 133, 0.1) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 68px;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.15;
+            margin-bottom: 30px;
+            z-index: 1;
+            max-width: 1000px;
+        }
+        .highlight {
+            color: #33BECC;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 28px;
+            font-weight: 500;
+            z-index: 1;
+            text-align: center;
+        }
+        .brand {
+            color: #33BECC;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Your Fans Have <span class="highlight">47 Apps</span>.<br>They Don't Want Yours.</h1>
+        <div class="subtitle">The Tap | <span class="brand">Vonga</span></div>
+    </div>
+</body>
+</html>

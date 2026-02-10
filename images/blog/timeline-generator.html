@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            padding: 40px;
+        }
+        .container {
+            width: 1200px;
+            height: 500px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 50px;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            right: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #33BECC 0%, #22d3ee 50%, #059669 100%);
+        }
+        .phase {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .dot {
+            width: 24px;
+            height: 24px;
+            background: #33BECC;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+            border: 4px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .phase:nth-child(2) .dot { background: #22d3ee; }
+        .phase:nth-child(3) .dot { background: #0891b2; }
+        .phase:nth-child(4) .dot { background: #059669; }
+        .week {
+            font-size: 18px;
+            font-weight: 700;
+            color: #33BECC;
+            margin-bottom: 12px;
+        }
+        .phase:nth-child(2) .week { color: #22d3ee; }
+        .phase:nth-child(3) .week { color: #0891b2; }
+        .phase:nth-child(4) .week { color: #059669; }
+        .label {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .description {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+        .pricing {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            font-size: 18px;
+            color: #0f172a;
+        }
+        .pricing strong {
+            color: #0891b2;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">24-Week Pilot Timeline</div>
+        <div class="timeline">
+            <div class="phase">
+                <div class="dot"></div>
+                <div class="week">Weeks 1-4</div>
+                <div class="label">Onboarding</div>
+                <div class="description">Alignment & apparel design</div>
+            </div>
+            <div class="phase">
+                <div class="dot"></div>
+                <div class="week">Weeks 4-12</div>
+                <div class="label">Production</div>
+                <div class="description">Apparel production & experience design</div>
+            </div>
+            <div class="phase">
+                <div class="dot"></div>
+                <div class="week">Weeks 12-16</div>
+                <div class="label">Launch</div>
+                <div class="description">Campaign goes live<br>Platform: $995/mo</div>
+            </div>
+            <div class="phase">
+                <div class="dot"></div>
+                <div class="week">Weeks 16-24</div>
+                <div class="label">Results</div>
+                <div class="description">Measure everything<br>Real data, real proof</div>
+            </div>
+        </div>
+        <div class="pricing">
+            Platform cost: <strong>$995/month during 12-week campaign</strong> (weeks 12-24)
+        </div>
+    </div>
+</body>
+</html>
