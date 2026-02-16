@@ -71,14 +71,14 @@ function generatePostHTML(post) {
     <meta property="og:url" content="https://vonga.io/blog/${slug}.html">
     <meta property="og:title" content="${frontmatter.title}">
     <meta property="og:description" content="${frontmatter.excerpt || frontmatter.description || ''}">
-    <meta property="og:image" content="https://vonga.io${frontmatter.featuredImage || '/images/blog/default-featured.png'}">
+    <meta property="og:image" content="https://vonga.io/${frontmatter.featuredImage || 'images/blog/default-featured.png'}">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://vonga.io/blog/${slug}.html">
     <meta property="twitter:title" content="${frontmatter.title}">
     <meta property="twitter:description" content="${frontmatter.excerpt || frontmatter.description || ''}">
-    <meta property="twitter:image" content="https://vonga.io${frontmatter.featuredImage || '/images/blog/default-featured.png'}">
+    <meta property="twitter:image" content="https://vonga.io/${frontmatter.featuredImage || 'images/blog/default-featured.png'}">
     
     <link rel="canonical" href="https://vonga.io/blog/${slug}.html">
     <link rel="stylesheet" href="../css/main.css">
@@ -91,7 +91,7 @@ function generatePostHTML(post) {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "${frontmatter.title}",
-      "image": "https://vonga.io${frontmatter.featuredImage || '/images/blog/default-featured.png'}",
+      "image": "https://vonga.io/${frontmatter.featuredImage || 'images/blog/default-featured.png'}",
       "author": {
         "@type": "Person",
         "name": "${frontmatter.author || 'Vonga Team'}"

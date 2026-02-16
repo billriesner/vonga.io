@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#1a2744"/>
+    </linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D4AA"/>
+      <stop offset="100%" stop-color="#00B894"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00D4AA" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#00D4AA" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+  
+  <!-- Rising bar chart (data visualization) -->
+  <g transform="translate(680, 120)">
+    <rect x="0" y="280" width="60" height="80" rx="4" fill="#00D4AA" opacity="0.2"/>
+    <rect x="80" y="220" width="60" height="140" rx="4" fill="#00D4AA" opacity="0.3"/>
+    <rect x="160" y="150" width="60" height="210" rx="4" fill="#00D4AA" opacity="0.5"/>
+    <rect x="240" y="80" width="60" height="280" rx="4" fill="#00D4AA" opacity="0.7"/>
+    <rect x="320" y="10" width="60" height="350" rx="4" fill="url(#aqua)" opacity="0.9"/>
+    
+    <!-- Data points connected -->
+    <circle cx="30" cy="275" r="6" fill="#00D4AA"/>
+    <circle cx="110" cy="215" r="6" fill="#00D4AA"/>
+    <circle cx="190" cy="145" r="6" fill="#00D4AA"/>
+    <circle cx="270" cy="75" r="6" fill="#00D4AA"/>
+    <circle cx="350" cy="5" r="8" fill="#00D4AA"/>
+    
+    <line x1="30" y1="275" x2="110" y2="215" stroke="#00D4AA" stroke-width="2" opacity="0.6"/>
+    <line x1="110" y1="215" x2="190" y2="145" stroke="#00D4AA" stroke-width="2" opacity="0.6"/>
+    <line x1="190" y1="145" x2="270" y2="75" stroke="#00D4AA" stroke-width="2" opacity="0.6"/>
+    <line x1="270" y1="75" x2="350" y2="5" stroke="#00D4AA" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- $62B callout -->
+  <text x="820" y="560" font-family="Inter, system-ui, sans-serif" font-size="80" font-weight="800" fill="#00D4AA" opacity="0.15">$62B</text>
+  
+  <!-- Main text -->
+  <text x="80" y="200" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#FFFFFF">First-Party Data</text>
+  <text x="80" y="260" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#FFFFFF">Is the New</text>
+  <text x="80" y="320" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#00D4AA">TV Deal</text>
+  
+  <!-- Subtitle -->
+  <text x="80" y="380" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#8899AA">Why fan databases are becoming the most</text>
+  <text x="80" y="405" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#8899AA">valuable asset in sports</text>
+  
+  <!-- Vonga wordmark -->
+  <text x="80" y="560" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="600" fill="#00D4AA" letter-spacing="4">VONGA</text>
+  <text x="80" y="585" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#667788">The Tap — vonga.io/blog</text>
+  
+  <!-- Decorative line -->
+  <rect x="80" y="430" width="120" height="3" rx="1.5" fill="#00D4AA" opacity="0.6"/>
+</svg>
