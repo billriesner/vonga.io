@@ -162,18 +162,7 @@ function generatePostHTML(post) {
         </div>
     </article>
 
-    <!-- Newsletter CTA -->
-    <section class="newsletter-section">
-        <div class="newsletter-container">
-            <h3>Get Weekly Insights</h3>
-            <p>Join athletic directors and marketing leaders who get actionable insights every Thursday.</p>
-            <div class="newsletter-form">
-                <input type="email" placeholder="Your email address" id="newsletter-email">
-                <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
-            </div>
-            <p class="newsletter-substack"><a href="https://vonga.substack.com" target="_blank" rel="noopener">Or follow us on Substack →</a></p>
-        </div>
-    </section>
+    <!-- Newsletter CTA removed — re-add when email newsletter is set up -->
 
     <!-- CTA Section -->
     <section class="blog-cta-section">
@@ -215,16 +204,6 @@ function generatePostHTML(post) {
         </div>
     </footer>
 
-    <script>
-        function subscribeNewsletter() {
-            const email = document.getElementById('newsletter-email').value;
-            if (!email || !email.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            alert('Newsletter signup coming soon! For now, follow us on Substack: https://vonga.substack.com');
-        }
-    </script>
 </body>
 </html>`;
 }
@@ -332,18 +311,7 @@ function generateIndexHTML(posts) {
     ${featuredHTML}
     ${otherPostsHTML}
 
-    <!-- Newsletter CTA -->
-    <section class="newsletter-section">
-        <div class="newsletter-container">
-            <h3>Get Weekly Insights</h3>
-            <p>Join athletic directors and marketing leaders who get actionable insights every Thursday.</p>
-            <div class="newsletter-form">
-                <input type="email" placeholder="Your email address" id="newsletter-email">
-                <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
-            </div>
-            <p class="newsletter-substack"><a href="https://vonga.substack.com" target="_blank" rel="noopener">Or follow us on Substack →</a></p>
-        </div>
-    </section>
+    <!-- Newsletter CTA removed — re-add when email newsletter is set up -->
 
     <!-- CTA Section -->
     <section class="blog-cta-section">
@@ -385,16 +353,6 @@ function generateIndexHTML(posts) {
         </div>
     </footer>
 
-    <script>
-        function subscribeNewsletter() {
-            const email = document.getElementById('newsletter-email').value;
-            if (!email || !email.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            alert('Newsletter signup coming soon! For now, follow us on Substack: https://vonga.substack.com');
-        }
-    </script>
 </body>
 </html>`;
 }
