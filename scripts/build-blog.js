@@ -108,6 +108,14 @@ function generatePostHTML(post) {
       "description": "${frontmatter.excerpt || frontmatter.description || ''}"
     }
     </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5005PHB8N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-T5005PHB8N");
+    </script>
 </head>
 <body class="blog-post">
     <header>
@@ -285,6 +293,14 @@ function generateIndexHTML(posts) {
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="blog.css">
     <script src="../js/main.js" defer></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5005PHB8N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-T5005PHB8N");
+    </script>
 </head>
 <body>
     <header>

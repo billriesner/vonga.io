@@ -24,7 +24,7 @@
     
     <link rel="canonical" href="https://vonga.io/blog/sponsor-roi-problem.html">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="/blog/blog.css">
+    <link rel="stylesheet" href="blog.css">
     <script src="../js/main.js" defer></script>
     
     <!-- Structured Data -->
@@ -50,6 +50,14 @@
       "description": "Most athletic programs are stuck in a measurement paradox: sponsors demand better ROI data, but traditional measurement methods can't deliver it. Here's what's actually broken—and how to fix it."
     }
     </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5005PHB8N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-T5005PHB8N");
+    </script>
 </head>
 <body class="blog-post">
     <header>
@@ -64,7 +72,7 @@
                 <li><a href="../how-it-works.html">How It Works</a></li>
                 <li><a href="../case-studies.html">Stories</a></li>
                 <li><a href="../pricing.html">Pricing</a></li>
-                <li><a href="/blog" class="active">The Tap</a></li>
+                <li><a href="index.html" class="active">The Tap</a></li>
                 <li><a href="../contact.html" class="btn btn-primary">Let's Connect</a></li>
             </ul>
         </nav>
@@ -75,7 +83,7 @@
         <div class="article-header">
             <div class="article-header-content">
                 <div class="breadcrumbs">
-                    <a href="/blog">← Back to The Tap</a>
+                    <a href="index.html">← Back to The Tap</a>
                 </div>
                 <h1>The Sponsor ROI Problem Nobody Talks About</h1>
                 <img src="../images/blog/sponsor-roi-featured.png" alt="The Sponsor ROI Problem Nobody Talks About" class="featured-image" style="width: 100%; max-width: 800px; border-radius: 12px; margin: 24px auto; display: block;">
@@ -203,15 +211,22 @@
 <p>The teams that figure this out early will have a huge advantage in the next round of renewals.</p>
 <hr>
 <p><strong>Want to see how Vonga helps athletic programs prove sponsor ROI?</strong> <a href="/contact.html">Schedule a demo →</a></p>
-<hr>
-<h2>About the Author</h2>
-<p>Bill Riesner is the founder of Vonga, where he&#39;s building tools to help athletic programs turn fan engagement into measurable revenue and sponsor ROI—without adding another login screen to fans&#39; lives.</p>
-<p><strong>Contact:</strong> <a href="mailto:bill@vonga.io">bill@vonga.io</a></p>
-<hr>
-<p><em>Published February 6, 2026 on <a href="https://vonga.io/blog">The Tap</a>, Vonga&#39;s blog about fan engagement, sponsor ROI, and athletic marketing.</em></p>
 
         </div>
     </article>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h3>Get Weekly Insights</h3>
+            <p>Join athletic directors and marketing leaders who get actionable insights every Thursday.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Your email address" id="newsletter-email">
+                <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+            </div>
+            <p class="newsletter-substack"><a href="https://vonga.substack.com" target="_blank" rel="noopener">Or follow us on Substack →</a></p>
+        </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="blog-cta-section">
@@ -236,7 +251,7 @@
                     <li><a href="../how-it-works.html">How It Works</a></li>
                     <li><a href="../case-studies.html">Stories</a></li>
                     <li><a href="../pricing.html">Pricing</a></li>
-                    <li><a href="/blog">The Tap</a></li>
+                    <li><a href="index.html">The Tap</a></li>
                 </ul>
             </div>
             
@@ -252,5 +267,16 @@
             <p>&copy; 2026 Vonga. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-email').value;
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            alert('Newsletter signup coming soon! For now, follow us on Substack: https://vonga.substack.com');
+        }
+    </script>
 </body>
 </html>
