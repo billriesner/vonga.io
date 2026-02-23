@@ -42,7 +42,7 @@ For everyone else — the mid-major university, the MiLB team, the MLS expansion
 
 The smartest money in sports isn't chasing bigger merchandise deals. It's chasing better data infrastructure.
 
-Companies are raising capital and winning enterprise contracts by solving one problem: proving that sponsorship dollars actually work. AI-powered exposure tracking across broadcasts and social. Privacy-safe data clean rooms that let teams and sponsors collaborate without sharing raw databases. Real-time attribution models that connect a fan's jersey purchase to their ticket behavior to their sponsor engagement.
+Companies are raising capital and winning enterprise contracts by solving one problem: proving that sponsorship dollars actually work. Companies like Relo Metrics are using AI to track sponsor exposure across broadcasts and social. Clean room platforms like InfoSum let teams and sponsors collaborate on fan data without sharing raw databases. Real-time attribution models are connecting a fan's jersey purchase to their ticket behavior to their sponsor engagement.
 
 These tools are getting built — and funded — because the demand is already there. Sponsors are done accepting "we had 15,000 fans at the game" as a performance metric.
 
