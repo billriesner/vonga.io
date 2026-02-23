@@ -80,6 +80,18 @@ When merchandise becomes connected, you stop counting units sold and start count
 
 **Collection behavior.** Fans who own multiple items behave differently than single-item buyers. They attend more games, spend more on tickets, and are more likely to renew memberships. Connected merch lets you see those patterns in real time.
 
+## Traditional vs. Connected Merchandise: What Changes
+
+| Capability | Traditional Merch | Connected Merch (NFC) |
+|---|---|---|
+| Fan identity | Transaction record only | Verified profile with preferences |
+| Engagement tracking | Ends at point of sale | Ongoing — every tap is a signal |
+| Geographic data | Purchase location only | Real-time usage location |
+| Sponsor attribution | Estimated impressions | Verified engagement events |
+| Fan segmentation | Single-item buyer vs. not | Collection behavior, frequency, loyalty tier |
+| Post-purchase relationship | None | Persistent digital touchpoint |
+| Data for sponsor renewals | "We had 15,000 fans" | "12,847 verified engagements, 73% repeat" |
+
 ## Revenue Is Table Stakes. Data Is the Moat.
 
 Here's the shift that matters: the teams that figure this out first will have an unfair advantage that compounds over time.
