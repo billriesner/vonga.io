@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - Vonga</title>
-    <meta name="description" content="Transparent, value-focused pricing for programs of all sizes. Start small, scale as you grow, always pay for real value delivered.">
+    <title>Pricing — Vonga Fan Intelligence Platform</title>
+    <meta name="description" content="Platform-based pricing for teams serious about fan data. Four tiers — Scout, Playbook, Arena, Stadium — with NFC chips included. No per-garment pricing. No apparel required.">
+    <meta property="og:title" content="Pricing — Vonga Fan Intelligence Platform">
+    <meta property="og:description" content="You don't pay per shirt. You pay for the platform. Four tiers designed for teams at every scale.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js" defer></script>    <script src="js/live-chat.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/live-chat.js" defer></script>
     <!-- <script src="js/exit-intent.js" defer></script> --> <!-- Disabled: lead magnets returning 404s -->
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5005PHB8N"></script>
@@ -31,7 +35,7 @@
                 <li><a href="case-studies.html">Stories</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="blog/index.html">Blog</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Let's Connect</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Book a Demo</a></li>
             </ul>
         </nav>
     </header>
@@ -39,286 +43,266 @@
     <!-- Hero -->
     <section class="hero" style="min-height: 60vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl);">
         <div class="container" style="max-width: var(--max-width); text-align: center;">
-            <h1 style="margin-bottom: var(--space-lg);">Pricing That Makes Sense</h1>
-            <p style="font-size: 20px; max-width: 700px; margin: 0 auto var(--space-2xl); color: rgba(255,255,255,0.85);">No hidden fees. No confusing tiers. Platform pricing that scales with your program. Simple, transparent, designed for athletic departments and teams.</p>
+            <h1 style="margin-bottom: var(--space-lg);">Platform Pricing. Not Per-Shirt Pricing.</h1>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto var(--space-2xl); color: rgba(255,255,255,0.85);">You don't pay per garment. You pay for the intelligence platform. NFC chips from your existing supplier connect to Vonga at production — your supply chain doesn't change. Your fan data picture does.</p>
             <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; justify-content: center;">
-                <a href="contact.html" class="btn btn-primary">Get Custom Pricing</a>
-                <a href="#roi" class="btn btn-aqua">See ROI Examples</a>
+                <a href="contact.html" class="btn btn-primary">Talk to Sales</a>
+                <a href="#faq" class="btn btn-aqua">Common Questions</a>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Philosophy -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">How Vonga Pricing Works</h2>
-            <p class="section-subtitle" style="max-width: 700px; margin: 0 auto var(--space-3xl);">Platform subscription + premium apparel. Two revenue streams, both designed to deliver measurable ROI for your program.</p>
-            <div class="grid grid-3">
-                <div class="card text-center">
-                    <h4>Platform Subscription</h4>
-                    <p>Monthly or annual pricing based on scale. Core analytics, content management, and support included at every tier.</p>
-                </div>
-                <div class="card text-center">
-                    <h4>Premium Apparel</h4>
-                    <p>NFC-enabled garments priced separately. You control margins. Fans get premium products that justify premium pricing.</p>
-                </div>
-                <div class="card text-center">
-                    <h4>Aligned Incentives</h4>
-                    <p>We succeed when you succeed. Higher engagement drives sponsor value, merchandise sales, and program growth.</p>
-                </div>
+    <!-- Billing Toggle -->
+    <section style="padding: var(--space-2xl) var(--space-2xl) 0;">
+        <div class="container text-center">
+            <div style="display: inline-flex; align-items: center; gap: var(--space-md); background: var(--gray-100); padding: var(--space-xs) var(--space-md); border-radius: 40px;">
+                <span id="toggle-monthly" style="font-weight: 600; color: var(--aqua); cursor: pointer; padding: var(--space-xs) var(--space-md); border-radius: 30px; background: white; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">Monthly</span>
+                <span id="toggle-annual" style="font-weight: 600; color: var(--gray-600); cursor: pointer; padding: var(--space-xs) var(--space-md); border-radius: 30px;">Annual <span style="font-size: 12px; background: var(--aqua); color: white; padding: 2px 8px; border-radius: 20px; margin-left: 4px;">Save ~7%</span></span>
             </div>
         </div>
     </section>
 
     <!-- Pricing Tiers -->
-    <section class="section-muted">
+    <section class="section-muted" style="padding-top: var(--space-2xl);">
         <div class="container">
-            <h2 class="section-title">Choose Your Starting Point</h2>
-            <p class="section-subtitle">All plans include core platform access, analytics dashboard, and ongoing support. Upgrade anytime as your needs evolve.</p>
-            
-            <div class="grid grid-3">
-                <!-- Starter -->
+            <div class="grid grid-4">
+
+                <!-- Scout -->
                 <div class="card" style="display: flex; flex-direction: column;">
                     <div style="flex-grow: 1;">
-                        <h3 style="color: var(--aqua); margin-bottom: var(--space-xs);">Starter</h3>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">Single Sport or Program</div>
-                        <div style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs);">$995</div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">per month</div>
-                        <div style="font-size: 16px; color: var(--aqua); font-weight: 600; margin-bottom: var(--space-2xl);">or $10,000/year (save $1,940)</div>
-                        
+                        <h3 style="color: var(--aqua); margin-bottom: var(--space-xs);">Scout</h3>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">Single sport • Pilot programs</div>
+                        <div class="price-display">
+                            <div id="scout-monthly" style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs);">$1,500</div>
+                            <div id="scout-annual" style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs); display: none;">$1,400</div>
+                        </div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);">per month</div>
+                        <div id="scout-annual-note" style="font-size: 14px; color: var(--aqua); font-weight: 600; margin-bottom: var(--space-md); display: none;">$16,800/year — save $1,200</div>
+
                         <ul style="list-style: none; padding: 0; margin-bottom: var(--space-2xl);">
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Up to 5,000 active garments</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ <strong>500 NFC chips/year</strong> included</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Fan database (up to 3,000 profiles)</li>
                             <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Core analytics dashboard</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ 5 content experiences</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Email support</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Onboarding & training</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ 1 sponsor portal</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Content experience builder (3 active)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Basic fan segmentation</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Email support + onboarding</li>
                         </ul>
                     </div>
-                    
                     <div style="margin-top: auto;">
-                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Best for:</strong> Single sport or program testing the platform before full rollout.</p>
-                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Best for:</strong> Minor league teams, small D-II/D-III programs, semi-pro clubs, and first-year pilots.</p>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Get Started</a>
                     </div>
                 </div>
-                
-                <!-- Professional -->
+
+                <!-- Playbook (Most Popular) -->
                 <div class="card" style="border: 3px solid var(--aqua); position: relative; display: flex; flex-direction: column;">
-                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--aqua); color: white; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;">MOST POPULAR</div>
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--aqua); color: white; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap;">MOST POPULAR</div>
                     <div style="flex-grow: 1;">
-                        <h3 style="color: var(--aqua); margin-bottom: var(--space-xs);">Professional</h3>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">Full Athletic Department</div>
-                        <div style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs);">$2,495</div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">per month</div>
-                        <div style="font-size: 16px; color: var(--aqua); font-weight: 600; margin-bottom: var(--space-2xl);">or $25,000/year (save $4,940)</div>
-                        
+                        <h3 style="color: var(--aqua); margin-bottom: var(--space-xs);">Playbook</h3>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">Mid-market teams • Active sponsors</div>
+                        <div class="price-display">
+                            <div id="playbook-monthly" style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs);">$3,200</div>
+                            <div id="playbook-annual" style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs); display: none;">$2,920</div>
+                        </div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);">per month</div>
+                        <div id="playbook-annual-note" style="font-size: 14px; color: var(--aqua); font-weight: 600; margin-bottom: var(--space-md); display: none;">$35,040/year — save ~$3,400</div>
+
                         <ul style="list-style: none; padding: 0; margin-bottom: var(--space-2xl);">
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Up to 25,000 active garments</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Advanced analytics + sponsor reporting</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Unlimited content experiences</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Priority support (phone + email)</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Audience segmentation</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ A/B testing capabilities</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Quarterly strategy sessions</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ <strong>1,000 NFC chips/year</strong> included</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Fan database (up to 15,000 profiles)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Full analytics + historical comparisons</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ 5 sponsor portals (shareable, branded)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Campaign management + A/B testing</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Full fan segmentation engine</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ 10 automated campaign triggers</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Data export (CSV/JSON)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Priority support (email + phone)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Quarterly strategy session</li>
                         </ul>
                     </div>
-                    
                     <div style="margin-top: auto;">
-                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Best for:</strong> Full athletic department across multiple sports and fan segments.</p>
-                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Best for:</strong> AHL/ECHL teams, USL clubs, MiLB affiliates, mid-major D-I programs with active sponsor portfolios.</p>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Get Started</a>
                     </div>
                 </div>
-                
-                <!-- Enterprise -->
+
+                <!-- Arena -->
                 <div class="card" style="display: flex; flex-direction: column;">
                     <div style="flex-grow: 1;">
-                        <h3 style="color: var(--aqua); margin-bottom: var(--space-xs);">Enterprise</h3>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">Major Universities & Pro Teams</div>
-                        <div style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs);">Custom</div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-2xl);">starting at $5,000/month</div>
-                        
+                        <h3 style="color: var(--aqua); margin-bottom: var(--space-xs);">Arena</h3>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">Larger organizations • Multiple sports</div>
+                        <div class="price-display">
+                            <div id="arena-monthly" style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs);">$5,800</div>
+                            <div id="arena-annual" style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs); display: none;">$5,400</div>
+                        </div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);">per month</div>
+                        <div id="arena-annual-note" style="font-size: 14px; color: var(--aqua); font-weight: 600; margin-bottom: var(--space-md); display: none;">$64,800/year — save ~$4,800</div>
+
                         <ul style="list-style: none; padding: 0; margin-bottom: var(--space-2xl);">
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Unlimited scale</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Custom iOS/Android apps</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ White label options</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ API access</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Dedicated success manager</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Custom integrations (CRM, ticketing)</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ On-site training & support</li>
-                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Monthly optimization reviews</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ <strong>2,500 NFC chips/year</strong> included</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Fan database (up to 60,000 profiles)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Full analytics + real-time location mapping</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Unlimited sponsor portals + self-serve sponsor access</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Unlimited campaign automation + triggers</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ A/B testing with statistical significance reporting</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Benchmarking vs. league/conference averages</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ <strong>Von AI insights</strong> (weekly summaries, anomaly detection)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ API access + webhooks</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Dedicated Customer Success Manager</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Monthly optimization review</li>
                         </ul>
                     </div>
-                    
                     <div style="margin-top: auto;">
-                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Best for:</strong> Major universities, professional teams, and multi-program organizations.</p>
-                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Let's Talk</a>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Best for:</strong> G-League, NWSL, lower-table MLS, large D-I athletic departments with multiple sports and CRM integrations.</p>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Get Started</a>
                     </div>
                 </div>
+
+                <!-- Stadium -->
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <div style="flex-grow: 1;">
+                        <h3 style="color: var(--aqua); margin-bottom: var(--space-xs);">Stadium</h3>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);">Pro teams • Power 5 • Conferences</div>
+                        <div style="font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: var(--space-xs);">Custom</div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-2xl);">starting at $10,000/month</div>
+
+                        <ul style="list-style: none; padding: 0; margin-bottom: var(--space-2xl);">
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ <strong>Unlimited NFC chips</strong> (volume-negotiated)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Unlimited fan database</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ All Arena features</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ White-label option</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Custom CRM/ticketing integrations (Archtics, Paciolan, SeatGeek, Salesforce)</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Multi-team / multi-venue support</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ League-level rollup reporting</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ Dedicated CSM + technical account manager</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ On-site onboarding</li>
+                            <li style="padding: var(--space-xs) 0; color: var(--gray-600);">✓ SLA (99.9% uptime, 4-hour response)</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Best for:</strong> Major pro teams (NHL, NBA, MLS), Power 5 athletic departments, conferences serving multiple member schools.</p>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Let's Talk</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- What's Included -->
+    <!-- Chip Add-On Info -->
     <section>
         <div class="container">
-            <h2 class="section-title">What Every Plan Includes</h2>
-            
-            <div class="grid grid-3">
-                <div class="card">
-                    <h3>NFC Technology</h3>
-                    <p>Premium NFC tags embedded in your apparel. Works with any smartphone. No app required.</p>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 class="section-title">Additional NFC Chips</h2>
+                <p style="font-size: 18px; color: var(--gray-600); margin-bottom: var(--space-2xl);">Every plan includes a base chip allocation. When you're ready to scale beyond that, additional chips are available through the Vonga portal.</p>
+
+                <div class="grid grid-3" style="margin-bottom: var(--space-2xl);">
+                    <div class="card text-center">
+                        <div style="font-size: 28px; font-weight: 700; color: var(--aqua);">$5 / chip</div>
+                        <div style="font-size: 14px; color: var(--gray-600);">1–99 additional chips</div>
+                    </div>
+                    <div class="card text-center">
+                        <div style="font-size: 28px; font-weight: 700; color: var(--aqua);">$4 / chip</div>
+                        <div style="font-size: 14px; color: var(--gray-600);">100–499 additional chips</div>
+                    </div>
+                    <div class="card text-center">
+                        <div style="font-size: 28px; font-weight: 700; color: var(--aqua);">$3 / chip</div>
+                        <div style="font-size: 14px; color: var(--gray-600);">500+ additional chips</div>
+                    </div>
                 </div>
-                
-                <div class="card">
-                    <h3>Analytics Dashboard</h3>
-                    <p>Real-time engagement data. Content performance tracking. Geographic distribution. Audience insights.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Content Management</h3>
-                    <p>Easy-to-use platform for creating, updating, and managing digital experiences. No technical skills required.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Onboarding Support</h3>
-                    <p>Guided setup process. Best practices training. Content strategy consultation. Launch support.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Ongoing Updates</h3>
-                    <p>Platform improvements at no extra cost. New features as we build them. Continuous optimization.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Security & Reliability</h3>
-                    <p>Enterprise-grade security. 99.9% uptime guarantee. Data backup and privacy protection.</p>
-                </div>
+
+                <p style="color: var(--gray-600); font-size: 15px;">Chips ship pre-encoded and production-ready. Your supplier installs them during their existing process. No re-tooling required.</p>
             </div>
         </div>
     </section>
 
-    <!-- ROI Calculator -->
-    <section id="roi" class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Typical Return on Investment</h2>
-            <p class="section-subtitle">Based on average results from similar programs</p>
-            
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>Professional Tier Example</h3>
-                    <p style="margin-bottom: var(--space-md);"><strong>Annual Investment:</strong> $25,000 platform + apparel costs</p>
-                    <div class="mt-2" style="padding: var(--space-md); background: var(--gray-100); border-radius: var(--radius);">
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);"><strong>Merchandise Revenue Lift</strong></div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);">2,000 fans × $10 premium = $20,000</div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Sponsor Value Increase</strong></div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);">Engagement proof = $25,000 higher rates</div>
-                        <div style="font-size: 18px; font-weight: 600; color: var(--coral); margin-top: var(--space-md); padding-top: var(--space-md); border-top: 2px solid var(--gray-200);">Combined Value: $45,000/year</div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-top: var(--space-xs);">Net ROI: 80% above platform cost</div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3>Starter Tier Example</h3>
-                    <p style="margin-bottom: var(--space-md);"><strong>Annual Investment:</strong> $10,000 platform + apparel costs</p>
-                    <div class="mt-2" style="padding: var(--space-md); background: var(--gray-100); border-radius: var(--radius);">
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);"><strong>Merchandise Revenue Lift</strong></div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);">500 fans × $10 premium = $5,000</div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-md);"><strong>Sponsor Appeal</strong></div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-bottom: var(--space-xs);">Measurable data = $10,000 value lift</div>
-                        <div style="font-size: 18px; font-weight: 600; color: var(--coral); margin-top: var(--space-md); padding-top: var(--space-md); border-top: 2px solid var(--gray-200);">Combined Value: $15,000/year</div>
-                        <div style="font-size: 14px; color: var(--gray-600); margin-top: var(--space-xs);">Net ROI: 50% above platform cost</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-3">
-                <p style="color: rgba(255,255,255,0.85); font-size: 18px; max-width: 800px; margin: 0 auto;"><em>Projections based on early pilot program data. Individual results vary based on audience size, execution quality, and market conditions.</em> Programs typically recover platform costs within the first season through merchandise premiums and sponsor value increases.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
+    <!-- Tier Comparison Table -->
     <section class="section-muted">
         <div class="container">
-            <h2 class="section-title">Common Questions</h2>
-            
-            <div class="grid grid-2">
-                <div class="card">
-                    <h4>What does the platform cost?</h4>
-                    <p>Starter: $995/month ($10,000/year). Professional: $2,495/month ($25,000/year). Enterprise: custom starting at $5,000/month. All include hosting, analytics, support, and ongoing updates.</p>
-                </div>
-                
-                <div class="card">
-                    <h4>Can we start small and scale up?</h4>
-                    <p>Yes. Start with Starter for a single program. Move to Professional when you expand across sports. Upgrade anytime with no penalties or setup fees.</p>
-                </div>
-                
-                <div class="card">
-                    <h4>How does apparel work?</h4>
-                    <p>We supply NFC-enabled premium apparel separately. You set your pricing and control margins. Most programs add $10-25 premium per garment and maintain 60%+ margins.</p>
-                </div>
-                
-                <div class="card">
-                    <h4>Is there a long-term contract?</h4>
-                    <p>Annual plans offer best value (2 months free). Monthly options available at slightly higher rates. Cancel anytime with 30-day notice. No auto-renewal surprises.</p>
-                </div>
-                
-                <div class="card">
-                    <h4>What if we need custom features?</h4>
-                    <p>Professional includes quarterly strategy sessions. Enterprise includes custom development and integrations. Additional features available across all tiers.</p>
-                </div>
-                
-                <div class="card">
-                    <h4>How do we measure success?</h4>
-                    <p>All plans include real-time analytics: tap rates, content performance, geographic distribution, and audience insights. We help you set KPIs and track ROI together.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h2 class="section-title">Compare Plans</h2>
 
-    <!-- Comparison -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Why Programs Choose Vonga</h2>
-            
             <div style="overflow-x: auto;">
                 <table style="width: 100%; border-collapse: collapse; margin: var(--space-2xl) 0;">
                     <thead>
                         <tr style="background: var(--gray-100);">
                             <th style="padding: var(--space-md); text-align: left; border-bottom: 2px solid var(--gray-300);">Feature</th>
-                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300);">Traditional Merch</th>
-                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300); background: var(--muted-bg); color: var(--aqua); font-weight: 600;">Vonga</th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300);">Scout</th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300); background: rgba(51,190,204,0.08); color: var(--aqua); font-weight: 600;">Playbook</th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300);">Arena</th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300);">Stadium</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Ongoing Engagement</td>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">NFC chips included/year</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">500</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">1,000</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">2,500</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Custom</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Fan database</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">3K profiles</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">15K profiles</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">60K profiles</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Sponsor portals</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">1</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">5</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Campaign automation</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">1 trigger</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">10 triggers</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">A/B testing</td>
                             <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">❌</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">✅ Up to 40% tap rate</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">✅</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
                         </tr>
                         <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Measurable Impact</td>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Von AI insights</td>
                             <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">❌</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">✅ Full analytics</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
                         </tr>
                         <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Premium Pricing</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Hard to justify</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">✅ +$15-25/item</td>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Benchmarking data</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
                         </tr>
                         <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Content Updates</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">❌ Static</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">✅ Unlimited updates</td>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">API + webhooks</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
                         </tr>
                         <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Sponsor Proof</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Vanity metrics</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);">✅ Real engagement data</td>
+                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Dedicated CSM</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
+                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">✅</td>
                         </tr>
                         <tr>
-                            <td style="padding: var(--space-md);">Community Building</td>
+                            <td style="padding: var(--space-md);">White-label option</td>
                             <td style="padding: var(--space-md); text-align: center;">❌</td>
-                            <td style="padding: var(--space-md); text-align: center; background: var(--gray-50);">✅ Shared experiences</td>
+                            <td style="padding: var(--space-md); text-align: center; background: rgba(51,190,204,0.04);">❌</td>
+                            <td style="padding: var(--space-md); text-align: center;">❌</td>
+                            <td style="padding: var(--space-md); text-align: center;">✅</td>
                         </tr>
                     </tbody>
                 </table>
@@ -326,14 +310,63 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Common Questions</h2>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4>Do we have to change our merch supplier?</h4>
+                    <p>No. You keep your existing supplier — Fanatics, Nike, New Era, a local shop, whoever. We supply the NFC chips that get embedded during their production process. Their job doesn't change.</p>
+                </div>
+
+                <div class="card">
+                    <h4>What's included in the chip allocation?</h4>
+                    <p>Each plan includes a yearly allocation of garment-grade NFC chips (NTAG 424 DNA), pre-encoded and production-ready. Additional chips beyond your allocation are $3–5 per chip depending on volume.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Is there a long-term contract?</h4>
+                    <p>Annual plans offer the best value (roughly 7% discount). Monthly billing is available at the standard rates shown. Annual contracts renew with 30-day notice before the renewal date.</p>
+                </div>
+
+                <div class="card">
+                    <h4>What does the fan see when they tap?</h4>
+                    <p>Whatever you build in the campaign builder. A video from your head coach, an exclusive offer, a poll, a behind-the-scenes clip. You control the experience. The fan sees content — not an ad for Vonga.</p>
+                </div>
+
+                <div class="card">
+                    <h4>How does the sponsor portal work?</h4>
+                    <p>Each sponsor gets a shareable link to their portal — live engagement data from their specific activation. Who interacted, how many times, what they did next. They can log in themselves. No more manually building reports.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Can we upgrade tiers later?</h4>
+                    <p>Yes. Upgrade anytime — your fan profiles and historical data move with you. There are no migration fees or setup costs for tier changes.</p>
+                </div>
+
+                <div class="card">
+                    <h4>What if we want to integrate with our ticketing system?</h4>
+                    <p>API access and custom integrations (Archtics, Paciolan, SeatGeek, Salesforce) are available on Arena and Stadium. Playbook includes data export in CSV/JSON for manual integration workflows.</p>
+                </div>
+
+                <div class="card">
+                    <h4>How are the chips installed in our merch?</h4>
+                    <p>We ship pre-encoded chips in a format that's ready for your supplier's production line — sew-in labels, hang tags, or heat-sealable patches depending on the product type. We walk your supplier through it. Usually takes one production run to establish the workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section style="background: var(--navy); padding: var(--space-6xl) var(--space-2xl);">
         <div class="container text-center">
-            <h2 style="color: white; margin-bottom: var(--space-md);">Ready to Get Started?</h2>
+            <h2 style="color: white; margin-bottom: var(--space-md);">Not Sure Which Plan Fits?</h2>
             <p style="color: rgba(255,255,255,0.95); font-size: 20px; max-width: 600px; margin: 0 auto var(--space-2xl);">
-                Let's talk about your program's needs and build a custom plan that fits your goals and budget. No pressure, just conversation.
+                Tell us about your program and we'll show you exactly what Vonga looks like for your scale. 20-minute demo. No obligation.
             </p>
-            <a href="contact.html" class="btn btn-primary">Let's Connect</a>
+            <a href="contact.html" class="btn btn-primary">Book a Demo</a>
         </div>
     </section>
 
@@ -342,30 +375,69 @@
         <div class="footer-content">
             <div class="footer-section">
                 <img src="images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
-                <p style="font-weight: 600; color: white; font-size: 18px;">Live Connected.</p>
+                <p style="font-weight: 600; color: white; font-size: 18px;">Fan Intelligence Platform.</p>
             </div>
-            
+
             <div class="footer-section">
-                <h4>Resources</h4>
+                <h4>Platform</h4>
                 <ul>
                     <li><a href="how-it-works.html">How It Works</a></li>
-                    <li><a href="case-studies.html">Stories</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="case-studies.html">Stories</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
-                <h4>Let's Talk</h4>
+                <h4>Get Started</h4>
                 <ul>
-                    <li><a href="contact.html">Get Started</a></li>
+                    <li><a href="contact.html">Book a Demo</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2026 Vonga. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Billing toggle
+        const monthlyBtn = document.getElementById('toggle-monthly');
+        const annualBtn = document.getElementById('toggle-annual');
+        const plans = ['scout', 'playbook', 'arena'];
+
+        function setMonthly() {
+            monthlyBtn.style.color = 'var(--aqua)';
+            monthlyBtn.style.background = 'white';
+            monthlyBtn.style.boxShadow = '0 1px 4px rgba(0,0,0,0.1)';
+            annualBtn.style.color = 'var(--gray-600)';
+            annualBtn.style.background = 'transparent';
+            annualBtn.style.boxShadow = 'none';
+            plans.forEach(p => {
+                document.getElementById(p + '-monthly').style.display = 'block';
+                document.getElementById(p + '-annual').style.display = 'none';
+                document.getElementById(p + '-annual-note').style.display = 'none';
+            });
+        }
+
+        function setAnnual() {
+            annualBtn.style.color = 'var(--aqua)';
+            annualBtn.style.background = 'white';
+            annualBtn.style.boxShadow = '0 1px 4px rgba(0,0,0,0.1)';
+            monthlyBtn.style.color = 'var(--gray-600)';
+            monthlyBtn.style.background = 'transparent';
+            monthlyBtn.style.boxShadow = 'none';
+            plans.forEach(p => {
+                document.getElementById(p + '-monthly').style.display = 'none';
+                document.getElementById(p + '-annual').style.display = 'block';
+                document.getElementById(p + '-annual-note').style.display = 'block';
+            });
+        }
+
+        monthlyBtn.addEventListener('click', setMonthly);
+        annualBtn.addEventListener('click', setAnnual);
+    </script>
 </body>
 </html>
