@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 1200px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .card {
+    width: 1200px;
+    height: 1200px;
+    background: linear-gradient(160deg, #0B1426 0%, #162033 50%, #0f1d2e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      linear-gradient(rgba(51, 190, 204, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(51, 190, 204, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .content { position: relative; z-index: 2; text-align: center; max-width: 960px; }
+  .open-quote {
+    font-family: 'Georgia', serif;
+    font-size: 200px;
+    color: #33BECC;
+    line-height: 0.5;
+    margin-bottom: 20px;
+    opacity: 0.4;
+  }
+  .quote {
+    font-family: 'Georgia', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.35;
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+  .divider {
+    width: 80px;
+    height: 3px;
+    background: #33BECC;
+    margin: 0 auto 32px;
+    border-radius: 2px;
+  }
+  .attribution {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+  }
+  .attribution strong {
+    color: #33BECC;
+    font-weight: 700;
+  }
+  .brand {
+    position: absolute;
+    bottom: 48px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(51, 190, 204, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="content">
+    <div class="open-quote">"</div>
+    <div class="quote">{{QUOTE}}</div>
+    <div class="divider"></div>
+    <div class="attribution">{{ATTRIBUTION}}</div>
+  </div>
+  <div class="brand">vonga.io</div>
+</div>
+</body>
+</html>
