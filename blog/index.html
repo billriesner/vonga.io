@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tap - Vonga Blog</title>
-    <meta name="description" content="Insights on athletic sponsorship, fan engagement, and sports marketing from Vonga.">
+    <title>The Tap — Sports Marketing Insights | Vonga</title>
+    <meta name="description" content="Insights on sponsor ROI, fan engagement, and the future of sports marketing from Vonga.">
+    <link rel="canonical" href="https://vonga.io/blog">
+    <meta property="og:title" content="The Tap — Sports Marketing Insights | Vonga">
+    <meta property="og:description" content="Insights on sponsor ROI, fan engagement, and the future of sports marketing.">
+    <meta property="og:image" content="https://vonga.io/images/blog/merch-data-hero.png">
+    <meta property="og:url" content="https://vonga.io/blog">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/blog/blog.css">
     <script src="/js/main.js" defer></script>
@@ -16,6 +22,215 @@
       gtag("js", new Date());
       gtag("config", "G-T5005PHB8N");
     </script>
+    <style>
+      /* ── Blog Index Redesign ── */
+      :root {
+        --tap-max: 1100px;
+        --tap-gutter: 32px;
+        --tap-gap: 28px;
+        --tap-card-radius: 14px;
+        --tap-img-height: 220px;
+      }
+
+      /* Hero */
+      .blog-hero {
+        background: linear-gradient(160deg, #1A2332 0%, #0d1520 100%);
+        padding: calc(var(--header-height, 72px) + 64px) var(--tap-gutter) 64px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .blog-hero::before {
+        content: '';
+        position: absolute;
+        top: -80px; left: 50%; transform: translateX(-50%);
+        width: 700px; height: 400px;
+        background: radial-gradient(ellipse, rgba(51,190,204,0.12) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .blog-hero-content { position: relative; max-width: 640px; margin: 0 auto; }
+      .blog-hero-eyebrow {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+        color: #33BECC; margin-bottom: 20px;
+      }
+      .blog-hero-eyebrow span {
+        display: inline-block; width: 24px; height: 2px; background: #33BECC; border-radius: 1px;
+      }
+      .blog-hero h1 {
+        font-size: 52px; font-weight: 800; line-height: 1.1;
+        color: #fff; letter-spacing: -0.02em; margin-bottom: 16px;
+      }
+      .blog-hero h1 em {
+        font-style: normal; color: #33BECC;
+      }
+      .blog-hero .hero-subtitle {
+        font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 480px; margin: 0 auto;
+      }
+
+      /* Content wrapper */
+      .blog-content-wrap {
+        max-width: var(--tap-max);
+        margin: 0 auto;
+        padding: 48px var(--tap-gutter) 80px;
+      }
+
+      /* Section label */
+      .section-label {
+        font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+        color: #33BECC; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+      }
+      .section-label::after {
+        content: ''; flex: 1; height: 1px; background: rgba(51,190,204,0.15);
+      }
+
+      /* ── Featured post ── */
+      .featured-post {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: #1A2332;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.06);
+        margin-bottom: 64px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .featured-post:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      }
+      .featured-post a { display: contents; text-decoration: none; color: inherit; }
+      .featured-post-img {
+        order: 2; overflow: hidden; min-height: 340px; background: #0d1520;
+      }
+      .featured-post-img img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.4s ease;
+        display: block;
+      }
+      .featured-post:hover .featured-post-img img { transform: scale(1.04); }
+      .featured-post-body {
+        order: 1; padding: 44px 40px; display: flex; flex-direction: column; justify-content: center;
+      }
+      .featured-badge {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+        color: #33BECC; margin-bottom: 20px;
+      }
+      .featured-badge-dot {
+        width: 6px; height: 6px; border-radius: 50%; background: #33BECC;
+      }
+      .featured-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+      .tap-tag {
+        display: inline-block;
+        font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
+        color: #33BECC; background: rgba(51,190,204,0.1);
+        border: 1px solid rgba(51,190,204,0.2);
+        padding: 3px 10px; border-radius: 20px;
+      }
+      .featured-post-body h2 {
+        font-size: 26px; font-weight: 800; line-height: 1.25;
+        color: #fff; margin-bottom: 14px; letter-spacing: -0.01em;
+      }
+      .featured-post-body .post-excerpt {
+        font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 24px;
+      }
+      .post-meta { display: flex; align-items: center; gap: 12px; }
+      .post-author { font-size: 13px; font-weight: 600; color: #fff; }
+      .post-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.3); }
+      .post-date { font-size: 13px; color: rgba(255,255,255,0.4); }
+      .post-read-time {
+        margin-left: auto;
+        font-size: 12px; font-weight: 600; color: #33BECC;
+        background: rgba(51,190,204,0.08);
+        padding: 3px 10px; border-radius: 20px;
+      }
+
+      /* ── Post grid ── */
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--tap-gap);
+      }
+
+      /* ── Post card ── */
+      .post-card {
+        background: #1A2332;
+        border-radius: var(--tap-card-radius);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.05);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        display: flex; flex-direction: column;
+      }
+      .post-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+        border-color: rgba(51,190,204,0.2);
+      }
+      .post-card a { text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1; }
+      .post-card-img {
+        width: 100%; height: var(--tap-img-height);
+        overflow: hidden; background: #0d1520; flex-shrink: 0;
+      }
+      .post-card-img img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.35s ease; display: block;
+      }
+      .post-card:hover .post-card-img img { transform: scale(1.05); }
+      .post-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+      .post-card-body .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+      .post-card-body h3 {
+        font-size: 18px; font-weight: 700; line-height: 1.35;
+        color: #fff; margin-bottom: 10px; letter-spacing: -0.01em;
+      }
+      .post-card-body .card-excerpt {
+        font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6;
+        display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        margin-bottom: 20px; flex: 1;
+      }
+      .post-card-footer {
+        display: flex; align-items: center; justify-content: space-between;
+        border-top: 1px solid rgba(255,255,255,0.06); padding-top: 14px;
+        margin-top: auto;
+      }
+      .post-card-footer .post-date { font-size: 12px; color: rgba(255,255,255,0.35); }
+      .post-card-footer .post-read-time {
+        font-size: 11px; font-weight: 600; color: #33BECC;
+        background: rgba(51,190,204,0.08); padding: 2px 8px; border-radius: 20px;
+      }
+
+      /* ── CTA Section ── */
+      .blog-cta-section {
+        background: linear-gradient(135deg, #1A2332 0%, #0d1520 100%);
+        border-top: 1px solid rgba(51,190,204,0.1);
+        padding: 80px var(--tap-gutter);
+        text-align: center;
+      }
+      .blog-cta-content { max-width: 560px; margin: 0 auto; }
+      .blog-cta-content h2 {
+        font-size: 34px; font-weight: 800; color: #fff;
+        letter-spacing: -0.02em; margin-bottom: 12px;
+      }
+      .blog-cta-content p {
+        font-size: 17px; color: rgba(255,255,255,0.55); margin-bottom: 28px; line-height: 1.6;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .posts-grid { grid-template-columns: repeat(2, 1fr); }
+        .featured-post { grid-template-columns: 1fr; }
+        .featured-post-img { order: 1; min-height: 240px; }
+        .featured-post-body { order: 2; padding: 28px 24px; }
+        .blog-hero h1 { font-size: 38px; }
+      }
+
+      @media (max-width: 600px) {
+        :root { --tap-gutter: 20px; }
+        .posts-grid { grid-template-columns: 1fr; gap: 20px; }
+        .blog-hero h1 { font-size: 32px; }
+        .blog-hero .hero-subtitle { font-size: 16px; }
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -39,105 +254,159 @@
     <!-- Hero -->
     <section class="blog-hero">
         <div class="blog-hero-content">
-            <h1>The Tap</h1>
-            <p class="hero-subtitle">Insights on sponsor ROI, fan engagement, and the future of sports marketing</p>
+            <p class="blog-hero-eyebrow"><span></span> The Tap <span></span></p>
+            <h1>Smarter sports<br><em>marketing insights.</em></h1>
+            <p class="hero-subtitle">Sponsor ROI, fan engagement, and the future of sports marketing — straight from the field.</p>
         </div>
     </section>
 
-    
-    <section class="featured-section">
-        <article class="featured-article">
-            <a href="/blog/merch-revenue-least-interesting" class="featured-article-link">
-                <div class="featured-article-image">
-                    <img src="/images/blog/merch-data-hero.png" alt="Your Merch Revenue Is the Least Interesting Thing About Your Merch">
+    <div class="blog-content-wrap">
+
+        <!-- Featured Post -->
+        <p class="section-label">Latest</p>
+        <div class="featured-post">
+            <a href="/blog/merch-revenue-least-interesting">
+                <div class="featured-post-img">
+                    <img src="/images/blog/merch-data-hero.png" alt="Your Merch Revenue Is the Least Interesting Thing About Your Merch" loading="eager">
                 </div>
-                <div class="featured-article-content">
-                    <div class="article-tags">
-                        <span class="tag">Merchandise</span><span class="tag">First-Party Data</span><span class="tag">Fan Engagement</span><span class="tag">Sponsor ROI</span>
-                        <span class="read-time">7 min read</span>
+                <div class="featured-post-body">
+                    <p class="featured-badge"><span class="featured-badge-dot"></span> Featured Post</p>
+                    <div class="featured-tags">
+                        <span class="tap-tag">Merchandise</span>
+                        <span class="tap-tag">First-Party Data</span>
+                        <span class="tap-tag">Fan Engagement</span>
+                        <span class="tap-tag">Sponsor ROI</span>
                     </div>
                     <h2>Your Merch Revenue Is the Least Interesting Thing About Your Merch</h2>
-                    <p class="article-excerpt">Your team sold $2 million in merchandise last year. But the 40,000 fans who bought those items — where they live, what they care about, how often they wear your gear — that's the real story.</p>
-                    <div class="article-footer">
-                        <span class="author">Bill Riesner</span>
-                        <span class="date">February 23, 2026</span>
+                    <p class="post-excerpt">Your team sold $2 million in merchandise last year. But the 40,000 fans who bought those items — where they live, what they care about, how often they wear your gear — that's the real story.</p>
+                    <div class="post-meta">
+                        <span class="post-author">Bill Riesner</span>
+                        <span class="post-dot"></span>
+                        <span class="post-date">February 23, 2026</span>
+                        <span class="post-read-time">7 min read</span>
                     </div>
                 </div>
             </a>
-        </article>
-    </section>
-    
-    <section class="blog-grid-section">
-        <div class="blog-grid">
-            
-                <article class="blog-card">
-                    <a href="/blog/first-party-data-new-tv-deal" class="blog-card-link">
-                        <div class="blog-card-image">
-                            <img src="/images/blog/first-party-data-hero.png" alt="First-Party Data Is the New TV Deal">
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-tags">
-                                <span class="tag">First-Party Data</span><span class="tag">Fan Engagement</span><span class="tag">Sports Marketing</span><span class="tag">Sponsor ROI</span>
-                            </div>
-                            <h3>First-Party Data Is the New TV Deal</h3>
-                            <p>Global sports media rights hit $62 billion. But the revenue you can actually control? First-party fan data. Most teams have almost none.</p>
-                            <div class="article-footer">
-                                <span class="author">Bill Riesner</span>
-                                <span class="date">February 16, 2026</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            
-                <article class="blog-card">
-                    <a href="/blog/app-fatigue-fan-engagement" class="blog-card-link">
-                        <div class="blog-card-image">
-                            <img src="/images/blog/app-fatigue-hero.svg" alt="Your Fans Have 47 Apps. They Don't Want Yours.">
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-tags">
-                                <span class="tag">Fan Engagement</span><span class="tag">NFC Technology</span><span class="tag">Sports Marketing</span>
-                            </div>
-                            <h3>Your Fans Have 47 Apps. They Don't Want Yours.</h3>
-                            <p>Fans won't download another team app. App fatigue is real, and NFC-enabled gear gives you engagement without the download.</p>
-                            <div class="article-footer">
-                                <span class="author">Bill Riesner</span>
-                                <span class="date">February 9, 2026</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            
-                <article class="blog-card">
-                    <a href="/blog/sponsor-roi-problem" class="blog-card-link">
-                        <div class="blog-card-image">
-                            <img src="/images/blog/sponsor-roi-hero.png" alt="The Sponsor ROI Problem Nobody Talks About">
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-tags">
-                                <span class="tag">Sponsorship</span><span class="tag">ROI</span><span class="tag">Fan Engagement</span>
-                            </div>
-                            <h3>The Sponsor ROI Problem Nobody Talks About</h3>
-                            <p>Most athletic programs are stuck in a measurement paradox: sponsors demand better ROI data, but traditional measurement methods can't deliver it. Here's what's actually broken—and how to fix it.</p>
-                            <div class="article-footer">
-                                <span class="author">Bill Riesner</span>
-                                <span class="date">February 5, 2026</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            
         </div>
-    </section>
 
-    <!-- Newsletter CTA removed — re-add when email newsletter is set up -->
+        <!-- Post Grid -->
+        <p class="section-label">All Posts</p>
+        <div class="posts-grid">
+
+            <!-- Post 2 -->
+            <article class="post-card">
+                <a href="/blog/first-party-data-new-tv-deal">
+                    <div class="post-card-img">
+                        <img src="/images/blog/first-party-data-hero.png" alt="First-Party Data Is the New TV Deal" loading="lazy">
+                    </div>
+                    <div class="post-card-body">
+                        <div class="card-tags">
+                            <span class="tap-tag">First-Party Data</span>
+                            <span class="tap-tag">Fan Engagement</span>
+                        </div>
+                        <h3>First-Party Data Is the New TV Deal</h3>
+                        <p class="card-excerpt">Global sports media rights hit $62 billion. But the revenue you can actually control? First-party fan data. Most teams have almost none.</p>
+                        <div class="post-card-footer">
+                            <span class="post-date">February 16, 2026</span>
+                            <span class="post-read-time">6 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post-card">
+                <a href="/blog/app-fatigue-fan-engagement">
+                    <div class="post-card-img">
+                        <img src="/images/blog/app-fatigue-hero.png" alt="Your Fans Have 47 Apps. They Don't Want Yours." loading="lazy">
+                    </div>
+                    <div class="post-card-body">
+                        <div class="card-tags">
+                            <span class="tap-tag">Fan Engagement</span>
+                            <span class="tap-tag">NFC Technology</span>
+                        </div>
+                        <h3>Your Fans Have 47 Apps. They Don't Want Yours.</h3>
+                        <p class="card-excerpt">Fans won't download another team app. App fatigue is real, and NFC-enabled gear gives you engagement without the download barrier.</p>
+                        <div class="post-card-footer">
+                            <span class="post-date">February 9, 2026</span>
+                            <span class="post-read-time">5 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="post-card">
+                <a href="/blog/sponsor-roi-problem">
+                    <div class="post-card-img">
+                        <img src="/images/blog/sponsor-roi-hero.png" alt="The Sponsor ROI Problem Nobody Talks About" loading="lazy">
+                    </div>
+                    <div class="post-card-body">
+                        <div class="card-tags">
+                            <span class="tap-tag">Sponsorship</span>
+                            <span class="tap-tag">ROI</span>
+                        </div>
+                        <h3>The Sponsor ROI Problem Nobody Talks About</h3>
+                        <p class="card-excerpt">Most athletic programs are stuck in a measurement paradox: sponsors demand better ROI data, but traditional methods can't deliver it. Here's what's broken — and how to fix it.</p>
+                        <div class="post-card-footer">
+                            <span class="post-date">February 5, 2026</span>
+                            <span class="post-read-time">8 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="post-card">
+                <a href="/blog/measuring-fan-engagement">
+                    <div class="post-card-img">
+                        <img src="/images/blog/sponsor-roi-featured.png" alt="5 Fan Engagement Metrics That Actually Matter" loading="lazy">
+                    </div>
+                    <div class="post-card-body">
+                        <div class="card-tags">
+                            <span class="tap-tag">Fan Engagement</span>
+                            <span class="tap-tag">Analytics</span>
+                        </div>
+                        <h3>5 Fan Engagement Metrics That Actually Matter</h3>
+                        <p class="card-excerpt">Not all engagement data is created equal. These five metrics separate programs that understand their fans from those still guessing.</p>
+                        <div class="post-card-footer">
+                            <span class="post-date">February 4, 2026</span>
+                            <span class="post-read-time">6 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="post-card">
+                <a href="/blog/how-to-prove-sponsor-roi-in-college-athletics">
+                    <div class="post-card-img">
+                        <img src="/images/blog/sponsor-renewal-hero.png" alt="How to Prove Sponsor ROI in College Athletics" loading="lazy">
+                    </div>
+                    <div class="post-card-body">
+                        <div class="card-tags">
+                            <span class="tap-tag">Sponsorship</span>
+                            <span class="tap-tag">College Athletics</span>
+                        </div>
+                        <h3>How to Prove Sponsor ROI in College Athletics</h3>
+                        <p class="card-excerpt">College athletic departments face a unique challenge: sponsors want data, but most programs don't have the infrastructure to collect it. Here are the 5 essential metrics that change that conversation.</p>
+                        <div class="post-card-footer">
+                            <span class="post-date">February 1, 2026</span>
+                            <span class="post-read-time">10 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+        </div>
+    </div>
 
     <!-- CTA Section -->
     <section class="blog-cta-section">
         <div class="blog-cta-content">
             <h2>Ready to Prove Your Sponsor ROI?</h2>
-            <p>Let's show you how Vonga turns merchandise into measurable engagement.</p>
-            <a href="/contact" class="btn btn-coral">Schedule a Demo</a>
+            <p>See how Vonga turns every merchandise tap into measurable fan data your sponsors will pay for.</p>
+            <a href="/contact" class="btn btn-primary">Schedule a Demo</a>
         </div>
     </section>
 
