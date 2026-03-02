@@ -1,5 +1,6 @@
 {
   "cleanUrls": true,
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "/lead-magnets/ROI-Calculator.html",
