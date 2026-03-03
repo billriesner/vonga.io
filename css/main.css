@@ -774,3 +774,15 @@ footer {
     gap: var(--space-2xl);
   }
 }
+
+/* Fix: Ensure all inline list-style:none actually works */
+ul[style*="list-style: none"],
+ul[style*="list-style:none"] {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+ul[style*="list-style: none"] li,
+ul[style*="list-style:none"] li {
+  list-style: none !important;
+}
