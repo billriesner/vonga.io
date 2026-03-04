@@ -777,10 +777,18 @@ footer {
 
 /* Global: kill all list bullets site-wide (we never use default bullets) */
 ul, ol {
-  list-style: none;
-  list-style-type: none;
+  list-style: none !important;
+  list-style-type: none !important;
+  padding-left: 0;
+}
+li {
+  list-style: none !important;
+  list-style-type: none !important;
+}
+li::before {
+  content: none !important;
+  display: none !important;
 }
 li::marker {
-  content: none;
-  font-size: 0;
+  content: "" !important;
 }
