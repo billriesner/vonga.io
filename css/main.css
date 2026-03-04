@@ -775,18 +775,12 @@ footer {
   }
 }
 
-/* Clean list — no bullets, no padding */
-.clean-list,
-.clean-list li {
-  list-style: none !important;
-  list-style-type: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
+/* Global: kill all list bullets site-wide (we never use default bullets) */
+ul, ol {
+  list-style: none;
+  list-style-type: none;
 }
-.clean-list {
-  padding: 0 !important;
-}
-.clean-list li::marker {
-  content: none !important;
-  display: none !important;
+li::marker {
+  content: none;
+  font-size: 0;
 }
