@@ -36,11 +36,12 @@ if (mobileMenuToggle) {
   });
 }
 
-// Form handling placeholder
-const forms = document.querySelectorAll('form');
+// Form handling — contact form has its own inline handler
+// This is a fallback for any other forms on the site
+const forms = document.querySelectorAll('form:not(#contactForm)');
 forms.forEach(form => {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('Thank you for your interest! This form will be connected to your CRM system. For now, please email hello@vonga.com directly.');
+    window.location.href = '/contact.html';
   });
 });
