@@ -34,3 +34,9 @@ npm-debug.log*
 *.tmp
 .cache/
 images/og-library/
+
+# AI-generated working files (keep in local, don't commit)
+images/hero-gen/
+images/og-library/
+renders/
+*.psd
