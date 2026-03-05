@@ -16,22 +16,30 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, organization, role, intent, message } = req.body;
+    const { name, email, organization, role, intent, message, company, businessType } = req.body;
 
-    // Validate required fields
-    if (!name || !email || !organization || !role || !intent) {
-      return res.status(400).json({ error: 'Missing required fields' });
+    // Support both main contact form and partner form schemas
+    const orgName = organization || company || 'Not provided';
+    const roleName = role || businessType || 'Not provided';
+    const intentName = intent || 'Partner inquiry';
+    const isPartner = !!businessType;
+
+    // Validate required fields (name + email minimum)
+    if (!name || !email) {
+      return res.status(400).json({ error: 'Missing required fields (name and email)' });
     }
 
     // Format the notification
+    const emoji = isPartner ? '🤝' : '🔥';
+    const label = isPartner ? 'PARTNER INQUIRY' : 'DEMO REQUEST';
     const text = [
-      `🔥 NEW DEMO REQUEST — vonga.io`,
+      `${emoji} NEW ${label} — vonga.io`,
       ``,
       `Name: ${name}`,
       `Email: ${email}`,
-      `Organization: ${organization}`,
-      `Role: ${role}`,
-      `Interest: ${intent}`,
+      `Organization: ${orgName}`,
+      `Role: ${roleName}`,
+      isPartner ? `Business Type: ${businessType}` : `Interest: ${intentName}`,
       message ? `Message: ${message}` : '',
       ``,
       `Submitted: ${new Date().toISOString()}`
@@ -49,7 +57,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           from: 'Vonga <notifications@vonga.io>',
           to: 'bill@vonga.io',
-          subject: `🔥 Demo Request: ${name} @ ${organization}`,
+          subject: `${emoji} ${label}: ${name} @ ${orgName}`,
           text: text
         })
       });
