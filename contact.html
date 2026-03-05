@@ -14,6 +14,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/main.js" defer></script>
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5005PHB8N"></script>
     <script>
@@ -22,6 +25,60 @@
       gtag("js", new Date());
       gtag("config", "G-T5005PHB8N");
     </script>
+    <style>
+        .booking-toggle {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: var(--space-sm);
+        }
+        .booking-toggle button {
+            background: none;
+            border: none;
+            color: var(--gray-500);
+            font-size: 16px;
+            font-weight: 600;
+            padding: var(--space-sm) var(--space-md);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .booking-toggle button.active {
+            color: var(--aqua);
+            border-bottom-color: var(--aqua);
+        }
+        .booking-toggle button:hover:not(.active) {
+            color: white;
+        }
+        .booking-panel { display: none; }
+        .booking-panel.active { display: block; }
+        .calendly-container {
+            min-height: 700px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .calendly-placeholder {
+            background: rgba(51,190,204,0.05);
+            border: 2px dashed rgba(51,190,204,0.3);
+            border-radius: 12px;
+            padding: var(--space-3xl);
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-lg);
+        }
+        .calendly-placeholder h3 { color: white; margin: 0; }
+        .calendly-placeholder p { color: var(--gray-500); max-width: 500px; margin: 0; }
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr !important; }
+            .calendly-container { min-height: 800px; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -43,100 +100,112 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero" style="min-height: 60vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl);">
+    <section class="hero" style="min-height: 50vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-4xl);">
         <div class="container" style="max-width: var(--max-width); text-align: center;">
             <h1 style="margin-bottom: var(--space-lg);">See Vonga in Action</h1>
-            <p style="font-size: 20px; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.85);">20 minutes. We'll show you the fan intelligence dashboard, a live sponsor ROI portal, and exactly what your merch has been leaving on the table.</p>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.85);">Pick a time that works. 20 minutes — we'll show you the fan intelligence dashboard, a live sponsor ROI portal, and exactly what data your merch has been leaving on the table.</p>
         </div>
     </section>
 
-    <!-- Form Section -->
+    <!-- Booking Section -->
     <section>
         <div class="container">
             <div class="grid grid-2" style="gap: var(--space-3xl); align-items: start;">
-                <!-- Form -->
+                <!-- Left: Booking -->
                 <div>
-                    <h2 style="margin-bottom: var(--space-md);">Book Your Demo</h2>
-                    <p style="margin-bottom: var(--space-2xl);"><strong>Takes 60 seconds.</strong> We'll reach out within 24 hours to schedule your demo and send over pricing tailored to your organization's scale.</p>
+                    <div class="booking-toggle">
+                        <button class="active" data-panel="calendar" onclick="switchPanel('calendar')">📅 Pick a Time</button>
+                        <button data-panel="form" onclick="switchPanel('form')">✉️ Send a Message</button>
+                    </div>
 
-                    <form id="contactForm" action="#" method="POST" class="mt-2">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
-                        </div>
+                    <!-- Calendar Panel -->
+                    <div id="panel-calendar" class="booking-panel active">
+                        <div id="calendly-embed" class="calendly-container"></div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="email">Work Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="you@organization.com">
-                        </div>
+                    <!-- Form Panel (Fallback) -->
+                    <div id="panel-form" class="booking-panel">
+                        <p style="margin-bottom: var(--space-xl); color: var(--gray-500);">Prefer email? No problem. We'll reach out within 24 hours.</p>
 
-                        <div class="form-group">
-                            <label for="organization">Organization *</label>
-                            <input type="text" id="organization" name="organization" required placeholder="Your team, school, or league">
-                        </div>
+                        <form id="contactForm" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="role">Your Role *</label>
-                            <select id="role" name="role" required>
-                                <option value="">Select your role...</option>
-                                <option value="cmo">CMO / VP of Marketing</option>
-                                <option value="partnerships">VP of Partnerships / Sponsorships</option>
-                                <option value="digital-strategy">Director of Digital Strategy</option>
-                                <option value="fan-experience">Director of Fan Experience</option>
-                                <option value="cro">Chief Revenue Officer</option>
-                                <option value="athletic-director">Athletic Director</option>
-                                <option value="innovation">Head of Innovation</option>
-                                <option value="marketing">Marketing Manager</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label for="email">Work Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="you@organization.com">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="intent">What brings you to Vonga? *</label>
-                            <select id="intent" name="intent" required>
-                                <option value="">Select one...</option>
-                                <option value="sponsor-roi">Proving sponsor ROI — sponsors are asking for engagement data</option>
-                                <option value="fan-database">Building a first-party fan database</option>
-                                <option value="merch-intelligence">Turning existing merch program into a data asset</option>
-                                <option value="exploring">Exploring options, earlier stage</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label for="organization">Organization *</label>
+                                <input type="text" id="organization" name="organization" required placeholder="Your team, school, or league">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="message">Anything we should know before the demo?</label>
-                            <textarea id="message" name="message" placeholder="Current merch supplier, sponsor portfolio, fan database situation, challenges — the more context the better."></textarea>
-                        </div>
+                            <div class="form-group">
+                                <label for="role">Your Role *</label>
+                                <select id="role" name="role" required>
+                                    <option value="">Select your role...</option>
+                                    <option value="cmo">CMO / VP of Marketing</option>
+                                    <option value="partnerships">VP of Partnerships / Sponsorships</option>
+                                    <option value="digital-strategy">Director of Digital Strategy</option>
+                                    <option value="fan-experience">Director of Fan Experience</option>
+                                    <option value="cro">Chief Revenue Officer</option>
+                                    <option value="athletic-director">Athletic Director</option>
+                                    <option value="innovation">Head of Innovation</option>
+                                    <option value="marketing">Marketing Manager</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-md);">Request Demo</button>
+                            <div class="form-group">
+                                <label for="intent">What brings you to Vonga? *</label>
+                                <select id="intent" name="intent" required>
+                                    <option value="">Select one...</option>
+                                    <option value="sponsor-roi">Proving sponsor ROI — sponsors are asking for engagement data</option>
+                                    <option value="fan-database">Building a first-party fan database</option>
+                                    <option value="merch-intelligence">Turning existing merch program into a data asset</option>
+                                    <option value="exploring">Exploring options, earlier stage</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
 
-                        <p style="font-size: 14px; color: var(--gray-500); margin-top: var(--space-lg); line-height: 1.5;">
-                            By submitting this form, you agree to be contacted by Vonga about our fan intelligence platform. We respect your privacy and never share your information.
-                        </p>
-                    </form>
+                            <div class="form-group">
+                                <label for="message">Anything we should know before the demo?</label>
+                                <textarea id="message" name="message" placeholder="Current merch supplier, sponsor portfolio, fan database situation, challenges — the more context the better."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-md);">Request Demo</button>
+
+                            <p style="font-size: 14px; color: var(--gray-500); margin-top: var(--space-lg); line-height: 1.5;">
+                                By submitting this form, you agree to be contacted by Vonga about our fan intelligence platform. We respect your privacy and never share your information.
+                            </p>
+                        </form>
+                    </div>
                 </div>
 
-                <!-- Info Sidebar -->
+                <!-- Right: Info Sidebar -->
                 <div>
                     <div class="card" style="margin-bottom: var(--space-xl);">
-                        <h3>What You'll See in the Demo</h3>
+                        <h3>What You'll See in 20 Minutes</h3>
                         <img src="/images/dashboard-screenshots/overview.png" alt="Vonga dashboard preview" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-top: var(--space-md); margin-bottom: var(--space-md);">
                         <div style="display: flex; flex-direction: column; gap: var(--space-lg); margin-top: var(--space-md);">
                             <div>
                                 <h4 style="margin-bottom: var(--space-xs);">1. Fan Profile Dashboard</h4>
-                                <p style="color: var(--gray-600);">What we know about a fan after 3 taps — location, engagement history, content preferences, device type. This is your fan database, built from physical merch.</p>
+                                <p style="color: var(--gray-600);">What we know about a fan after 3 taps — location, engagement history, content preferences, device type. Your fan database, built from physical merch.</p>
                             </div>
                             <div>
                                 <h4 style="margin-bottom: var(--space-xs);">2. Sponsor ROI Portal</h4>
-                                <p style="color: var(--gray-600);">The shareable link you send to a sponsor instead of a PowerPoint. Live engagement data, per-activation breakdown, fan demographics. The data that closes renewals.</p>
+                                <p style="color: var(--gray-600);">The shareable link you send to a sponsor instead of a PowerPoint. Live engagement data, per-activation breakdown, fan demographics.</p>
                             </div>
                             <div>
                                 <h4 style="margin-bottom: var(--space-xs);">3. Campaign Builder</h4>
-                                <p style="color: var(--gray-600);">How your marketing team builds the fan experience — no code required. A/B test two different experiences off the same item. Update content instantly.</p>
+                                <p style="color: var(--gray-600);">How your marketing team builds the fan experience — no code required. A/B test two experiences off the same item.</p>
                             </div>
                             <div>
-                                <h4 style="margin-bottom: var(--space-xs);">4. What the Fan Sees</h4>
-                                <p style="color: var(--gray-600);">A live tap walkthrough — what happens when a fan holds their phone to your merch. Two seconds. No app. Your content.</p>
+                                <h4 style="margin-bottom: var(--space-xs);">4. Live Tap Walkthrough</h4>
+                                <p style="color: var(--gray-600);">What happens when a fan holds their phone to your merch. Two seconds. No app. Your content.</p>
                             </div>
                         </div>
                     </div>
@@ -183,13 +252,79 @@
     </footer>
 
     <script>
-        // Prevent duplicate handlers
+        // ============================================================
+        // CALENDLY CONFIG — Change this URL when Bill creates his account
+        // ============================================================
+        const CALENDLY_URL = 'https://calendly.com/bill-vonga/demo';
+        // ============================================================
+
+        // Initialize Calendly embed
+        function initCalendly() {
+            if (typeof Calendly === 'undefined') {
+                // Widget not loaded yet, retry
+                setTimeout(initCalendly, 500);
+                return;
+            }
+            
+            const container = document.getElementById('calendly-embed');
+            if (!container) return;
+
+            Calendly.initInlineWidget({
+                url: CALENDLY_URL + '?hide_gdpr_banner=1&background_color=0f1729&text_color=ffffff&primary_color=33becc',
+                parentElement: container,
+                prefill: {},
+                utm: {}
+            });
+
+            // Track GA4 event
+            gtag('event', 'calendly_loaded', { event_category: 'booking' });
+        }
+
+        // Listen for Calendly events (booking confirmed, etc.)
+        window.addEventListener('message', function(e) {
+            if (e.origin !== 'https://calendly.com') return;
+            
+            if (e.data.event === 'calendly.event_scheduled') {
+                gtag('event', 'demo_booked', {
+                    event_category: 'conversion',
+                    event_label: 'calendly_booking'
+                });
+                console.log('[Calendly] Demo booked!');
+            }
+
+            if (e.data.event === 'calendly.date_and_time_selected') {
+                gtag('event', 'calendly_time_selected', {
+                    event_category: 'booking'
+                });
+            }
+        });
+
+        // Initialize on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCalendly);
+        } else {
+            initCalendly();
+        }
+
+        // Panel switching
+        function switchPanel(panel) {
+            document.querySelectorAll('.booking-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.booking-toggle button').forEach(b => b.classList.remove('active'));
+            document.getElementById('panel-' + panel).classList.add('active');
+            document.querySelector('[data-panel="' + panel + '"]').classList.add('active');
+
+            gtag('event', 'booking_panel_switch', {
+                event_category: 'engagement',
+                event_label: panel
+            });
+        }
+
+        // Form handler (fallback)
         const form = document.getElementById('contactForm');
-        const newHandler = async function(e) {
+        const formHandler = async function(e) {
             e.preventDefault();
             e.stopImmediatePropagation();
 
-            // Collect form data
             const formData = {
                 type: 'form',
                 name: document.getElementById('name').value,
@@ -202,14 +337,12 @@
                 page: window.location.href
             };
 
-            // Show loading state
             const submitBtn = document.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
             try {
-                // Send to notification server
                 const response = await fetch('/api/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -219,31 +352,16 @@
                 const result = await response.json();
                 console.log('[Form Submission] Success:', result);
 
-                // Store locally for dashboard
                 const submissions = JSON.parse(localStorage.getItem('vonga_form_submissions') || '[]');
                 submissions.push(formData);
                 localStorage.setItem('vonga_form_submissions', JSON.stringify(submissions));
 
-                // Track conversion in A/B system
-                if (window.ABTester) {
-                    const userData = JSON.parse(localStorage.getItem('vonga_ab_test') || '{}');
-                    if (userData.sessionId) {
-                        const event = {
-                            sessionId: userData.sessionId,
-                            heroVariant: userData.heroVariant?.id,
-                            ctaVariant: userData.ctaVariant?.id,
-                            eventType: 'conversion',
-                            metadata: { type: 'form_submit' },
-                            timestamp: new Date().toISOString()
-                        };
-                        const events = JSON.parse(localStorage.getItem('vonga_ab_events') || '[]');
-                        events.push(event);
-                        localStorage.setItem('vonga_ab_events', JSON.stringify(events));
-                    }
-                }
+                gtag('event', 'form_submitted', {
+                    event_category: 'conversion',
+                    event_label: 'contact_form'
+                });
 
-                // Show success message
-                document.querySelector('.container > div').innerHTML = `
+                document.getElementById('panel-form').innerHTML = `
                     <div style="text-align: center; padding: 60px 20px;">
                         <div style="font-size: 64px; margin-bottom: 20px;">✅</div>
                         <h2 style="margin-bottom: 16px;">Got it, ${formData.name.split(' ')[0]}.</h2>
@@ -251,26 +369,22 @@
                             We'll reach out within 24 hours to schedule your demo and send over pricing for ${formData.organization}.
                         </p>
                         <p style="color: #6b7280;">
-                            In the meantime, take a look at <a href="/how-it-works.html" style="color: #33BECC;">how the platform works</a>
-                            or check the <a href="/pricing.html" style="color: #33BECC;">pricing tiers</a>.
+                            Or, <a href="#" onclick="switchPanel('calendar'); return false;" style="color: #33BECC;">book a time directly</a> — it's faster.
                         </p>
                     </div>
                 `;
 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
             } catch (error) {
                 console.error('[Form Submission] Error:', error);
-                alert('There was an error submitting the form. Please email us directly at bill@vonga.io');
+                alert('There was an error. Please email us directly at bill@vonga.io');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         };
 
-        // Remove any existing handlers and add new one
         const newForm = form.cloneNode(true);
         form.parentNode.replaceChild(newForm, form);
-        newForm.addEventListener('submit', newHandler);
+        newForm.addEventListener('submit', formHandler);
     </script>
 </body>
 </html>

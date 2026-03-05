@@ -45,6 +45,8 @@
     }
     </script>
     <link rel="stylesheet" href="/css/main.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="/js/main.js" defer></script>
     <script src="/js/live-chat.js" defer></script>
     <!-- <script src="/js/exit-intent.js" defer></script> --> <!-- Disabled: lead magnets returning 404s -->
@@ -339,11 +341,31 @@
                 See the Vonga dashboard. Understand exactly what fan data you've been leaving on the table. Takes 20 minutes.
             </p>
             <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
-                <a href="/contact.html" class="btn btn-primary">Book a Demo</a>
+                <a href="#" onclick="openCalendlyPopup(); return false;" class="btn btn-primary">Book a Demo</a>
                 <a href="/pricing.html" class="btn btn-aqua">View Pricing</a>
             </div>
         </div>
     </section>
+
+    <script>
+        // Calendly popup config — change URL when Bill creates account
+        var CALENDLY_URL = 'https://calendly.com/bill-vonga/demo';
+        function openCalendlyPopup() {
+            if (typeof Calendly !== 'undefined') {
+                Calendly.initPopupWidget({ url: CALENDLY_URL + '?hide_gdpr_banner=1&background_color=0f1729&text_color=ffffff&primary_color=33becc' });
+                gtag('event', 'calendly_popup_opened', { event_category: 'booking', event_label: 'homepage_cta' });
+            } else {
+                window.location.href = '/contact.html';
+            }
+            return false;
+        }
+        // Track Calendly bookings from popup
+        window.addEventListener('message', function(e) {
+            if (e.origin === 'https://calendly.com' && e.data.event === 'calendly.event_scheduled') {
+                gtag('event', 'demo_booked', { event_category: 'conversion', event_label: 'homepage_popup' });
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
