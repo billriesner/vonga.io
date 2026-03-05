@@ -375,7 +375,7 @@ section {
   font-size: 20px;
   color: var(--gray-600);
   max-width: 700px;
-  margin: calc(var(--space-2xl) * -1) auto var(--space-3xl);
+  margin: 0 auto var(--space-3xl);
 }
 
 .section-dark .section-subtitle {
@@ -791,4 +791,88 @@ li::before {
 }
 li::marker {
   content: "" !important;
+}
+
+/* ============================================================
+   ICP Chooser Cards (CONV-3)
+   ============================================================ */
+.icp-card {
+    display: block;
+    border-radius: 16px;
+    border: 1px solid rgba(51, 190, 204, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+    transition: transform 0.22s cubic-bezier(0.4, 0.0, 0.2, 1),
+                box-shadow 0.22s cubic-bezier(0.4, 0.0, 0.2, 1),
+                border-color 0.22s ease;
+    cursor: pointer;
+}
+
+.icp-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(51, 190, 204, 0.35);
+    border-color: rgba(51, 190, 204, 0.45);
+}
+
+.icp-card-inner {
+    padding: 2rem 1.75rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.icp-emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.icp-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.icp-tagline {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #33BECC;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.icp-desc {
+    margin: 0.5rem 0 1rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.icp-cta {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #33BECC;
+    letter-spacing: 0.02em;
+    margin-top: auto;
+}
+
+.icp-card:hover .icp-cta {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .icp-card-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Force single-column ICP on mobile via the inline grid */
+@media (max-width: 768px) {
+    .icp-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
