@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor ROI — Vonga Fan Intelligence Platform</title>
+    <meta name="description" content="Real-time attribution for sports sponsorships. Every NFC tap is a measurable fan engagement event. No guesswork. No headcounts. Verified ROI.">
+    <meta property="og:title" content="Sponsor ROI — Vonga Fan Intelligence Platform">
+    <meta property="og:image" content="https://vonga.io/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://vonga.io/images/og-image.jpg">
+    <meta property="og:description" content="See exactly what your sponsorship dollars delivered. Real-time attribution. Zero guesswork.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://vonga.io/sponsor-roi">
+    <meta property="og:url" content="https://vonga.io/sponsor-roi">
+    <meta property="og:site_name" content="Vonga">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/main.js" defer></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5005PHB8N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-T5005PHB8N");
+    </script>
+    <style>
+        .roi-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin: var(--space-3xl) 0;
+        }
+        .roi-stat-card {
+            background: rgba(51, 190, 204, 0.07);
+            border: 1px solid rgba(51, 190, 204, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .roi-stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #33BECC;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .roi-stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+        }
+        .problem-section {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid rgba(255,255,255,0.15);
+            border-radius: 0 12px 12px 0;
+            padding: var(--space-xl) var(--space-2xl);
+            margin: var(--space-2xl) 0;
+        }
+        .solution-section {
+            background: rgba(51, 190, 204, 0.06);
+            border-left: 3px solid #33BECC;
+            border-radius: 0 12px 12px 0;
+            padding: var(--space-xl) var(--space-2xl);
+            margin: var(--space-2xl) 0;
+        }
+        .data-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .data-card:hover {
+            border-color: rgba(51,190,204,0.35);
+            transform: translateY(-3px);
+        }
+        .data-card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .data-card h3 {
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        .data-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .pdf-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.5rem;
+            border: 1px dashed rgba(255,255,255,0.25);
+            border-radius: 8px;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: not-allowed;
+            text-decoration: none;
+            transition: border-color 0.2s;
+        }
+        .pdf-download .badge {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        @media (max-width: 768px) {
+            .roi-stat-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/images/logos/logo.svg" alt="Vonga"></a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="/how-it-works.html">How It Works</a></li>
+                <li><a href="/platform.html">Platform</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/contact.html" class="btn btn-primary">Book a Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 60vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-5xl); position: relative; overflow: hidden;">
+        <img src="/images/hero-sponsor-roi.jpg" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; z-index: 0;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0.95) 100%); z-index: 1;"></div>
+        <div class="container" style="max-width: var(--max-width); text-align: center; position: relative; z-index: 2;">
+            <p style="color: #33BECC; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-lg);">For Sponsors</p>
+            <h1 style="margin-bottom: var(--space-lg);">See Exactly What Your<br>Sponsorship Dollars Delivered</h1>
+            <p style="font-size: 20px; max-width: 680px; margin: 0 auto var(--space-3xl); color: rgba(255,255,255,0.85);">Real-time attribution. Zero guesswork.</p>
+            <a href="/contact.html" class="btn btn-primary" style="font-size: 1.05rem; padding: 1rem 2rem;" onclick="gtag('event','sponsor_hero_cta_click',{event_category:'conversion'})">Request a Sponsor Portal Preview</a>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section style="background: var(--navy, #0a1628); border-top: 1px solid rgba(51,190,204,0.25); border-bottom: 1px solid rgba(51,190,204,0.25); padding: var(--space-3xl) var(--space-2xl);">
+        <div class="container" style="max-width: var(--max-width);">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl);">
+                <div style="background: rgba(51,190,204,0.08); border: 1px solid rgba(51,190,204,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+                    <span style="font-size: 3rem; font-weight: 800; color: #33BECC; display: block; line-height: 1; margin-bottom: 0.5rem;">Verified</span>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.6); font-weight: 500;">Every tap is a real person — not an impression estimate</span>
+                </div>
+                <div style="background: rgba(51,190,204,0.08); border: 1px solid rgba(51,190,204,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+                    <span style="font-size: 3rem; font-weight: 800; color: #33BECC; display: block; line-height: 1; margin-bottom: 0.5rem;">Live</span>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.6); font-weight: 500;">Data flows during the game — not in a post-season deck</span>
+                </div>
+                <div style="background: rgba(51,190,204,0.08); border: 1px solid rgba(51,190,204,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+                    <span style="font-size: 3rem; font-weight: 800; color: #33BECC; display: block; line-height: 1; margin-bottom: 0.5rem;">Shareable</span>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.6); font-weight: 500;">Share a link with your sponsor — they see their own ROI data</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: The Problem -->
+    <section style="background: var(--navy, #0a1628); color: white; padding: var(--space-4xl) var(--space-2xl);">
+        <div class="container" style="max-width: var(--max-width);">
+            <h2 class="section-title" style="color: white;">The Problem</h2>
+            <p class="section-subtitle" style="max-width: 700px; margin: 0 auto var(--space-3xl); color: rgba(255,255,255,0.7);">Stadium sponsorships are expensive. Proving they worked has always been nearly impossible.</p>
+
+            <div class="problem-section">
+                <h3 style="color: white; margin-bottom: var(--space-md);">You're flying blind on activation ROI</h3>
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 0;">You spend six or seven figures on stadium activations. At season's end, your agency sends a PowerPoint with estimated impressions based on attendance headcounts. That's not attribution — that's a guess multiplied by another guess.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); margin-top: var(--space-3xl);">
+                <div class="data-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,100,100,0.04);">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,100,100,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6464" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </div>
+                    <h4 style="color: white; margin-bottom: var(--space-sm);">Estimated impressions</h4>
+                    <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; margin: 0;">Based on total attendance — not actual fan interaction with your brand</p>
+                </div>
+                <div class="data-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,100,100,0.04);">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,100,100,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6464" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </div>
+                    <h4 style="color: white; margin-bottom: var(--space-sm);">No fan demographics</h4>
+                    <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; margin: 0;">You don't know if you reached your target audience or just filled a stadium</p>
+                </div>
+                <div class="data-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,100,100,0.04);">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,100,100,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6464" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </div>
+                    <h4 style="color: white; margin-bottom: var(--space-sm);">End-of-season lag</h4>
+                    <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; margin: 0;">By the time you get data, renewal decisions have already been made on gut feel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Solution -->
+    <section style="background: #0f1a2e; color: white; padding: var(--space-4xl) var(--space-2xl);">
+        <div class="container" style="max-width: var(--max-width);">
+            <h2 class="section-title" style="color: white;">The Vonga Solution</h2>
+            <p class="section-subtitle" style="max-width: 700px; margin: 0 auto var(--space-3xl); color: rgba(255,255,255,0.7);">NFC-enabled merchandise creates a direct, verified data channel between your activation and the fan.</p>
+
+            <div class="solution-section">
+                <h3 style="color: #33BECC; margin-bottom: var(--space-md);">Every tap is a measurable engagement event</h3>
+                <p style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: var(--space-md);">When a fan taps their NFC-enabled jersey, hat, or other branded merch item, Vonga logs a verified engagement event — complete with timestamp, location, and device type. Not an estimate. A real person, in a real place, engaging with your brand at a specific moment.</p>
+                <p style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 0;">That data flows into a live sponsor portal you can access anytime, share with your team, and hand directly to your CMO to justify next year's budget.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); margin-top: var(--space-3xl); align-items: center;">
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--space-lg);">How it creates the data channel</h3>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <div style="width: 36px; height: 36px; background: #33BECC; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; font-size: 0.9rem; flex-shrink: 0;">1</div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">NFC chip embeds in merch at production</h4>
+                                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; margin: 0;">Your branded items — jerseys, caps, scarves — carry an NFC tag during production. No change to look or feel.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <div style="width: 36px; height: 36px; background: #33BECC; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; font-size: 0.9rem; flex-shrink: 0;">2</div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Fan taps — engagement logged instantly</h4>
+                                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; margin: 0;">No app needed. No friction. Phone to tag, browser opens, engagement recorded.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <div style="width: 36px; height: 36px; background: #33BECC; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; font-size: 0.9rem; flex-shrink: 0;">3</div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Live portal updates in real time</h4>
+                                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; margin: 0;">Your sponsor portal updates as fans engage — during the game, during the season, across every activation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="background: rgba(51,190,204,0.05); border: 1px solid rgba(51,190,204,0.2);">
+                    <h4 style="color: #33BECC; margin-bottom: var(--space-md);">What this replaces</h4>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <span style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">PowerPoint recap decks</span>
+                            <span style="color: #33BECC; font-weight: 700; font-size: 0.85rem;">→ Live portal</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <span style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">Estimated impressions</span>
+                            <span style="color: #33BECC; font-weight: 700; font-size: 0.85rem;">→ Verified taps</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <span style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">End-of-season reports</span>
+                            <span style="color: #33BECC; font-weight: 700; font-size: 0.85rem;">→ Real-time data</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <span style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">Headcount × guess</span>
+                            <span style="color: #33BECC; font-weight: 700; font-size: 0.85rem;">→ Fan-level data</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">Gut-feel renewals</span>
+                            <span style="color: #33BECC; font-weight: 700; font-size: 0.85rem;">→ Data-backed decisions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: What You'll See -->
+    <section style="background: white; padding: var(--space-4xl) var(--space-2xl);">
+        <div class="container" style="max-width: var(--max-width);">
+            <h2 class="section-title" style="color: var(--navy);">What You'll See in Your Portal</h2>
+            <p class="section-subtitle" style="max-width: 650px; margin: 0 auto var(--space-3xl); color: var(--gray-600);">A dedicated portal for each sponsor — live engagement data, updated in real time, shareable with one link.</p>
+
+            <!-- Platform Screenshot -->
+            <div style="margin-bottom: var(--space-3xl); border-radius: 16px; overflow: hidden; border: 1px solid var(--gray-200, #e5e7eb); box-shadow: 0 24px 64px rgba(0,0,0,0.08);">
+                <img src="/images/dashboard-screenshots/sponsor-roi-crop.png" alt="Vonga Sponsor ROI Dashboard — live engagement metrics, fan attribution, and real-time sponsor portal" style="width: 100%; display: block;">
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl);">
+
+                <div style="background: var(--gray-50, #f9fafb); border: 1px solid var(--gray-200, #e5e7eb); border-radius: 16px; padding: 1.75rem;">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(51,190,204,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3 style="color: var(--navy); margin-bottom: 0.75rem; font-size: 1.1rem;">Engagement Metrics</h3>
+                    <p style="color: var(--gray-600); font-size: 0.95rem; line-height: 1.6; margin: 0;">Total taps, unique fans reached, repeat engagements, engagement rates, and how your activation performed across sponsors and over time.</p>
+                </div>
+
+                <div style="background: var(--gray-50, #f9fafb); border: 1px solid var(--gray-200, #e5e7eb); border-radius: 16px; padding: 1.75rem;">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(51,190,204,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <h3 style="color: var(--navy); margin-bottom: 0.75rem; font-size: 1.1rem;">Attribution Data</h3>
+                    <p style="color: var(--gray-600); font-size: 0.95rem; line-height: 1.6; margin: 0;">Which merch items drove the most engagement, which content resonated, and how each sponsor's activation compares within your program.</p>
+                </div>
+
+                <div style="background: var(--gray-50, #f9fafb); border: 1px solid var(--gray-200, #e5e7eb); border-radius: 16px; padding: 1.75rem;">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(51,190,204,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3 style="color: var(--navy); margin-bottom: 0.75rem; font-size: 1.1rem;">ROI Dashboard</h3>
+                    <p style="color: var(--gray-600); font-size: 0.95rem; line-height: 1.6; margin: 0;">Your live sponsor portal — updated as data comes in. Share the link instead of a deck. Engagement rates, impression counts, and sponsor performance at a glance.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: var(--navy, #0a1628); padding: var(--space-4xl) var(--space-2xl);">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <h2 style="margin-bottom: var(--space-lg); color: white;">Ready to See a Live Portal?</h2>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.75); margin-bottom: var(--space-3xl);">We'll walk you through a live demo portal — real engagement data from a sample program — so you can see exactly what you'd send to sponsors for renewal conversations.</p>
+
+            <a href="/contact.html" class="btn btn-primary" style="font-size: 1.05rem; padding: 1rem 2rem;" onclick="gtag('event','sponsor_cta_click',{event_category:'conversion'})">Request a Sponsor Portal Preview</a>
+
+            <p style="margin-top: var(--space-xl); color: rgba(255,255,255,0.4); font-size: 0.85rem;">20-minute call. We'll show you the portal, walk through a sample activation report, and answer any questions about attribution methodology.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="/images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
+                <p style="font-weight: 600; color: white; font-size: 18px;">Fan Intelligence Platform.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="/how-it-works.html">How It Works</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
+                    <li><a href="/platform.html">Platform</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Teams</h4>
+                <ul>
+                    <li><a href="/contact.html">Book a Demo</a></li>
+                    <li><a href="/sponsor-roi.html">Sponsor ROI</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Partners</h4>
+                <ul>
+                    <li><a href="/partner.html">Partner Program</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vonga. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        gtag('event', 'sponsor_roi_page_view', { event_category: 'engagement' });
+    </script>
+</body>
+</html>

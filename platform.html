@@ -13,8 +13,8 @@
     <meta name="twitter:image" content="https://vonga.io/images/og-image.jpg">
     <meta property="og:description" content="What teams can expect from connected merch programs. Industry benchmarks, use case frameworks, and fan data outcomes.">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://vonga.io/case-studies">
-    <meta property="og:url" content="https://vonga.io/case-studies">
+    <link rel="canonical" href="https://vonga.io/platform">
+    <meta property="og:url" content="https://vonga.io/platform">
     <meta property="og:site_name" content="Vonga">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="/css/main.css">
@@ -49,11 +49,13 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero" style="min-height: 70vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl);">
-        <div class="container" style="max-width: var(--max-width);">
+    <section class="hero" style="min-height: 70vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl); position: relative; overflow: hidden;">
+        <img src="/images/hero-how-it-works.jpg" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.25; z-index: 0;">
+        <div class="container" style="max-width: var(--max-width); position: relative; z-index: 1;">
             <div style="text-align: center;">
-                <h1 style="margin-bottom: var(--space-lg);">The Fan Intelligence Platform</h1>
-                <p style="font-size: 20px; max-width: 650px; margin: 0 auto var(--space-2xl); color: rgba(255,255,255,0.85);">Every NFC tap builds a fan profile. Every profile feeds your sponsor portal. Every insight is earned from real behavior — not surveys, not estimates, not guesswork.</p>
+                <p style="font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua); margin-bottom: var(--space-sm);">The First NFC Fan Intelligence Platform</p>
+                <h1 style="margin-bottom: var(--space-lg);">Turn Every Product Into<br>a Fan Data Point</h1>
+                <p style="font-size: 20px; max-width: 650px; margin: 0 auto var(--space-2xl); color: rgba(255,255,255,0.85);">Jerseys. Hats. Scarves. Bobbleheads. Giveaway shirts. If it has an NFC chip, it's generating fan intelligence — not just on game day, but for months after.</p>
                 <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
                     <a href="https://dashboard.vonga.io/demo" class="btn btn-primary" target="_blank">Try the Live Demo</a>
                     <a href="/contact.html" class="btn btn-aqua" style="background: transparent; border: 2px solid var(--aqua); color: var(--aqua);">Book a Walkthrough</a>
@@ -117,12 +119,32 @@
         <div class="container text-center" style="max-width: var(--max-width);">
             <h2 style="color: white; margin-bottom: var(--space-md);">Built for Sports Teams. Not Developers.</h2>
             <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto var(--space-2xl);">Your marketing team can run the entire platform without a single developer ticket. Set up campaigns, read fan data, share sponsor portals — all from one dashboard.</p>
-            <div style="max-width: 900px; margin: 0 auto; perspective: 1200px;">
-                <img src="/images/fan-experience-landscape.jpg" alt="Fan Tap Experience — Authenticate, Explore, Earn Rewards" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 40px 80px rgba(0,0,0,0.4); transform: rotateX(4deg); border: 1px solid rgba(51,190,204,0.15);">
+            <!-- Two showcases side by side -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); max-width: 1100px; margin: 0 auto;">
+                <div>
+                    <div style="perspective: 1200px;">
+                        <img src="/images/fan-experience-landscape.jpg" alt="Fan Tap Experience — Authenticate, Explore, Earn Rewards" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 40px 80px rgba(0,0,0,0.4); transform: rotateX(4deg); border: 1px solid rgba(51,190,204,0.15);">
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin-top: var(--space-md); text-transform: uppercase; letter-spacing: 1px;">What Fans See</p>
+                </div>
+                <div>
+                    <div style="perspective: 1200px;">
+                        <img src="/images/dashboard-screenshots/overview-crop.png" alt="Vonga Dashboard — Team analytics and fan intelligence" style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 40px 80px rgba(0,0,0,0.4); transform: rotateX(4deg); border: 1px solid rgba(51,190,204,0.15);">
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin-top: var(--space-md); text-transform: uppercase; letter-spacing: 1px;">What You See</p>
+                </div>
             </div>
             <div style="margin-top: var(--space-2xl);">
                 <a href="https://dashboard.vonga.io/demo" class="btn btn-primary" target="_blank">Explore the Demo</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Data Ownership Banner -->
+    <section style="padding: var(--space-3xl) var(--space-2xl); background: linear-gradient(135deg, #0a1628 0%, #112240 100%); border-top: 2px solid var(--aqua); border-bottom: 2px solid var(--aqua);">
+        <div class="container" style="max-width: var(--max-width); text-align: center;">
+            <h2 style="color: white; font-size: 2rem; margin-bottom: var(--space-md);">Your Fans. Your Data. Your Database.</h2>
+            <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Every fan profile, every tap event, every insight — it's yours. Export anytime. Integrate anywhere. We're the intelligence layer, not the data landlord.</p>
         </div>
     </section>
 
@@ -288,9 +310,19 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Get Started</h4>
+                <h4>For Teams</h4>
                 <ul>
                     <li><a href="/contact.html">Book a Demo</a></li>
+                    <li><a href="/sponsor-roi.html">Sponsor ROI</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Partners</h4>
+                <ul>
+                    <li><a href="/partner.html">Partner Program</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>

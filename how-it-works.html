@@ -6,6 +6,11 @@
     <title>How It Works — Vonga Fan Intelligence Platform</title>
     <meta name="description" content="Embed NFC into your merch supply chain in 5 steps. Fan profiles build automatically with every tap. Sponsor ROI proves itself.">
     <meta property="og:title" content="How It Works — Vonga Fan Intelligence Platform">
+    <meta property="og:image" content="https://vonga.io/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://vonga.io/images/og-image.jpg">
     <meta property="og:description" content="Your existing merch supplier keeps making the products. Vonga adds the intelligence layer. Every item your fans already own becomes a live data point.">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://vonga.io/how-it-works">
@@ -36,7 +41,7 @@
             </button>
             <ul>
                 <li><a href="/how-it-works.html">How It Works</a></li>
-                <li><a href="/case-studies.html">Platform</a></li>
+                <li><a href="/platform.html">Platform</a></li>
                 <li><a href="/pricing.html">Pricing</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/contact.html" class="btn btn-primary">Book a Demo</a></li>
@@ -45,8 +50,9 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero" style="min-height: 70vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl);">
-        <div class="container" style="max-width: var(--max-width);">
+    <section class="hero" style="min-height: 70vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl); position: relative; overflow: hidden;">
+        <img src="/images/hero-how-it-works.jpg" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; z-index: 0;">
+        <div class="container" style="max-width: var(--max-width); position: relative; z-index: 1;">
             <div class="split-section" style="align-items: center;">
                 <div>
                     <h1 style="text-align: left; margin-bottom: var(--space-lg);">A Data Flow,<br>Not a Supply Chain.</h1>
@@ -60,303 +66,260 @@
     </section>
 
     <!-- The 5 Steps -->
-    <section>
-        <div class="container">
+    <!-- Section Header -->
+    <section style="padding: var(--space-3xl) var(--space-2xl) var(--space-xl);">
+        <div class="container" style="max-width: 900px;">
             <h2 class="section-title">How Vonga Works</h2>
-            <p class="section-subtitle" style="max-width: 700px; margin: 0 auto var(--space-3xl);">Think of it as an intelligence layer that sits on top of your existing merchandise program. Your supplier doesn't change. Your products look identical. But now every item is a data source.</p>
+            <p class="section-subtitle" style="max-width: 600px; margin: 0 auto;">An intelligence layer on top of your existing merch program. Integrates with your current supply chain.</p>
+        </div>
+    </section>
 
-            <!-- Step 1: Embed -->
-            <div class="split-section" style="gap: var(--space-3xl); margin-bottom: var(--space-4xl); align-items: center;">
+    <!-- Step 1: Embed (white bg) -->
+    <section style="padding: var(--space-3xl) var(--space-2xl); background: white;">
+        <div class="container" style="max-width: 900px;">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-2xl); align-items: center;">
                 <div>
-                    <div style="display: inline-flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
-                        <div style="width: 56px; height: 56px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; flex-shrink: 0;">1</div>
-                        <h2 style="margin: 0; color: var(--aqua);">Embed</h2>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+                        <div style="width: 48px; height: 48px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; flex-shrink: 0;">1</div>
+                        <h3 style="margin: 0; color: var(--aqua); font-size: 1.5rem;">Embed</h3>
                     </div>
-                    <h3 style="margin-bottom: var(--space-md);">Your existing supplier installs the chip. Nothing else changes.</h3>
-                    <p>You order NFC chips from Vonga. They ship pre-encoded and production-ready in whatever form factor your supplier uses — sew-in labels, hang tags, or heat-sealable patches. Your supplier embeds a Vonga NFC tag during their normal production run.</p>
-                    <p style="margin-top: var(--space-md);">The item looks identical to what your supplier already makes. Same materials. Same design. Same quality. But now it has an intelligence layer — an encrypted, unique digital identity that connects to the Vonga platform.</p>
-                    <div class="card" style="margin-top: var(--space-lg); background: var(--gray-50);">
-                        <p style="margin: 0; font-size: 15px; color: var(--gray-600);"><strong>No production re-tooling required.</strong> We've done this with teams whose suppliers include large national distributors and local printshops alike. The embed workflow adds roughly 10 seconds per item to existing production.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--space-md);">Your supplier adds a Vonga NFC chip during normal production. 10 seconds per item. The product looks identical.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span style="background: rgba(51,190,204,0.1); color: var(--aqua); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">NTAG 424 DNA</span>
+                        <span style="background: rgba(51,190,204,0.1); color: var(--aqua); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">AES-128 Encrypted</span>
+                        <span style="background: rgba(51,190,204,0.1); color: var(--aqua); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">50+ Wash Cycles</span>
+                        <span style="background: rgba(51,190,204,0.1); color: var(--aqua); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">No Battery</span>
                     </div>
                 </div>
-                <div class="card" style="background: var(--muted-bg);">
-                    <h4 style="color: var(--aqua); margin-bottom: var(--space-md);">The Chip Specs</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);"><strong>Technology:</strong> NTAG 424 DNA — AES-128 encrypted</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);"><strong>Durability:</strong> Survives 50+ wash cycles</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);"><strong>Form factor:</strong> Garment-grade sew-in, hang tag, or patch</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);"><strong>Battery:</strong> None required — powered by the tap</li>
-                        <li style="padding: var(--space-xs) 0;"><strong>Visibility:</strong> Invisible to the fan — looks like normal apparel</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Step 2: Tap -->
-            <div class="split-section" style="gap: var(--space-3xl); margin-bottom: var(--space-4xl); align-items: center; flex-direction: row-reverse;">
                 <div>
-                    <div style="display: inline-flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
-                        <div style="width: 56px; height: 56px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; flex-shrink: 0;">2</div>
-                        <h2 style="margin: 0; color: var(--aqua);">Tap</h2>
-                    </div>
-                    <h3 style="margin-bottom: var(--space-md);">Fan taps phone to any item. No app. No login. Two seconds.</h3>
-                    <p>A fan holds their phone near the NFC-enabled product. Their phone reads the chip automatically — the same way contactless payments work. A browser page opens instantly. No app download. No username. No friction.</p>
-                    <p style="margin-top: var(--space-md);">The fan doesn't know they're generating data. They just see content — whatever experience you've built for that item in the Vonga campaign builder. An exclusive video. An offer. A behind-the-scenes clip. A pregame poll. You control it entirely.</p>
-                </div>
-                <div class="card" style="background: var(--muted-bg);">
-                    <h4 style="color: var(--aqua); margin-bottom: var(--space-md);">Compatibility</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">✅ iPhone 7 and newer — native NFC, no setup</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">✅ Android 5.0+ with NFC — automatic</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">✅ Works with 94% of smartphones in use today</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">✅ No app download — opens in native browser</li>
-                        <li style="padding: var(--space-xs) 0;">✅ Content loads in under 2 seconds</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Step 3: Engage -->
-            <div class="split-section" style="gap: var(--space-3xl); margin-bottom: var(--space-4xl); align-items: center;">
-                <div>
-                    <div style="display: inline-flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
-                        <div style="width: 56px; height: 56px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; flex-shrink: 0;">3</div>
-                        <h2 style="margin: 0; color: var(--aqua);">Engage</h2>
-                    </div>
-                    <h3 style="margin-bottom: var(--space-md);">Custom content, offers, and experiences. All delivered at the tap.</h3>
-                    <p>The Vonga Tap Experience Builder lets your marketing team control exactly what fans see without writing a line of code. Build different experiences for different items, different events, and different fan segments.</p>
-                    <p style="margin-top: var(--space-md);">Update content instantly — push a new coach message, activate a game-day offer, or flip on a new campaign — all without touching the physical product. The chip stays the same. The experience updates.</p>
-                </div>
-                <div class="card" style="background: var(--muted-bg);">
-                    <h4 style="color: var(--aqua); margin-bottom: var(--space-md);">What You Can Deliver</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Exclusive video (coach messages, highlights)</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Ticket offers, exclusive discounts</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Polls, surveys, fan feedback</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Challenges, contests, and rewards</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Location-aware experiences (in-venue vs. at home)</li>
-                        <li style="padding: var(--space-xs) 0;">Sponsor activations and branded content</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Step 4: Analyze -->
-            <div class="split-section" style="gap: var(--space-3xl); margin-bottom: var(--space-4xl); align-items: center; flex-direction: row-reverse;">
-                <div>
-                    <div style="display: inline-flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
-                        <div style="width: 56px; height: 56px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; flex-shrink: 0;">4</div>
-                        <h2 style="margin: 0; color: var(--aqua);">Analyze</h2>
-                    </div>
-                    <h3 style="margin-bottom: var(--space-md);">Fan profiles build automatically. Every tap is a data point.</h3>
-                    <p>Every tap creates or enriches a fan profile in your Vonga dashboard. Location, time, device type, engagement behavior, repeat taps, content preferences. No form fills required. The data builds from physical interaction, not opt-ins.</p>
-                    <p style="margin-top: var(--space-md);">Progressive profiling means each tap adds a layer. A fan who taps a jersey at game 1 gets a basic profile. By game 10, you know their attendance patterns, content preferences, geographic location, and engagement frequency. The database grows with every season.</p>
-                    <img src="/images/dashboard-screenshots/fan-database-stylized.png" alt="Vonga fan database with segmentation tiers and top engaged fans" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); margin-top: var(--space-xl);">
-                </div>
-                <div class="card" style="background: var(--muted-bg);">
-                    <h4 style="color: var(--aqua); margin-bottom: var(--space-md);">Your Dashboard Shows</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Fan profiles with progressive history</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Real-time geographic heatmaps</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Content performance by item and campaign</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Fan segmentation by behavior, location, frequency</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Live tap feed during events</li>
-                        <li style="padding: var(--space-xs) 0;">Von AI weekly insights and anomaly alerts</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Step 5: Prove -->
-            <div class="split-section" style="gap: var(--space-3xl); margin-bottom: var(--space-2xl); align-items: center;">
-                <div>
-                    <div style="display: inline-flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
-                        <div style="width: 56px; height: 56px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; flex-shrink: 0;">5</div>
-                        <h2 style="margin: 0; color: var(--aqua);">Prove</h2>
-                    </div>
-                    <h3 style="margin-bottom: var(--space-md);">Sponsor ROI dashboards that close renewals.</h3>
-                    <p>Sponsor portals are auto-generated from tap data. Share a link — your sponsor logs in and sees exactly what their activation delivered: verified engagement counts, fan demographics, engagement timeline, content interaction rates.</p>
-                    <p style="margin-top: var(--space-md);">No more building decks with estimated impressions. No more defending reach numbers your sponsor doesn't believe. The data is live, verifiable, and tied to real fan behavior. Your partnerships director walks into the renewal meeting with evidence.</p>
-                    <img src="/images/dashboard-screenshots/sponsor-roi-stylized.png" alt="Vonga sponsor ROI dashboard with impressions, engagement rates, and benchmark comparison" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); margin-top: var(--space-xl);">
-                </div>
-                <div class="card" style="background: var(--muted-bg);">
-                    <h4 style="color: var(--aqua); margin-bottom: var(--space-md);">Sponsor Portal Shows</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Total verified fan engagements</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Fan demographic breakdown</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">📅 Engagement timeline and peak moments</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">Geographic reach of their activation</li>
-                        <li style="padding: var(--space-xs) 0; border-bottom: 1px solid var(--gray-200);">🔗 Content click-through and conversion data</li>
-                        <li style="padding: var(--space-xs) 0;">📤 One-click export for their own reporting</li>
-                    </ul>
+                    <img src="/images/hero-partner.jpg" alt="NFC chip being embedded into jersey" style="width: 100%; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.2);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Try the Demo CTA -->
-    <section style="background: linear-gradient(135deg, var(--navy) 0%, #0d2137 100%); padding: var(--space-4xl) var(--space-2xl);">
-        <div class="container text-center">
-            <h2 style="color: white; margin-bottom: var(--space-md);">See It For Yourself</h2>
-            <p style="color: rgba(255,255,255,0.85); font-size: 18px; max-width: 600px; margin: 0 auto var(--space-xl);">
-                Explore the full Vonga dashboard with demo data. Click through fan profiles, sponsor portals, AI insights, and analytics — no signup required.
-            </p>
-            <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
-                <a href="https://dashboard.vonga.io/demo" class="btn btn-primary" target="_blank">Try the Live Demo</a>
-                <a href="/contact.html" class="btn btn-aqua" style="background: transparent; border: 2px solid var(--aqua); color: var(--aqua);">Book a Walkthrough</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Works With Your Partners -->
-    <section class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Works With Your Existing Partners</h2>
-            <p class="section-subtitle">Vonga doesn't compete with your merchandise supplier. We integrate with them. The supplier handles the product. We handle the intelligence.</p>
-
-            <div class="grid grid-4" style="margin-top: var(--space-3xl);">
-                <div class="card text-center" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
-                    <div style="font-size: 22px; font-weight: 700; color: white; margin-bottom: var(--space-xs);">BSN Sports</div>
-                    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">Team apparel &amp; uniforms</div>
+    <!-- Step 2: Tap (dark bg) -->
+    <section style="padding: var(--space-3xl) var(--space-2xl); background: var(--navy, #0a1628); color: white;">
+        <div class="container" style="max-width: 900px;">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-2xl); align-items: center;">
+                <div>
+                    <img src="/images/hero-homepage.jpg" alt="Fan tapping phone to NFC jersey" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
                 </div>
-                <div class="card text-center" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
-                    <div style="font-size: 22px; font-weight: 700; color: white; margin-bottom: var(--space-xs);">Nike</div>
-                    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">Team uniforms & apparel</div>
-                </div>
-                <div class="card text-center" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
-                    <div style="font-size: 22px; font-weight: 700; color: white; margin-bottom: var(--space-xs);">New Era</div>
-                    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">Headwear & caps</div>
-                </div>
-                <div class="card text-center" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
-                    <div style="font-size: 22px; font-weight: 700; color: white; margin-bottom: var(--space-xs);">Any Supplier</div>
-                    <div style="font-size: 13px; color: rgba(255,255,255,0.6);">If they can embed a label, they can embed Vonga</div>
-                </div>
-            </div>
-
-            <div class="text-center" style="margin-top: var(--space-3xl);">
-                <p style="color: rgba(255,255,255,0.85); font-size: 18px; max-width: 600px; margin: 0 auto;">The perfect objection to hear from a prospect: "We already have a merch supplier." That means they have volume. Vonga plugs into that volume.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fan Experience vs. Org Experience -->
-    <section class="section-muted">
-        <div class="container">
-            <h2 class="section-title">Two Perspectives, One Platform</h2>
-            <p class="section-subtitle">The tap experience is built for fans. The dashboard is built for your team.</p>
-
-            <div class="split-section" style="gap: var(--space-2xl); margin-top: var(--space-3xl);">
-                <div class="card" style="background: var(--bg); border: 2px solid var(--aqua);">
-                    <h3 style="color: var(--aqua); margin-bottom: var(--space-lg);">What the Fan Sees</h3>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-md);">
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--aqua); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Exclusive content</strong>
-                                <span style="color: var(--gray-600);">Coach messages, highlights, behind-the-scenes access</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--aqua); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Instant access</strong>
-                                <span style="color: var(--gray-600);">No app. No signup. Content in under 2 seconds.</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--aqua); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Fresh experiences</strong>
-                                <span style="color: var(--gray-600);">Content updates automatically — new experiences without new merch</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--aqua); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Privacy-first design</strong>
-                                <span style="color: var(--gray-600);">No account required. Fan data collected transparently via engagement.</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card" style="background: var(--bg); border: 2px solid var(--coral);">
-                    <h3 style="color: var(--coral); margin-bottom: var(--space-lg);">What Your Team Sees</h3>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-md);">
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--coral); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Fan database</strong>
-                                <span style="color: var(--gray-600);">Profiles built from real-world behavior, not form fills</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--coral); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Sponsor ROI portal</strong>
-                                <span style="color: var(--gray-600);">Auto-generated dashboards for every sponsor activation</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--coral); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Campaign builder</strong>
-                                <span style="color: var(--gray-600);">Build, A/B test, and update fan experiences without code</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: start; gap: var(--space-sm);">
-                            <span style="color: var(--coral); font-size: 20px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text); display: block; margin-bottom: 4px;">Analytics + Von AI</strong>
-                                <span style="color: var(--gray-600);">Real-time data and weekly AI summaries — know what's working before your next meeting</span>
-                            </div>
-                        </li>
-                    </ul>
+                <div>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+                        <div style="width: 48px; height: 48px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; flex-shrink: 0;">2</div>
+                        <h3 style="margin: 0; color: var(--aqua); font-size: 1.5rem;">Tap</h3>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--space-md); color: rgba(255,255,255,0.85);">Fan holds phone near the item. Browser opens instantly. No app. No login. Works with 94% of smartphones.</p>
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--aqua);">2 sec</div>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">From tap to content — faster than opening an app</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Questions We Hear Often</h2>
-
-            <div class="grid grid-2">
-                <div class="card">
-                    <h4>Does it require an app?</h4>
-                    <p>No. It uses your phone's built-in NFC — the same technology behind Apple Pay and Google Pay. Fans just tap their phone near the product and a page opens automatically in their browser.</p>
+    <!-- Step 3: Engage (light gray bg) -->
+    <section style="padding: var(--space-3xl) var(--space-2xl); background: #f7f8fa;">
+        <div class="container" style="max-width: 900px;">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-2xl); align-items: center;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+                        <div style="width: 48px; height: 48px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; flex-shrink: 0;">3</div>
+                        <h3 style="margin: 0; color: var(--aqua); font-size: 1.5rem;">Engage</h3>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--space-md);">Your marketing team builds the tap experience — video, offers, polls, challenges. Update content anytime without touching the physical product.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                        <div style="background: white; padding: 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="display: block; margin: 0 auto 4px;"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            Video
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="display: block; margin: 0 auto 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            Polls
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="display: block; margin: 0 auto 4px;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/></svg>
+                            Offers
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="display: block; margin: 0 auto 4px;"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                            Rewards
+                        </div>
+                    </div>
                 </div>
-
-                <div class="card">
-                    <h4>What if we want to replace our merch supplier?</h4>
-                    <p>You don't need to. Vonga integrates with whoever you already work with. If you're buying jerseys from BSN Sports or hats from New Era, we work with them directly. No supplier change required.</p>
+                <div>
+                    <img src="/images/fan-experience-landscape.jpg" alt="Fan tap experience — authenticate, explore content, earn rewards" style="width: 100%; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.15);">
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card">
-                    <h4>How durable is the chip in real merch?</h4>
-                    <p>The NTAG 424 DNA chip survives 50+ wash cycles in normal laundry conditions. Garment-grade tags are heat-sealed and waterproof. It's the same standard used in luxury brand authentication.</p>
+    <!-- Step 4: Analyze (dark bg) -->
+    <section style="padding: var(--space-3xl) var(--space-2xl); background: var(--navy, #0a1628); color: white;">
+        <div class="container" style="max-width: 900px;">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-2xl); align-items: center;">
+                <div>
+                    <img src="/images/dashboard-screenshots/fans-crop.png" alt="Fan database with profiles" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
                 </div>
-
-                <div class="card">
-                    <h4>Do fans need to create an account?</h4>
-                    <p>No. The tap experience is friction-free. Data is collected through behavioral signals (what they tap, when, where, how often) rather than registration forms. Optional contact capture can be included in campaigns if you want it.</p>
+                <div>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+                        <div style="width: 48px; height: 48px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; flex-shrink: 0;">4</div>
+                        <h3 style="margin: 0; color: var(--aqua); font-size: 1.5rem;">Analyze</h3>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--space-md); color: rgba(255,255,255,0.85);">Every tap builds a fan profile automatically. By game 10, you know their attendance patterns, preferences, and engagement frequency.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-top: var(--space-md);">
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--aqua);">Zero</div>
+                            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Form fills required</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--aqua);">Every</div>
+                            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Tap adds a layer</div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card">
-                    <h4>Can we update the content after items are distributed?</h4>
-                    <p>Yes — that's one of the platform's biggest advantages. Content is cloud-based. A jersey distributed in October can deliver new content in January. Update campaigns instantly without touching the physical product.</p>
+    <!-- Step 5: Prove (white bg) -->
+    <section style="padding: var(--space-3xl) var(--space-2xl); background: white;">
+        <div class="container" style="max-width: 900px;">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-2xl); align-items: center;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+                        <div style="width: 48px; height: 48px; background: var(--aqua); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; flex-shrink: 0;">5</div>
+                        <h3 style="margin: 0; color: var(--aqua); font-size: 1.5rem;">Prove</h3>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--space-md);">Auto-generated sponsor portals with live data. Share a link — your sponsor sees verified engagement, demographics, and ROI. No more PowerPoints with estimated impressions.</p>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--aqua);">Real data. Not estimates.</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Walk into the renewal meeting with evidence, not a slide deck.</div>
                 </div>
-
-                <div class="card">
-                    <h4>What phones work with it?</h4>
-                    <p>iPhone 7 and newer, plus Android 5.0+ devices with NFC enabled. That covers roughly 94% of smartphones in active use today. No setup required on the fan's end — it just works.</p>
+                <div>
+                    <img src="/images/prove-sponsor-roi.jpg" alt="Data visualization — proving sponsor ROI with verified engagement metrics" style="width: 100%; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.2);">
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card">
-                    <h4>How do sponsors access their data?</h4>
-                    <p>Each sponsor gets a branded portal link — they log in and see their activation's performance in real time. They can filter by date range, export data, and share the link internally. You control what data each sponsor sees.</p>
+    <!-- SEO/LLM Detail (hidden visually, available for crawlers) -->
+    <section style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true">
+        <div>
+            <h2>Technical Details</h2>
+            <p>Vonga NFC chips use NTAG 424 DNA technology with AES-128 encryption. No battery required — powered by the phone's NFC field. Chip form factor (sew-in, hang tag, heat-seal patch, or sticker) is matched to the product type. Compatible with iPhone 7+ and Android 5.0+ (94% of smartphones). Content loads in seconds via native browser — no app download required.</p>
+            <p>Fan-facing content is cloud-based and can be updated anytime without touching the physical product. Supports video, offers, and sponsor activations. Marketing teams manage content through the dashboard.</p>
+            <p>Each tap captures location, time, device, and engagement behavior. The fan database includes segmentation by behavior and location, real-time geographic heatmaps, and live tap activity feeds during events.</p>
+            <p>Sponsor portals are auto-generated with verified engagement counts, fan demographics, engagement timelines, geographic reach, content click-through data, and one-click export for sponsor reporting.</p>
+        </div>
+    </section>
+
+    <!-- What Changes — compact Before/After -->
+    <section style="padding: var(--space-4xl) var(--space-2xl); background: white;">
+        <div class="container" style="max-width: 900px;">
+            <h2 class="section-title" style="color: var(--navy);">What Changes for Your Team</h2>
+            <p class="section-subtitle" style="color: var(--gray-600);">No new suppliers. No developer tickets. No app for fans to download. Here's what's different after day one.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: var(--space-3xl); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden;">
+                <div style="padding: var(--space-2xl); background: var(--gray-50);">
+                    <h3 style="color: var(--gray-500); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-xl);">Before</h3>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                            <span style="color: var(--gray-600);">Merch generates zero fan data</span>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                            <span style="color: var(--gray-600);">Sponsor ROI based on headcount estimates</span>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                            <span style="color: var(--gray-600);">Giveaway items gone after game day</span>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                            <span style="color: var(--gray-600);">Content locked to one experience forever</span>
+                        </div>
+                    </div>
                 </div>
+                <div style="padding: var(--space-2xl); background: white;">
+                    <h3 style="color: var(--aqua); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-xl);">After</h3>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span style="color: var(--navy);">Every item builds fan profiles automatically</span>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span style="color: var(--navy);">Sponsors see their own live ROI portal</span>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span style="color: var(--navy);">Giveaways generate data for months</span>
+                        </div>
+                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" style="flex-shrink: 0; margin-top: 3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span style="color: var(--navy);">Update content anytime — no new product needed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card">
-                    <h4>How long does onboarding take?</h4>
-                    <p>Most teams are fully operational within 30 days of signing. That includes coordinating with your supplier on the chip embed workflow, building your first tap experiences in the campaign builder, and getting your dashboard configured. We walk you through every step.</p>
+    <!-- Data Ownership -->
+    <section style="padding: var(--space-2xl) var(--space-2xl); background: white; border-bottom: 1px solid var(--gray-200, #e5e7eb);">
+        <div class="container" style="max-width: var(--max-width); display: flex; align-items: center; justify-content: center; gap: var(--space-xl); flex-wrap: wrap;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--aqua)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <p style="color: var(--navy); font-size: 1.1rem; font-weight: 500; margin: 0;"><strong>Your fans. Your data. Your database.</strong> Every profile, every tap, every insight — export anytime, integrate anywhere. We're the intelligence layer, not the data landlord.</p>
+        </div>
+    </section>
+
+    <!-- Works With Your Suppliers — clean row -->
+    <section style="padding: var(--space-4xl) var(--space-2xl); background: var(--navy);">
+        <div class="container" style="max-width: var(--max-width);">
+            <h2 style="color: white; text-align: center; margin-bottom: var(--space-sm);">Works With Your Existing Suppliers</h2>
+            <p style="color: rgba(255,255,255,0.6); text-align: center; max-width: 550px; margin: 0 auto var(--space-3xl);">We don't replace your merch partner — we plug into them. If they can sew a label, they can embed a Vonga chip.</p>
+            <div style="display: flex; justify-content: center; gap: var(--space-3xl); flex-wrap: wrap; align-items: center;">
+                <span style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5);">Apparel manufacturers</span>
+                <span style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.35);">•</span>
+                <span style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5);">Decorators</span>
+                <span style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.35);">•</span>
+                <span style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5);">Licensed distributors</span>
+                <span style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.35);">•</span>
+                <span style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5);">Stadium vendors</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ — compact accordion style -->
+    <section style="padding: var(--space-4xl) var(--space-2xl); background: var(--gray-50);">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title" style="color: var(--navy);">Common Questions</h2>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-md); margin-top: var(--space-2xl);">
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl);">
+                    <h4 style="color: var(--navy); margin-bottom: var(--space-sm);">Does it require an app?</h4>
+                    <p style="color: var(--gray-600); margin: 0;">No. Uses the phone's built-in NFC — same as Apple Pay. Tap and a page opens in the browser. Seconds.</p>
+                </div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl);">
+                    <h4 style="color: var(--navy); margin-bottom: var(--space-sm);">How durable is the chip?</h4>
+                    <p style="color: var(--gray-600); margin: 0;">NTAG 424 DNA — waterproof, no battery, AES-128 encrypted. Same chip standard used in luxury brand authentication. Form factor matched to your product.</p>
+                </div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl);">
+                    <h4 style="color: var(--navy); margin-bottom: var(--space-sm);">Do fans need an account?</h4>
+                    <p style="color: var(--gray-600); margin: 0;">No. Data is collected through behavior — what they tap, when, where, how often. No forms, no signup, no friction.</p>
+                </div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl);">
+                    <h4 style="color: var(--navy); margin-bottom: var(--space-sm);">Can we change content after distribution?</h4>
+                    <p style="color: var(--gray-600); margin: 0;">Yes. Content is cloud-based. A jersey from October delivers new content in January. Update instantly — the physical product never changes.</p>
+                </div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl);">
+                    <h4 style="color: var(--navy); margin-bottom: var(--space-sm);">How fast is onboarding?</h4>
+                    <p style="color: var(--gray-600); margin: 0;">Designed for fast onboarding. Dashboard access is immediate. Full program launch — including chip provisioning and campaign setup — typically takes weeks, not months.</p>
+                </div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl);">
+                    <h4 style="color: var(--navy); margin-bottom: var(--space-sm);">What phones work with it?</h4>
+                    <p style="color: var(--gray-600); margin: 0;">iPhone 7+ and Android 5.0+ with NFC. Covers roughly 94% of smartphones in active use. No setup required on the fan's end.</p>
                 </div>
             </div>
         </div>
@@ -365,16 +328,13 @@
     <!-- CTA -->
     <section style="background: var(--navy); padding: var(--space-6xl) var(--space-2xl);">
         <div class="container text-center">
-            <div style="max-width: 800px; margin: 0 auto var(--space-2xl);">
-                <img src="/images/dashboard-screenshots/overview.png" alt="Vonga dashboard overview" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
-            </div>
-            <h2 style="color: white; margin-bottom: var(--space-md);">See the Dashboard in Action</h2>
-            <p style="color: rgba(255,255,255,0.95); font-size: 20px; max-width: 600px; margin: 0 auto var(--space-2xl);">
-                We'll show you what your fan database looks like after one season of connected merch. Fan profiles, sponsor portals, campaign analytics — live, in 20 minutes.
+            <h2 style="color: white; margin-bottom: var(--space-md);">See It Live in 20 Minutes</h2>
+            <p style="color: rgba(255,255,255,0.85); font-size: 20px; max-width: 600px; margin: 0 auto var(--space-2xl);">
+                Fan profiles, sponsor portals, campaign builder — all live. No slides, no estimates.
             </p>
             <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
                 <a href="/contact.html" class="btn btn-primary">Book a Demo</a>
-                <a href="/pricing.html" class="btn btn-aqua">View Pricing</a>
+                <a href="https://dashboard.vonga.io/demo" class="btn btn-aqua" style="background: transparent; border: 2px solid var(--aqua); color: var(--aqua);" target="_blank">Try the Demo</a>
             </div>
         </div>
     </section>
@@ -392,15 +352,24 @@
                 <ul>
                     <li><a href="/how-it-works.html">How It Works</a></li>
                     <li><a href="/pricing.html">Pricing</a></li>
-                    <li><a href="/case-studies.html">Platform</a></li>
+                    <li><a href="/platform.html">Platform</a></li>
                     <li><a href="/blog/">Blog</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h4>Get Started</h4>
+                <h4>For Teams</h4>
                 <ul>
                     <li><a href="/contact.html">Book a Demo</a></li>
+                    <li><a href="/sponsor-roi.html">Sponsor ROI</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Partners</h4>
+                <ul>
+                    <li><a href="/partner.html">Partner Program</a></li>
                     <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </div>
