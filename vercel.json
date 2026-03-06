@@ -2,43 +2,28 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    {
-      "source": "/lead-magnets/ROI-Calculator.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/lead-magnets/Sponsor-ROI-Guide.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/lead-magnets/Case-Study-Pack.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/lead-magnets/:path*",
-      "destination": "/",
-      "permanent": true
-    }
+    { "source": "/about", "destination": "/", "permanent": true },
+    { "source": "/club", "destination": "/", "permanent": true },
+    { "source": "/club/:path*", "destination": "/", "permanent": true },
+    { "source": "/shop", "destination": "/pricing/", "permanent": true },
+    { "source": "/shipping-returns", "destination": "/", "permanent": true },
+    { "source": "/legal/terms", "destination": "/", "permanent": true },
+    { "source": "/legal/:path*", "destination": "/", "permanent": true },
+    { "source": "/faq", "destination": "/how-it-works/", "permanent": true },
+    { "source": "/enterprise", "destination": "/pricing/", "permanent": true },
+    { "source": "/technology", "destination": "/platform/", "permanent": true },
+    { "source": "/lead-magnets/ROI-Calculator.html", "destination": "/", "permanent": true },
+    { "source": "/lead-magnets/Sponsor-ROI-Guide.html", "destination": "/", "permanent": true },
+    { "source": "/lead-magnets/Case-Study-Pack.html", "destination": "/", "permanent": true },
+    { "source": "/lead-magnets/:path*", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
       ]
     }
   ]

@@ -1,73 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
   <url>
     <loc>https://vonga.io/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vonga.io/how-it-works</loc>
-    <lastmod>2026-03-03</lastmod>
+    <loc>https://vonga.io/platform/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vonga.io/pricing</loc>
-    <lastmod>2026-03-03</lastmod>
+    <loc>https://vonga.io/how-it-works/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vonga.io/case-studies</loc>
-    <lastmod>2026-03-03</lastmod>
+    <loc>https://vonga.io/pricing/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vonga.io/sponsor-roi/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vonga.io/partner/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vonga.io/contact</loc>
-    <lastmod>2026-03-03</lastmod>
+    <loc>https://vonga.io/case-studies/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://vonga.io/contact/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vonga.io/demo/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Solution pages -->
+  <url>
+    <loc>https://vonga.io/solution-fan-engagement/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vonga.io/solution-revenue/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vonga.io/solution-measurement/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vonga.io/solution-connection/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vonga.io/solution-future-ready/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog -->
   <url>
     <loc>https://vonga.io/blog/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vonga.io/blog/sponsor-roi-problem</loc>
+    <loc>https://vonga.io/blog/sponsor-roi-problem/</loc>
     <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vonga.io/blog/merch-revenue-least-interesting</loc>
+    <loc>https://vonga.io/blog/merch-revenue-least-interesting/</loc>
     <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vonga.io/blog/app-fatigue-fan-engagement</loc>
+    <loc>https://vonga.io/blog/app-fatigue-fan-engagement/</loc>
     <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vonga.io/blog/sponsor-renewal-playbook</loc>
+    <loc>https://vonga.io/blog/sponsor-renewal-playbook/</loc>
     <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vonga.io/blog/first-party-data-new-tv-deal</loc>
+    <loc>https://vonga.io/blog/first-party-data-new-tv-deal/</loc>
     <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vonga.io/blog/how-to-prove-sponsor-roi-in-college-athletics</loc>
+    <loc>https://vonga.io/blog/how-to-prove-sponsor-roi-in-college-athletics/</loc>
     <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vonga.io/blog/measuring-fan-engagement</loc>
+    <loc>https://vonga.io/blog/measuring-fan-engagement/</loc>
     <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vonga.io/demo</loc>
-    <lastmod>2026-03-02</lastmod>
-    <priority>0.8</priority>
   </url>
 </urlset>
