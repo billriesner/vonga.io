@@ -12,26 +12,51 @@ window.addEventListener('scroll', function() {
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('nav ul');
 
+// Create backdrop overlay for mobile nav
+const navBackdrop = document.createElement('div');
+navBackdrop.classList.add('nav-backdrop');
+document.body.appendChild(navBackdrop);
+
+function openNav() {
+  mobileMenuToggle.classList.add('active');
+  navMenu.classList.add('active');
+  navBackdrop.classList.add('active');
+  document.body.classList.add('nav-open');
+}
+
+function closeNav() {
+  mobileMenuToggle.classList.remove('active');
+  navMenu.classList.remove('active');
+  navBackdrop.classList.remove('active');
+  document.body.classList.remove('nav-open');
+}
+
 if (mobileMenuToggle) {
   mobileMenuToggle.addEventListener('click', function() {
-    this.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    if (navMenu.classList.contains('active')) {
+      closeNav();
+    } else {
+      openNav();
+    }
   });
 
   // Close menu when clicking a link
   const navLinks = document.querySelectorAll('nav ul li a');
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
-      mobileMenuToggle.classList.remove('active');
-      navMenu.classList.remove('active');
+      closeNav();
     });
   });
 
-  // Close menu when clicking outside
+  // Close menu when clicking outside (backdrop)
+  navBackdrop.addEventListener('click', function() {
+    closeNav();
+  });
+
+  // Close menu when clicking outside nav (fallback)
   document.addEventListener('click', function(e) {
-    if (!e.target.closest('nav')) {
-      mobileMenuToggle.classList.remove('active');
-      navMenu.classList.remove('active');
+    if (!e.target.closest('nav') && !e.target.closest('.nav-backdrop')) {
+      closeNav();
     }
   });
 }

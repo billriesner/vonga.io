@@ -876,3 +876,193 @@ li::marker {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ============================================================
+   COMPREHENSIVE MOBILE RESPONSIVE FIXES (Mar 6, 2026)
+   Fixes all inline grid/flex layout breakdowns on mobile.
+   Uses !important to override inline styles.
+   ============================================================ */
+
+/* --- Global: prevent horizontal overflow on all pages --- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* --- Nav backdrop overlay (injected by JS when nav opens) --- */
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  cursor: pointer;
+}
+
+.nav-backdrop.active {
+  display: block;
+}
+
+/* --- Body scroll lock when mobile nav is open --- */
+body.nav-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+
+  /* --- Steps section: force vertical stack --- */
+  .steps {
+    flex-direction: column !important;
+    gap: var(--space-lg) !important;
+  }
+
+  .step {
+    min-width: unset !important;
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  .step h3 {
+    font-size: 18px !important;
+  }
+
+  .step p {
+    font-size: 15px !important;
+  }
+
+  /* --- All inline 2-column grids: stack to single column --- */
+  .grid-2col,
+  .grid-3col,
+  .grid-4col,
+  .grid-2col-asym,
+  .before-after-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- Platform: Before/After section --- */
+  .before-after-grid {
+    border-radius: var(--radius-lg) !important;
+  }
+
+  /* --- Sponsor ROI: pain point cards & stats --- */
+  .pain-points-grid,
+  .sponsor-stats-grid,
+  .sponsor-results-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- How It Works: step detail rows --- */
+  .how-step-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .how-step-row .how-step-image {
+    order: -1;
+  }
+
+  /* --- Pricing: pilot card price display --- */
+  .pilot-price-display {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .pilot-price-display .pilot-price-amount {
+    font-size: 40px !important;
+  }
+
+  .pilot-price-display .pilot-price-period {
+    font-size: 16px !important;
+  }
+
+  /* --- Pricing: After-pilot plans grid --- */
+  .pricing-plans-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- Section horizontal padding reduction --- */
+  section[style*="padding: var(--space-4xl) var(--space-2xl)"],
+  section[style*="padding: var(--space-2xl) var(--space-2xl)"] {
+    padding-left: var(--space-md) !important;
+    padding-right: var(--space-md) !important;
+  }
+
+  /* --- Iframe: cap height on mobile so it doesn't overflow --- */
+  iframe[src*="dashboard.vonga.io"] {
+    height: 400px !important;
+  }
+
+  /* --- How It Works: inner 2x2 grids within steps --- */
+  .how-step-inner-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================
+   MOBILE FIXES — Supplemental (Mar 6, 2026)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* Pricing cards: force single column by killing min-width */
+  .grid-4 > * {
+    min-width: unset !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  .grid-3 > * {
+    min-width: unset !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  .grid-2 > * {
+    min-width: unset !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  /* Prevent before-after sections from having overflow:hidden that clips content */
+  .before-after-grid {
+    overflow: visible !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  /* Before-after child columns: add their own border radius */
+  .before-after-grid > *:first-child {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+  }
+
+  .before-after-grid > *:last-child {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+  }
+
+  /* Section padding fix for inline-styled sections */
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  /* Sponsor ROI: data-card grids in problem section */
+  .data-card {
+    min-width: unset !important;
+  }
+
+  /* How-it-works: prevent images from being pushed below text oddly */
+  .how-step-row img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Steps number — slightly smaller on mobile */
+  .step-number {
+    width: 48px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 20px !important;
+  }
+
+}
