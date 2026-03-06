@@ -141,7 +141,7 @@
         @media (max-width: 768px) {
             .integration-grid { grid-template-columns: 1fr !important; }
             .partner-split { grid-template-columns: 1fr !important; gap: var(--space-xl) !important; }
-            .intel-model { padding: var(--space-md) !important; }
+            .intel-model { padding: var(--space-sm) !important; border-radius: 12px !important; }
             .intel-model .partner-split > div {
                 width: 100% !important;
                 min-width: 0 !important;
@@ -149,8 +149,11 @@
             }
             .intel-model .partner-split > div:last-child {
                 border-radius: 12px;
+                padding: var(--space-lg) !important;
             }
             .partner-benefit { flex-direction: column; gap: var(--space-sm); }
+            section { padding-left: var(--space-sm) !important; padding-right: var(--space-sm) !important; }
+            .container { padding-left: var(--space-sm) !important; padding-right: var(--space-sm) !important; }
         }
     </style>
 </head>
