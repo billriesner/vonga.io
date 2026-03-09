@@ -31,8 +31,8 @@
     { "source": "/login", "destination": "https://dashboard.vonga.io/", "permanent": true },
     { "source": "/blog/qr-vs-nfc/", "destination": "/blog/", "permanent": true },
     { "source": "/blog/qr-vs-nfc", "destination": "/blog/", "permanent": true },
-    { "source": "/blog/restaurant-menu-pricing/", "destination": "/blog/", "permanent": true },
-    { "source": "/blog/restaurant-menu-pricing", "destination": "/blog/", "permanent": true }
+    { "source": "/blog/restaurant-menu-pricing/", "destination": "/blog/restaurant-menu-pricing-athletics.html", "permanent": true },
+    { "source": "/blog/restaurant-menu-pricing", "destination": "/blog/restaurant-menu-pricing-athletics.html", "permanent": true }
   ],
   "headers": [
     {
