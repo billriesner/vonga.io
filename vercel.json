@@ -11,8 +11,8 @@
     { "source": "/shop", "destination": "/pricing/", "permanent": true },
     { "source": "/shipping-returns/", "destination": "/", "permanent": true },
     { "source": "/shipping-returns", "destination": "/", "permanent": true },
-    { "source": "/legal/terms/", "destination": "/", "permanent": true },
-    { "source": "/legal/terms", "destination": "/", "permanent": true },
+    { "source": "/legal/terms/", "destination": "/terms/", "permanent": true },
+    { "source": "/legal/terms", "destination": "/terms/", "permanent": true },
     { "source": "/legal/:path*", "destination": "/", "permanent": true },
     { "source": "/faq/", "destination": "/how-it-works/", "permanent": true },
     { "source": "/faq", "destination": "/how-it-works/", "permanent": true },
@@ -20,7 +20,19 @@
     { "source": "/enterprise", "destination": "/pricing/", "permanent": true },
     { "source": "/technology/", "destination": "/platform/", "permanent": true },
     { "source": "/technology", "destination": "/platform/", "permanent": true },
-    { "source": "/lead-magnets/:path*", "destination": "/", "permanent": true }
+    { "source": "/lead-magnets/:path*", "destination": "/", "permanent": true },
+    { "source": "/features/", "destination": "/platform/", "permanent": true },
+    { "source": "/features", "destination": "/platform/", "permanent": true },
+    { "source": "/solution/", "destination": "/how-it-works/", "permanent": true },
+    { "source": "/solution", "destination": "/how-it-works/", "permanent": true },
+    { "source": "/solutions/", "destination": "/how-it-works/", "permanent": true },
+    { "source": "/solutions", "destination": "/how-it-works/", "permanent": true },
+    { "source": "/login/", "destination": "https://dashboard.vonga.io/", "permanent": true },
+    { "source": "/login", "destination": "https://dashboard.vonga.io/", "permanent": true },
+    { "source": "/blog/qr-vs-nfc/", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/qr-vs-nfc", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/restaurant-menu-pricing/", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/restaurant-menu-pricing", "destination": "/blog/", "permanent": true }
   ],
   "headers": [
     {
