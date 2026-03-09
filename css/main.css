@@ -742,6 +742,7 @@ footer {
     display: block;
     padding: 12px 0;
     font-size: 18px;
+    color: #ffffff !important;
   }
   
   nav ul li a.btn {
