@@ -1,686 +1,571 @@
 /**
- * Vonga Live Chat Widget
- * Routes chat messages to Bob via Telegram for real-time response
+ * Vonga Live Chat Widget — Rebuilt CHAT-1 (Mar 8, 2026)
+ *
+ * - Correct pricing from PRICING-REFERENCE.md
+ * - Lead capture via /api/leads (Supabase + Telegram notification)
+ * - No localhost backends
+ * - Keyword routing with accurate claims only
+ * - Fact-checked against CLAIMS-DATABASE.md
  */
 
-class VongaChat {
-    constructor() {
-        this.isOpen = false;
-        this.chatHistory = [];
-        this.visitorId = this.getOrCreateVisitorId();
-        this.init();
-    }
+(function () {
+  // ── Config ──────────────────────────────────────────────────────────────────
+  const LEAD_API = '/api/leads';
+  const CHAT_DELAY_MS = 800; // Simulates "typing" before response
 
-    getOrCreateVisitorId() {
-        let id = localStorage.getItem('vonga_visitor_id');
-        if (!id) {
-            id = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('vonga_visitor_id', id);
-        }
-        return id;
-    }
+  // ── State ──────────────────────────────────────────────────────────────────
+  let isOpen = false;
+  let chatHistory = [];
+  let awaitingEmail = false;
+  let capturedName = null;
+  let capturedOrg = null;
+  const visitorId = getOrCreateVisitorId();
 
-    init() {
-        // Create chat widget HTML
-        const chatHTML = `
-            <div id="vonga-chat-widget">
-                <div id="vonga-chat-button" class="vonga-chat-button">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="white"/>
-                    </svg>
-                    <span class="vonga-chat-badge">💬</span>
-                </div>
-                
-                <div id="vonga-chat-window" class="vonga-chat-window">
-                    <div class="vonga-chat-header">
-                        <div>
-                            <div class="vonga-chat-title">Chat with Vonga</div>
-                            <div class="vonga-chat-status">
-                                <span class="vonga-status-dot"></span>
-                                Typically replies in minutes
-                            </div>
-                        </div>
-                        <button id="vonga-chat-close" class="vonga-chat-close">✕</button>
-                    </div>
-                    
-                    <div id="vonga-chat-messages" class="vonga-chat-messages">
-                        <div class="vonga-message vonga-message-bot">
-                            <div class="vonga-message-avatar">V</div>
-                            <div class="vonga-message-content">
-                                <p>Hey! 👋 Have questions about Vonga?</p>
-                                <p>Ask me anything:</p>
-                                <ul>
-                                    <li>How does NFC work?</li>
-                                    <li>What's the pricing?</li>
-                                    <li>Can I see a demo?</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="vonga-chat-input-wrapper">
-                        <input 
-                            type="text" 
-                            id="vonga-chat-input" 
-                            class="vonga-chat-input" 
-                            placeholder="Type your message..."
-                            maxlength="500"
-                        />
-                        <button id="vonga-chat-send" class="vonga-chat-send">Send</button>
-                    </div>
-                </div>
+  function getOrCreateVisitorId() {
+    let id = localStorage.getItem('vonga_visitor_id');
+    if (!id) {
+      id = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('vonga_visitor_id', id);
+    }
+    return id;
+  }
+
+  // ── Styles ──────────────────────────────────────────────────────────────────
+  const styles = `
+    #vonga-chat-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .vonga-chat-button {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #33BECC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(51, 190, 204, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+    }
+    .vonga-chat-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(51, 190, 204, 0.55);
+    }
+    .vonga-chat-window {
+      position: absolute;
+      bottom: 72px;
+      right: 0;
+      width: 360px;
+      max-height: 520px;
+      background: #1a1f2e;
+      border: 1px solid rgba(51, 190, 204, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .vonga-chat-window.open {
+      display: flex;
+    }
+    .vonga-chat-header {
+      background: #232f42;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .vonga-chat-title {
+      font-weight: 700;
+      color: white;
+      font-size: 15px;
+    }
+    .vonga-chat-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #8892A4;
+      margin-top: 3px;
+    }
+    .vonga-status-dot {
+      width: 7px;
+      height: 7px;
+      background: #33BECC;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .vonga-chat-close {
+      background: none;
+      border: none;
+      color: #8892A4;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+    .vonga-chat-close:hover { color: white; }
+    .vonga-chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .vonga-msg {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .vonga-msg.user {
+      flex-direction: row-reverse;
+    }
+    .vonga-msg-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #33BECC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+    .vonga-msg.user .vonga-msg-avatar {
+      background: #303E55;
+    }
+    .vonga-msg-bubble {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #e2e8f0;
+      background: #232f42;
+    }
+    .vonga-msg.user .vonga-msg-bubble {
+      background: #33BECC;
+      color: #0f1729;
+    }
+    .vonga-msg-bubble a {
+      color: #33BECC;
+      text-decoration: none;
+    }
+    .vonga-msg.user .vonga-msg-bubble a {
+      color: #0f1729;
+      text-decoration: underline;
+    }
+    .vonga-msg-bubble ul {
+      padding-left: 16px;
+      margin: 6px 0 0;
+    }
+    .vonga-msg-bubble li {
+      margin-bottom: 3px;
+    }
+    .vonga-typing {
+      display: flex;
+      gap: 4px;
+      padding: 12px 14px;
+      background: #232f42;
+      border-radius: 12px;
+      width: fit-content;
+    }
+    .vonga-typing span {
+      width: 7px;
+      height: 7px;
+      background: #8892A4;
+      border-radius: 50%;
+      animation: typing-bounce 1.2s infinite;
+    }
+    .vonga-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .vonga-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing-bounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+    .vonga-quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 16px 10px;
+    }
+    .vonga-quick-reply {
+      background: rgba(51, 190, 204, 0.1);
+      border: 1px solid rgba(51, 190, 204, 0.3);
+      color: #33BECC;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .vonga-quick-reply:hover {
+      background: rgba(51, 190, 204, 0.2);
+    }
+    .vonga-chat-input-row {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .vonga-chat-input {
+      flex: 1;
+      background: #232f42;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 14px;
+      color: white;
+      outline: none;
+    }
+    .vonga-chat-input:focus {
+      border-color: #33BECC;
+    }
+    .vonga-chat-input::placeholder { color: #8892A4; }
+    .vonga-chat-send {
+      background: #33BECC;
+      color: #0f1729;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .vonga-chat-send:hover { background: #2aabb8; }
+    @media (max-width: 480px) {
+      #vonga-chat-widget { bottom: 16px; right: 16px; }
+      .vonga-chat-window { width: calc(100vw - 32px); right: 0; }
+    }
+  `;
+
+  // ── DOM Setup ───────────────────────────────────────────────────────────────
+  function init() {
+    const styleEl = document.createElement('style');
+    styleEl.textContent = styles;
+    document.head.appendChild(styleEl);
+
+    const widget = document.createElement('div');
+    widget.id = 'vonga-chat-widget';
+    widget.innerHTML = `
+      <div class="vonga-chat-window" id="vonga-chat-window">
+        <div class="vonga-chat-header">
+          <div>
+            <div class="vonga-chat-title">Chat with Vonga</div>
+            <div class="vonga-chat-status">
+              <span class="vonga-status-dot"></span>
+              Typically replies quickly
             </div>
-        `;
+          </div>
+          <button class="vonga-chat-close" id="vonga-chat-close">✕</button>
+        </div>
+        <div class="vonga-chat-messages" id="vonga-chat-messages"></div>
+        <div class="vonga-quick-replies" id="vonga-quick-replies"></div>
+        <div class="vonga-chat-input-row">
+          <input type="text" class="vonga-chat-input" id="vonga-chat-input" placeholder="Type your message..." maxlength="500" />
+          <button class="vonga-chat-send" id="vonga-chat-send">Send</button>
+        </div>
+      </div>
+      <button class="vonga-chat-button" id="vonga-chat-button" aria-label="Open chat">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+    `;
+    document.body.appendChild(widget);
 
-        // Inject styles
-        const styles = `
-            <style>
-                #vonga-chat-widget {
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    z-index: 9999;
-                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                }
-                
-                .vonga-chat-button {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 30px;
-                    background: linear-gradient(135deg, #33BECC 0%, #F5856E 100%);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                    transition: transform 0.2s;
-                    position: relative;
-                }
-                
-                .vonga-chat-button:hover {
-                    transform: scale(1.05);
-                }
-                
-                .vonga-chat-badge {
-                    position: absolute;
-                    top: -5px;
-                    right: -5px;
-                    font-size: 20px;
-                }
-                
-                .vonga-chat-window {
-                    display: none;
-                    width: 380px;
-                    height: 600px;
-                    max-height: calc(100vh - 40px);
-                    background: white;
-                    border-radius: 12px;
-                    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-                    flex-direction: column;
-                    overflow: hidden;
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                }
-                
-                .vonga-chat-window.open {
-                    display: flex;
-                }
-                
-                .vonga-chat-header {
-                    background: linear-gradient(135deg, #33BECC 0%, #F5856E 100%);
-                    color: white;
-                    padding: 16px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-                
-                .vonga-chat-title {
-                    font-weight: 600;
-                    font-size: 16px;
-                }
-                
-                .vonga-chat-status {
-                    font-size: 12px;
-                    margin-top: 4px;
-                    opacity: 0.9;
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-                }
-                
-                .vonga-status-dot {
-                    width: 8px;
-                    height: 8px;
-                    background: #4ade80;
-                    border-radius: 50%;
-                    display: inline-block;
-                }
-                
-                .vonga-chat-close {
-                    background: none;
-                    border: none;
-                    color: white;
-                    font-size: 24px;
-                    cursor: pointer;
-                    padding: 0;
-                    width: 32px;
-                    height: 32px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                
-                .vonga-chat-messages {
-                    flex: 1;
-                    overflow-y: auto;
-                    padding: 16px;
-                    background: #f9fafb;
-                }
-                
-                .vonga-message {
-                    margin-bottom: 16px;
-                    display: flex;
-                    gap: 8px;
-                }
-                
-                .vonga-message-avatar {
-                    width: 32px;
-                    height: 32px;
-                    border-radius: 50%;
-                    background: #33BECC;
-                    color: white;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: 600;
-                    flex-shrink: 0;
-                }
-                
-                .vonga-message-content {
-                    background: white;
-                    padding: 12px;
-                    border-radius: 12px;
-                    max-width: 80%;
-                    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-                }
-                
-                .vonga-message-content p {
-                    margin: 0 0 8px 0;
-                }
-                
-                .vonga-message-content p:last-child {
-                    margin-bottom: 0;
-                }
-                
-                .vonga-message-content ul {
-                    margin: 8px 0 0 0;
-                    padding-left: 20px;
-                    font-size: 14px;
-                    color: #666;
-                }
-                
-                .vonga-message-content li {
-                    margin: 4px 0;
-                }
-                
-                .vonga-message-user {
-                    flex-direction: row-reverse;
-                }
-                
-                .vonga-message-user .vonga-message-avatar {
-                    background: #F5856E;
-                }
-                
-                .vonga-message-user .vonga-message-content {
-                    background: #33BECC;
-                    color: white;
-                }
-                
-                .vonga-chat-input-wrapper {
-                    padding: 16px;
-                    border-top: 1px solid #e5e7eb;
-                    display: flex;
-                    gap: 8px;
-                }
-                
-                .vonga-chat-input {
-                    flex: 1;
-                    padding: 12px;
-                    border: 1px solid #e5e7eb;
-                    border-radius: 8px;
-                    font-size: 14px;
-                    outline: none;
-                }
-                
-                .vonga-chat-input:focus {
-                    border-color: #33BECC;
-                }
-                
-                .vonga-chat-send {
-                    padding: 12px 20px;
-                    background: #33BECC;
-                    color: white;
-                    border: none;
-                    border-radius: 8px;
-                    cursor: pointer;
-                    font-weight: 600;
-                    font-size: 14px;
-                }
-                
-                .vonga-chat-send:hover {
-                    background: #2aa8b8;
-                }
-                
-                .vonga-chat-send:disabled {
-                    background: #d1d5db;
-                    cursor: not-allowed;
-                }
-                
-                @media (max-width: 480px) {
-                    .vonga-chat-window {
-                        width: calc(100vw - 40px);
-                        height: calc(100vh - 40px);
-                        max-height: calc(100vh - 40px);
-                    }
-                }
-            </style>
-        `;
+    document.getElementById('vonga-chat-button').addEventListener('click', toggleChat);
+    document.getElementById('vonga-chat-close').addEventListener('click', closeChat);
+    document.getElementById('vonga-chat-send').addEventListener('click', handleSend);
+    document.getElementById('vonga-chat-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleSend();
+    });
 
-        // Inject HTML and styles
-        document.body.insertAdjacentHTML('beforeend', styles);
-        document.body.insertAdjacentHTML('beforeend', chatHTML);
+    // Show welcome after short delay
+    setTimeout(showWelcome, 500);
+  }
 
-        // Bind events
-        this.bindEvents();
+  function toggleChat() {
+    isOpen ? closeChat() : openChat();
+  }
 
-        // Load chat history
-        this.loadHistory();
+  function openChat() {
+    isOpen = true;
+    document.getElementById('vonga-chat-window').classList.add('open');
+    document.getElementById('vonga-chat-input').focus();
+  }
+
+  function closeChat() {
+    isOpen = false;
+    document.getElementById('vonga-chat-window').classList.remove('open');
+  }
+
+  // ── Messages ────────────────────────────────────────────────────────────────
+  function addMessage(text, isUser = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'vonga-msg' + (isUser ? ' user' : '');
+    msgDiv.innerHTML = `
+      <div class="vonga-msg-avatar">${isUser ? 'You' : 'V'}</div>
+      <div class="vonga-msg-bubble">${text}</div>
+    `;
+    document.getElementById('vonga-chat-messages').appendChild(msgDiv);
+    scrollToBottom();
+  }
+
+  function showTyping() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'vonga-msg';
+    typingDiv.id = 'vonga-typing-indicator';
+    typingDiv.innerHTML = `
+      <div class="vonga-msg-avatar">V</div>
+      <div class="vonga-typing"><span></span><span></span><span></span></div>
+    `;
+    document.getElementById('vonga-chat-messages').appendChild(typingDiv);
+    scrollToBottom();
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('vonga-typing-indicator');
+    if (el) el.remove();
+  }
+
+  function botReply(text, quickReplies = []) {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMessage(text);
+      setQuickReplies(quickReplies);
+    }, CHAT_DELAY_MS);
+  }
+
+  function setQuickReplies(replies) {
+    const container = document.getElementById('vonga-quick-replies');
+    container.innerHTML = '';
+    replies.forEach(r => {
+      const btn = document.createElement('button');
+      btn.className = 'vonga-quick-reply';
+      btn.textContent = r;
+      btn.addEventListener('click', () => {
+        container.innerHTML = '';
+        addMessage(r, true);
+        processInput(r);
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function scrollToBottom() {
+    const msgs = document.getElementById('vonga-chat-messages');
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  // ── Welcome ──────────────────────────────────────────────────────────────────
+  function showWelcome() {
+    addMessage('Hey! 👋 I\'m here to answer questions about Vonga.\n\nAsk me anything — pricing, how it works, scheduling a demo.');
+    setQuickReplies(['What\'s the pricing?', 'How does it work?', 'Can I see a demo?', 'I\'m a sponsor']);
+  }
+
+  // ── Input handling ──────────────────────────────────────────────────────────
+  function handleSend() {
+    const input = document.getElementById('vonga-chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    addMessage(text, true);
+    setQuickReplies([]);
+
+    if (awaitingEmail) {
+      handleEmailCapture(text);
+    } else {
+      processInput(text);
+    }
+  }
+
+  function processInput(text) {
+    const msg = text.toLowerCase();
+
+    // Email detection
+    if (msg.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/)) {
+      handleEmailCapture(text);
+      return;
     }
 
-    bindEvents() {
-        const button = document.getElementById('vonga-chat-button');
-        const closeBtn = document.getElementById('vonga-chat-close');
-        const sendBtn = document.getElementById('vonga-chat-send');
-        const input = document.getElementById('vonga-chat-input');
-
-        button.addEventListener('click', () => this.toggleChat());
-        closeBtn.addEventListener('click', () => this.toggleChat());
-        sendBtn.addEventListener('click', () => this.sendMessage());
-        
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                this.sendMessage();
-            }
-        });
+    // Pricing / cost
+    if (msg.match(/price|cost|pricing|how much|subscription|monthly|tier|plan/)) {
+      botReply(
+        'Our pricing:\n\n' +
+        '<b>90-Day Pilot</b>\n' +
+        '• <b>$499/mo</b> — smaller programs (USL, D-II/III, community)\n' +
+        '• <b>$999/mo</b> — major pro leagues + top-flight European\n\n' +
+        '<b>Full Subscriptions (post-pilot)</b>\n' +
+        '• Starter: $999/mo\n' +
+        '• Growth: $2,499/mo\n' +
+        '• Playbook: $4,999/mo\n' +
+        '• Enterprise: Custom ($7,500+/mo)\n\n' +
+        'Annual plans save ~15%. NFC tags are priced separately at cost.<br>' +
+        '<a href="/pricing.html">See full pricing →</a>',
+        ['Book a demo', 'How does it work?', 'What\'s included?']
+      );
+      return;
     }
 
-    toggleChat() {
-        this.isOpen = !this.isOpen;
-        const window = document.getElementById('vonga-chat-window');
-        const button = document.getElementById('vonga-chat-button');
-        
-        if (this.isOpen) {
-            window.classList.add('open');
-            button.style.display = 'none';
-            document.getElementById('vonga-chat-input').focus();
-        } else {
-            window.classList.remove('open');
-            button.style.display = 'flex';
-        }
+    // How it works / NFC
+    if (msg.match(/how.*(it works?|does it work|work|nfc)|nfc|tap|chip|technology|rfid/)) {
+      botReply(
+        'Here\'s the quick version:\n\n' +
+        '1. <b>NFC chips embed in your merch</b> — jerseys, hats, hoodies, anything your fans already wear\n' +
+        '2. <b>Fan taps → experience unlocks</b> — no app download needed, works on every modern phone\n' +
+        '3. <b>Data flows automatically</b> — fan profile builds with every tap\n' +
+        '4. <b>Dashboard shows everything</b> — sponsor ROI, fan behavior, engagement trends\n\n' +
+        'The fan experience goes from tap to content in under 2 seconds.\n' +
+        '<a href="/how-it-works.html">Full walkthrough →</a>',
+        ['What\'s the pricing?', 'Can I see a demo?']
+      );
+      return;
     }
 
-    async sendMessage() {
-        const input = document.getElementById('vonga-chat-input');
-        const message = input.value.trim();
-        
-        if (!message) return;
-
-        // Display user message
-        this.addMessage(message, 'user');
-        input.value = '';
-
-        // Show typing indicator
-        this.showTyping();
-
-        // Send to backend (which will route to Telegram)
-        try {
-            await this.sendToBackend(message);
-        } catch (error) {
-            console.error('Chat error:', error);
-            this.hideTyping();
-            this.addMessage('Sorry, there was an error. Please try refreshing or emailing hello@vonga.com', 'bot');
-        }
+    // Demo request
+    if (msg.match(/demo|book|schedule|meet|call|see it|show me/)) {
+      botReply(
+        'We\'d love to show you the platform. <a href="/contact.html">Book a 20-minute demo →</a>\n\n' +
+        'Or drop your email here and someone will reach out to schedule:',
+        []
+      );
+      awaitingEmail = true;
+      return;
     }
 
-    async sendToBackend(message) {
-        // Log for tracking
-        console.log('[CHAT MESSAGE]', {
-            visitorId: this.visitorId,
-            message,
-            timestamp: new Date().toISOString(),
-            page: window.location.href,
-            userData: this.getVisitorContext()
-        });
-
-        // Store locally
-        this.chatHistory.push({
-            type: 'user',
-            message,
-            timestamp: new Date().toISOString()
-        });
-        this.saveHistory();
-
-        // Get AI response
-        const response = await this.getAIResponse(message);
-        
-        setTimeout(async () => {
-            this.hideTyping();
-            this.addMessage(response.message, 'bot');
-            
-            // If escalation needed, send notification
-            if (response.escalate) {
-                console.log('[CHAT ESCALATION]', {
-                    visitorId: this.visitorId,
-                    message,
-                    reason: response.escalateReason
-                });
-                
-                try {
-                    await fetch('http://localhost:3001/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            type: 'chat',
-                            visitorId: this.visitorId,
-                            userMessage: message,
-                            botResponse: response.message,
-                            escalateReason: response.escalateReason,
-                            timestamp: new Date().toISOString(),
-                            page: window.location.href
-                        })
-                    });
-                    console.log('[CHAT ESCALATION] Notification sent');
-                } catch (error) {
-                    console.error('[CHAT ESCALATION] Failed to send notification:', error);
-                }
-            }
-        }, 1000 + Math.random() * 1000); // Random delay 1-2 seconds
+    // Sponsor
+    if (msg.match(/sponsor|roi|return on investment|attribution|impressions|media value/)) {
+      botReply(
+        'Great question. Vonga helps you prove sponsor ROI with actual data — not estimated impressions.\n\n' +
+        '• Real engagement counts per activation\n' +
+        '• Fan profile data tied to sponsor content\n' +
+        '• Automated weekly/monthly reports\n' +
+        '• Sponsor self-serve portal (they can log in and see their own data)\n\n' +
+        '<a href="/sponsor-roi.html">See the Sponsor ROI story →</a>',
+        ['What\'s the pricing?', 'Book a demo']
+      );
+      return;
     }
 
-    async getAIResponse(message) {
-        const lowerMessage = message.toLowerCase();
-        
-        // Pricing questions
-        if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('pricing')) {
-            return {
-                message: `Our pricing is based on program size:\n\n• Starter: $995/month (up to 5,000 garments)\n• Professional: $2,495/month (up to 25,000 garments)\n• Enterprise: Custom pricing (unlimited scale)\n\nAnnual plans save ~17%. Want me to send you detailed pricing?`,
-                escalate: false
-            };
-        }
-        
-        // How it works / NFC questions
-        if (lowerMessage.includes('how') && (lowerMessage.includes('work') || lowerMessage.includes('nfc'))) {
-            return {
-                message: `Vonga embeds NFC chips in premium apparel. Fans tap their phone to the shirt (no app needed!) and get instant access to exclusive content—videos, messages, experiences you create.\n\nYou get real-time analytics: who tapped, when, where, and what they engaged with. 40-60% of fans typically tap.\n\nWant to see a live demo?`,
-                escalate: false
-            };
-        }
-        
-        // ROI / Results questions
-        if (lowerMessage.includes('roi') || lowerMessage.includes('result') || lowerMessage.includes('work')) {
-            return {
-                message: `Industry research shows NFC engagement rates of 8-12% — 3-5x higher than QR codes. And because it's built into apparel fans already wear, engagement continues well beyond game day.\n\nWe're launching our first pilots now. Want to explore what a pilot could look like for your program?`,
-                escalate: false
-            };
-        }
-        
-        // Demo / meeting request
-        if (lowerMessage.includes('demo') || lowerMessage.includes('meeting') || lowerMessage.includes('call') || lowerMessage.includes('talk')) {
-            return {
-                message: `I'd love to show you Vonga in action! What's the best email to send you a calendar link?<br><br>Or fill out our <a href="contact.html" target="_blank" style="color: #33BECC;">quick contact form</a> and we'll reach out within 24 hours.`,
-                escalate: true,
-                escalateReason: 'Demo request'
-            };
-        }
-        
-        // Email address provided
-        if (lowerMessage.includes('@') && lowerMessage.includes('.')) {
-            // Extract email using regex
-            const emailMatch = message.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
-            if (emailMatch) {
-                const email = emailMatch[0];
-                // Save to CRM
-                this.saveEmailToCRM(email, message);
-            }
-            
-            return {
-                message: `Perfect! I've logged your email and someone from our team will reach out within a few hours with a calendar link. In the meantime, check out our case studies or pricing.`,
-                escalate: true,
-                escalateReason: 'Email provided: ' + lowerMessage
-            };
-        }
-        
-        // Case studies / examples
-        if (lowerMessage.includes('case') || lowerMessage.includes('example') || lowerMessage.includes('story') || lowerMessage.includes('stories')) {
-            return {
-                message: `We're in our early pilot phase — which means you'd be among the first programs to have real data.<br><br>Check out our <a href="case-studies.html" target="_blank" style="color: #33BECC;">approach and industry benchmarks →</a>`,
-                escalate: false
-            };
-        }
-        
-        // Technical questions
-        if (lowerMessage.includes('technical') || lowerMessage.includes('integrate') || lowerMessage.includes('api')) {
-            return {
-                message: `Great technical question! Let me connect you with Bill (founder) who can dive into the specifics. What's your email and I'll have him reach out within a few hours?`,
-                escalate: true,
-                escalateReason: 'Technical question'
-            };
-        }
-        
-        // Apparel questions
-        if (lowerMessage.includes('apparel') || lowerMessage.includes('shirt') || lowerMessage.includes('garment') || lowerMessage.includes('clothing')) {
-            return {
-                message: `We supply NFC-enabled premium apparel separately from the platform subscription. You control pricing and margins (most programs maintain 60%+ margins).\n\nWe work with your existing suppliers or can connect you with partners. The NFC chip adds minimal cost but allows $10-25 premium pricing.\n\nWant more details on apparel options?`,
-                escalate: false
-            };
-        }
-        
-        // Sponsors question
-        if (lowerMessage.includes('sponsor')) {
-            return {
-                message: `Sponsors love Vonga because they get real proof:\n• Exact tap counts (not impressions)\n• Geographic distribution of fans\n• Content engagement metrics\n• Detailed analytics reports\n\nPrograms report $10-25k increases in sponsor value from having measurable data. Want to see a sample sponsor report?`,
-                escalate: false
-            };
-        }
-        
-        // Timeline / when can we start
-        if (lowerMessage.includes('when') || lowerMessage.includes('timeline') || lowerMessage.includes('start')) {
-            return {
-                message: `Setup typically takes 2-4 weeks from contract to launch:\n• Week 1-2: Onboarding, content strategy, apparel design\n• Week 3: Platform setup, content creation\n• Week 4: Testing, training, launch\n\nWhen are you looking to launch?`,
-                escalate: false
-            };
-        }
-        
-        // Contact info request
-        if (lowerMessage.includes('email') || lowerMessage.includes('phone') || lowerMessage.includes('contact')) {
-            return {
-                message: `Best way to reach us:\n• Email: hello@vonga.com\n• Contact form: Takes 60 seconds, we reply within 24 hours\n• Or keep chatting with me! I'm here to help.\n\nWhat works best for you?`,
-                escalate: false
-            };
-        }
-        
-        // Greeting
-        if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
-            return {
-                message: `Hey! 👋 I'm here to answer questions about Vonga. What would you like to know?\n\n• How does NFC technology work?\n• What's the pricing?\n• Can I see results from other programs?\n• Something else?`,
-                escalate: false
-            };
-        }
-        
-        // Default - try to be helpful
-        return {
-            message: `Good question! Let me see if I can help with that. In the meantime, you might find these helpful:<br><br>• <a href="how-it-works.html" target="_blank" style="color: #33BECC;">How It Works</a><br>• <a href="pricing.html" target="_blank" style="color: #33BECC;">Pricing</a><br>• <a href="case-studies.html" target="_blank" style="color: #33BECC;">Case Studies</a><br><br>Or ask me something specific and I'll do my best to answer!`,
-            escalate: true,
-            escalateReason: 'Unclear question: ' + message
-        };
+    // Partner / merch supplier
+    if (msg.match(/partner|supplier|manufacturer|supply|distribute|merch provider/)) {
+      botReply(
+        'Vonga partners with merch manufacturers and distributors to add intelligence to existing product lines.\n\n' +
+        'You keep making the same products. We add the NFC layer — your clients get smarter merch, you add a differentiator.\n\n' +
+        '<a href="/partner.html">Partner program details →</a>',
+        ['What\'s the pricing?', 'Book a demo']
+      );
+      return;
     }
 
-    addMessage(text, type) {
-        const messagesDiv = document.getElementById('vonga-chat-messages');
-        
-        // For user messages, escape HTML. For bot messages, allow HTML
-        const content = type === 'user' ? this.escapeHtml(text) : text;
-        
-        const messageHTML = `
-            <div class="vonga-message vonga-message-${type}">
-                <div class="vonga-message-avatar">${type === 'bot' ? 'V' : 'Y'}</div>
-                <div class="vonga-message-content">
-                    <p>${content}</p>
-                </div>
-            </div>
-        `;
-        
-        messagesDiv.insertAdjacentHTML('beforeend', messageHTML);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-        // Save to history
-        this.chatHistory.push({
-            type,
-            message: text,
-            timestamp: new Date().toISOString()
-        });
-        this.saveHistory();
+    // Fan data / GDPR / privacy
+    if (msg.match(/data|gdpr|privacy|fan data|collect|personal|eu|europe/)) {
+      botReply(
+        'Data ownership is clear: <b>you own your fans\' data.</b> Vonga processes it on your behalf.\n\n' +
+        '• Fans can request deletion at any time\n' +
+        '• GDPR compliant (we work with EU teams)\n' +
+        '• Each team\'s data is isolated — no cross-tenant access\n' +
+        '• We don\'t sell data to anyone\n\n' +
+        '<a href="/privacy.html">Privacy Policy →</a>',
+        ['What\'s the pricing?', 'Book a demo']
+      );
+      return;
     }
 
-    showTyping() {
-        const messagesDiv = document.getElementById('vonga-chat-messages');
-        const typingHTML = `
-            <div class="vonga-message vonga-message-bot" id="vonga-typing-indicator">
-                <div class="vonga-message-avatar">V</div>
-                <div class="vonga-message-content">
-                    <p>Typing...</p>
-                </div>
-            </div>
-        `;
-        messagesDiv.insertAdjacentHTML('beforeend', typingHTML);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    // Integration / CRM
+    if (msg.match(/integrat|crm|salesforce|hubspot|zapier|api|webhook|connect/)) {
+      botReply(
+        'Vonga connects with your existing stack:\n\n' +
+        '• Webhooks for real-time data (any CRM)\n' +
+        '• Zapier templates for Salesforce, HubSpot, SeatGeek\n' +
+        '• REST API for custom integrations\n' +
+        '• 24 integration cards in our dashboard\n\n' +
+        'Want to talk through a specific integration? <a href="/contact.html">Book a call →</a>',
+        ['Book a demo', 'What\'s the pricing?']
+      );
+      return;
     }
 
-    hideTyping() {
-        const typingIndicator = document.getElementById('vonga-typing-indicator');
-        if (typingIndicator) {
-            typingIndicator.remove();
-        }
+    // What's included / features
+    if (msg.match(/includ|feature|what do.*(get|i get)|platform|dashboard/)) {
+      botReply(
+        'Every plan includes:\n\n' +
+        '• Fan profiles built automatically from tap events\n' +
+        '• Real-time dashboard (engagement, sponsors, fan behavior)\n' +
+        '• Sponsor portal with self-serve ROI data\n' +
+        '• A/B testing for fan experiences\n' +
+        '• Automated weekly insights\n' +
+        '• NFC-enabled content delivery (no app needed)\n' +
+        '• Webhooks + API access\n\n' +
+        '<a href="/platform.html">Full platform overview →</a>',
+        ['What\'s the pricing?', 'Book a demo']
+      );
+      return;
     }
 
-    getVisitorContext() {
-        // Collect useful context for routing to you
-        return {
-            page: window.location.href,
-            referrer: document.referrer,
-            userAgent: navigator.userAgent,
-            screenSize: `${window.screen.width}x${window.screen.height}`,
-            timestamp: new Date().toISOString()
-        };
+    // Fallback
+    botReply(
+      'Good question! For the best answer, I\'d recommend booking a quick 20-minute demo — we can walk through exactly how it applies to your situation.\n\n' +
+      '<a href="/contact.html">Book a demo →</a>\n\n' +
+      'Or drop your email and we\'ll reach out:',
+      ['What\'s the pricing?', 'How does it work?']
+    );
+    awaitingEmail = true;
+  }
+
+  // ── Lead Capture ────────────────────────────────────────────────────────────
+  async function handleEmailCapture(text) {
+    awaitingEmail = false;
+    const emailMatch = text.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i);
+    const email = emailMatch ? emailMatch[0] : text;
+
+    botReply('Got it! Someone from our team will be in touch soon. In the meantime, you can book a time directly:<br><a href="/contact.html">→ Pick a time on the calendar</a>');
+
+    // Fire lead capture
+    try {
+      await fetch(LEAD_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name: capturedName,
+          organization: capturedOrg,
+          source: 'chatbot',
+          intent: 'demo',
+          visitor_id: visitorId
+        })
+      });
+    } catch (e) {
+      // Silent fail — user experience unaffected
+      console.error('[CHAT_LEAD_ERROR]', e);
     }
 
-    saveHistory() {
-        localStorage.setItem(`vonga_chat_${this.visitorId}`, JSON.stringify(this.chatHistory));
+    // GA4 event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'chat_lead_captured', { email_domain: email.split('@')[1] });
     }
+  }
 
-    loadHistory() {
-        const saved = localStorage.getItem(`vonga_chat_${this.visitorId}`);
-        if (saved) {
-            this.chatHistory = JSON.parse(saved);
-            // Re-render messages (skip the initial welcome)
-            this.chatHistory.forEach(msg => {
-                if (msg.type === 'user' || msg.message !== 'Hey! 👋 Have questions about Vonga?') {
-                    this.addMessageToDOM(msg.message, msg.type);
-                }
-            });
-        }
-    }
-
-    addMessageToDOM(text, type) {
-        const messagesDiv = document.getElementById('vonga-chat-messages');
-        const messageHTML = `
-            <div class="vonga-message vonga-message-${type}">
-                <div class="vonga-message-avatar">${type === 'bot' ? 'V' : 'Y'}</div>
-                <div class="vonga-message-content">
-                    <p>${this.escapeHtml(text)}</p>
-                </div>
-            </div>
-        `;
-        messagesDiv.insertAdjacentHTML('beforeend', messageHTML);
-    }
-
-    async saveEmailToCRM(email, chatContext) {
-        try {
-            // Create contact in CRM
-            const contactData = {
-                name: email.split('@')[0], // Use email prefix as placeholder name
-                title: 'Website Chat Lead',
-                organization: email.split('@')[1], // Domain as organization placeholder
-                linkedin_url: null,
-                email: email,
-                phone: null,
-                organization_type: 'Website Lead',
-                decision_authority: 'Unknown',
-                tags: ['chatbot-lead', 'website-chat', new Date().toISOString().split('T')[0]]
-            };
-
-            const contactResponse = await fetch('http://localhost:3100/api/contacts', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(contactData)
-            });
-
-            if (!contactResponse.ok) {
-                throw new Error('Failed to create contact');
-            }
-
-            const contact = await contactResponse.json();
-            console.log('[CRM] Contact created:', contact);
-
-            // Create activity record with chat history
-            const activityData = {
-                contact_id: contact.id,
-                activity_type: 'chatbot',
-                details: JSON.stringify({
-                    source: 'website-chatbot',
-                    chatHistory: this.chatHistory,
-                    context: chatContext,
-                    visitorId: this.visitorId,
-                    page: window.location.href
-                })
-            };
-
-            await fetch('http://localhost:3100/api/activities', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(activityData)
-            });
-
-            console.log('[CRM] Email saved successfully:', email);
-        } catch (error) {
-            console.error('[CRM] Failed to save email:', error);
-            // Don't show error to user - fail silently
-        }
-    }
-
-    escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-}
-
-// Initialize chat widget
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => new VongaChat());
-} else {
-    new VongaChat();
-}
+  // ── Boot ────────────────────────────────────────────────────────────────────
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
