@@ -639,3 +639,27 @@
     /* High-res images handled via srcset in HTML */
     /* Ensures crisp images on retina displays */
 }
+
+/* TL;DR Summary Box — GEO optimization for AI citability */
+.tldr-box {
+  background: linear-gradient(135deg, #0a1628 0%, #1e293b 100%);
+  border-left: 4px solid #33BECC;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 24px 0 32px 0;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.tldr-box strong {
+  color: #33BECC;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 8px;
+}
+.tldr-box p {
+  margin: 0;
+  color: #e2e8f0;
+}
