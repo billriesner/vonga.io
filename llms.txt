@@ -1,0 +1,64 @@
+# Vonga — Fan Intelligence Platform
+
+> Vonga is a sports technology company that turns team merchandise into a fan data engine using NFC (Near Field Communication) technology. No app downloads required.
+
+## What We Do
+
+Vonga embeds NFC chips into sports merchandise — jerseys, hats, giveaway items — that fans tap with their phones. Each tap creates a first-party fan profile and captures engagement data that teams and sponsors can't get any other way.
+
+## Products & Services
+
+- **NFC-Powered Fan Profiles**: Every tap builds an anonymous-to-known fan identity. Teams learn who their most engaged fans are, not just how many walked through the gate.
+- **Sponsor ROI Dashboards**: Real-time proof of sponsor activation effectiveness. Measurable engagement data that goes beyond impressions and logo placement.
+- **Campaign Intelligence**: A/B test content, track fan journeys, and optimize experiences based on actual engagement — not surveys or estimates.
+- **Tap Builder**: Visual tool for creating NFC-triggered fan experiences without code.
+
+## Who We Serve
+
+- **Sports teams** (professional and collegiate)
+- **Universities and athletic departments**
+- **Sports sponsors** seeking measurable ROI
+- **Merchandise providers** (Fanatics, Legends, Aramark) as a platform partner
+
+## Key Facts
+
+- Founded: 2025
+- Founder & CEO: Bill Riesner
+- Headquarters: Indianapolis, Indiana, USA
+- Technology: NTAG 424 DNA NFC chips with cryptographic authentication
+- Pricing: Flat platform fee + per-chip cost. No per-tap charges. Unlimited taps.
+- Stage: Pre-revenue, post-MVP
+
+## How It's Different
+
+- **Physical touchpoint**: Unlike digital-only platforms (apps, QR codes, surveys), Vonga works through merchandise fans already own and wear.
+- **No app required**: Fans tap their phone on NFC-enabled merch. Works natively on iOS and Android.
+- **First-party data**: Teams own the data. No third-party dependencies.
+- **Sponsor proof**: Connects physical merchandise engagement directly to sponsor attribution.
+
+## Links
+
+- Website: https://vonga.io
+- Platform overview: https://vonga.io/platform/
+- How it works: https://vonga.io/how-it-works/
+- Pricing: https://vonga.io/pricing/
+- Sponsor ROI: https://vonga.io/sponsor-roi/
+- Blog: https://vonga.io/blog/
+- Contact: https://vonga.io/contact/
+- Demo: https://vonga.io/demo/
+- LinkedIn (company): https://www.linkedin.com/company/vonga
+- LinkedIn (founder): https://www.linkedin.com/in/billriesner
+
+## Blog Posts
+
+- [What ADs Can Learn from Restaurant Menu Pricing](https://vonga.io/blog/restaurant-menu-pricing-athletics/)
+- [The Most Interesting Thing About Merch Isn't Revenue](https://vonga.io/blog/merch-revenue-least-interesting/)
+- [App Fatigue Is Killing Fan Engagement](https://vonga.io/blog/app-fatigue-fan-engagement/)
+- [The Sponsor Renewal Playbook](https://vonga.io/blog/sponsor-renewal-playbook/)
+- [First-Party Fan Data Is the New TV Deal](https://vonga.io/blog/first-party-data-new-tv-deal/)
+- [How to Prove Sponsor ROI in College Athletics](https://vonga.io/blog/how-to-prove-sponsor-roi-in-college-athletics/)
+
+## Contact
+
+- Email: bill@vonga.io
+- Website: https://vonga.io/contact/
