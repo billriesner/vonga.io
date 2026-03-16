@@ -40,3 +40,4 @@ images/hero-gen/
 images/og-library/
 renders/
 *.psd
+.vercel
