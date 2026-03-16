@@ -32,7 +32,10 @@
     { "source": "/blog/qr-vs-nfc/", "destination": "/blog/", "permanent": true },
     { "source": "/blog/qr-vs-nfc", "destination": "/blog/", "permanent": true },
     { "source": "/blog/restaurant-menu-pricing/", "destination": "/blog/restaurant-menu-pricing-athletics.html", "permanent": true },
-    { "source": "/blog/restaurant-menu-pricing", "destination": "/blog/restaurant-menu-pricing-athletics.html", "permanent": true }
+    { "source": "/blog/restaurant-menu-pricing", "destination": "/blog/restaurant-menu-pricing-athletics.html", "permanent": true },
+    { "source": "/partner.html", "destination": "/", "permanent": true },
+    { "source": "/case-studies.html", "destination": "/", "permanent": true },
+    { "source": "/sponsor-roi.html", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
