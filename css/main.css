@@ -544,7 +544,8 @@ section {
 
 .section-dark .card p,
 .section-dark .card li,
-.section-dark .card span:not(.stat-number):not(.stat-label) {
+.section-dark .card span:not(.stat-number):not(.stat-label),
+.section-dark .card strong {
   color: rgba(255,255,255,0.85);
 }
 
@@ -777,6 +778,16 @@ footer {
   padding-top: var(--space-2xl);
   border-top: 1px solid rgba(255,255,255,0.1);
   color: rgba(255,255,255,0.6);
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.footer-bottom a:hover {
+  color: var(--aqua);
 }
 
 /* Utility Classes */
