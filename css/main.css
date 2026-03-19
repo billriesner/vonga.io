@@ -106,8 +106,12 @@ p {
 }
 
 strong {
-  color: var(--text);
   font-weight: 600;
+}
+
+.section-dark strong,
+section[style*="navy"] strong {
+  color: rgba(255,255,255,0.85) !important;
 }
 
 /* Header/Nav */
@@ -545,7 +549,13 @@ section {
 .section-dark .card p,
 .section-dark .card li,
 .section-dark .card span:not(.stat-number):not(.stat-label),
-.section-dark .card strong {
+.section-dark .card strong,
+.section-dark .card ul,
+.section-dark .card ol {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.section-dark .card {
   color: rgba(255,255,255,0.85);
 }
 
