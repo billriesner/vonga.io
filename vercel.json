@@ -20,7 +20,6 @@
     { "source": "/enterprise", "destination": "/pricing/", "permanent": true },
     { "source": "/technology/", "destination": "/platform/", "permanent": true },
     { "source": "/technology", "destination": "/platform/", "permanent": true },
-    { "source": "/lead-magnets/:path*", "destination": "/", "permanent": true },
     { "source": "/features/", "destination": "/platform/", "permanent": true },
     { "source": "/features", "destination": "/platform/", "permanent": true },
     { "source": "/solution/", "destination": "/how-it-works/", "permanent": true },
