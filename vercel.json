@@ -163,12 +163,42 @@
       "permanent": true
     },
     {
+      "source": "/partner/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/partner",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/case-studies.html",
       "destination": "/",
       "permanent": true
     },
     {
+      "source": "/case-studies/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/sponsor-roi.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sponsor-roi/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sponsor-roi",
       "destination": "/",
       "permanent": true
     }
