@@ -169,6 +169,25 @@
             <ul>
                 <li><a href="/how-it-works.html">How It Works</a></li>
                 <li><a href="/platform.html">Platform</a></li>
+                <li class="has-dropdown">
+                    <a href="#">Solutions</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-group">Use Cases</div>
+                        <a href="/use-cases/fan-engagement.html">Fan Engagement</a>
+                        <a href="/use-cases/sponsor-attribution.html">Sponsor Attribution</a>
+                        <a href="/use-cases/game-day-giveaways.html">Game Day Giveaways</a>
+                        <div class="dropdown-group">By Outcome</div>
+                        <a href="/solution-fan-engagement.html">Fan Intelligence</a>
+                        <a href="/solution-measurement.html">Sponsor ROI Proof</a>
+                        <a href="/solution-revenue.html">Data-Driven Revenue</a>
+                        <a href="/solution-connection.html">Data Connectivity</a>
+                        <a href="/solution-future-ready.html">Platform Scalability</a>
+                        <div class="dropdown-group">Industries</div>
+                        <a href="/industries/mls.html">MLS</a>
+                        <a href="/industries/college-athletics.html">College Athletics</a>
+                        <a href="/industries/venues.html">Venues</a>
+                    </div>
+                </li>
                 <li><a href="/pricing.html">Pricing</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/contact.html" class="btn btn-primary">Book a Demo</a></li>
@@ -372,6 +391,14 @@
                 </ul>
             </div>
             <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="/solution-fan-engagement.html">Fan Intelligence</a></li>
+                    <li><a href="/solution-measurement.html">Sponsor ROI Proof</a></li>
+                    <li><a href="/solution-revenue.html">Data-Driven Revenue</a></li>
+                    <li><a href="/solution-connection.html">Data Connectivity</a></li>
+                    <li><a href="/solution-future-ready.html">Platform Scalability</a></li>
+                </ul>
                 <h4>For Teams</h4>
                 <ul>
                     <li><a href="/contact.html">Book a Demo</a></li>
@@ -457,5 +484,17 @@
         });
     </script>
     <script src="/js/live-chat.js" defer></script>
+
+    <script>
+    // Mobile dropdown toggle
+    document.querySelectorAll('nav ul li.has-dropdown > a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('mobile-open');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
