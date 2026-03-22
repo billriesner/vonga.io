@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Season Revenue Checklist (Printable) | Vonga</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Georgia, serif;
+            background: #fff;
+            color: #0a1628;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #33BECC;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            color: #0a1628;
+            margin-bottom: 0.3rem;
+        }
+        .header p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem 2.5rem;
+        }
+        .col h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #33BECC;
+            margin-bottom: 0.7rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px;
+        }
+        .col ul {
+            list-style: none;
+        }
+        .col ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .col ul li::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            min-width: 15px;
+            border: 1.5px solid #33BECC;
+            border-radius: 2px;
+            margin-top: 1px;
+        }
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+        .print-btn {
+            display: block;
+            margin: 1.5rem auto 0;
+            background: #33BECC;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 28px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 0.75rem;
+            color: #33BECC;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        @media print {
+            .print-btn, .back-link { display: none; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/images/logos/logo.svg" alt="Vonga" style="height: 36px; width: auto; margin-bottom: 0.75rem; display: block; margin-left: auto; margin-right: auto;">
+        <h1>The Off-Season Revenue Checklist</h1>
+        <p>15 things to do before August &middot; vonga.io</p>
+    </div>
+
+    <div class="grid">
+        <div class="col">
+            <h2>Sponsor Relations</h2>
+            <ul>
+                <li>Schedule all renewal conversations</li>
+                <li>Build sponsor report templates</li>
+                <li>Document wins and losses</li>
+                <li>Identify three new prospect categories</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h2>Ticket Revenue</h2>
+            <ul>
+                <li>Clean season ticket database</li>
+                <li>Survey non-renewers</li>
+                <li>Design early-bird campaign</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h2>Merchandise</h2>
+            <ul>
+                <li>Audit top 20 SKUs</li>
+                <li>Clear dead inventory</li>
+                <li>Renegotiate supplier terms</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h2>Fan Database</h2>
+            <ul>
+                <li>Merge data sources</li>
+                <li>Segment email list</li>
+                <li>Reactivate dormant fans</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h2>Infrastructure</h2>
+            <ul>
+                <li>Audit website analytics</li>
+                <li>Document revenue processes</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Track the one metric that matters: how much revenue did you close before the first game?<br><br>
+        <strong style="color: #33BECC;">vonga.io</strong> &middot; Fan Intelligence Platform
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Print Checklist</button>
+    <a class="back-link" href="/blog/off-season-revenue-checklist.html">← Back to full article</a>
+</body>
+</html>
