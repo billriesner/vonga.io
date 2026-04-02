@@ -18,7 +18,7 @@ This guide presents 12 activation frameworks designed for sports organizations t
 ---
 
 
-![Traditional vs Data-Driven Activation](../images/blog/apr07-quote1.png)
+![Traditional vs Data-Driven Activation](/images/blog/apr07-quote1.png)
 
 ## The Activation Gap: Why "Logo Plus PA Read" No Longer Closes
 
@@ -104,7 +104,7 @@ Teams that solve the attribution problem, knowing their fans by name rather than
 ---
 
 
-![12 Activations Sorted by Implementation Complexity](../images/blog/apr07-exhibit2.png)
+![12 Activations Sorted by Implementation Complexity](/images/blog/apr07-exhibit2.png)
 
 ### 7. In-Game Predictor and Polling Activations
 
@@ -167,7 +167,7 @@ Teams that solve the attribution problem, knowing their fans by name rather than
 ---
 
 
-![What Most Teams Do vs What Captures Identity](../images/blog/apr07-exhibit1.png)
+![What Most Teams Do vs What Captures Identity](/images/blog/apr07-exhibit1.png)
 
 ## Key Takeaways
 
@@ -189,7 +189,7 @@ Teams that solve the attribution problem, knowing their fans by name rather than
 | Highlight Reels | Open/click/conversion | Attribution + ROI proof |
 
 
-![12 Activation Frameworks](../images/blog/apr07-quote2.png)
+![12 Activation Frameworks](/images/blog/apr07-quote2.png)
 
 *(See Exhibit 1 for a framework matching activation type to sponsor category fit.)*
 

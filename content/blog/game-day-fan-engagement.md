@@ -30,7 +30,7 @@ The teams winning this attention contest share a common posture: they have stopp
 ---
 
 
-![Inside vs Outside Your Ecosystem](../images/blog/apr21-quote1.png)
+![Inside vs Outside Your Ecosystem](/images/blog/apr21-quote1.png)
 
 ## What Doesn't Work Anymore
 
@@ -51,7 +51,7 @@ Asking fans to download a dedicated app, especially on congested arena Wi-Fi, to
 ---
 
 
-![The Friction-to-Data Spectrum](../images/blog/apr21-exhibit2.png)
+![The Friction-to-Data Spectrum](/images/blog/apr21-exhibit2.png)
 
 ## What Works Now
 
@@ -118,7 +118,7 @@ Highly engaged fanbases such as the Tampa Bay Lightning, the Chicago Blackhawks,
 ---
 
 
-![Game Day Engagement Checklist](../images/blog/apr21-exhibit1.png)
+![Game Day Engagement Checklist](/images/blog/apr21-exhibit1.png)
 
 ## The Standard Has Been Permanently Reset
 
@@ -131,7 +131,7 @@ The checklist is short: eliminate friction, capture data, deliver value, show pr
 ---
 
 
-![The Litmus Test](../images/blog/apr21-quote2.png)
+![The Litmus Test](/images/blog/apr21-quote2.png)
 
 ## Key Takeaways
 

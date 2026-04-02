@@ -28,7 +28,7 @@ The teams winning this dynamic are not hiring. They are productizing. They are c
 > **"The goal is not more proposals. It is a better product that sells itself and reports itself."**
 
 
-![Revenue Operations: The Shift](../images/blog/apr14-quote1.png)
+![Revenue Operations: The Shift](/images/blog/apr14-quote1.png)
 
 The five strategies below address both sides of that equation: building better product, and building the proof infrastructure that drives renewals and upsells.
 
@@ -51,7 +51,7 @@ The five strategies below address both sides of that equation: building better p
 ---
 
 
-![Three Tiers of Sponsorship Inventory](../images/blog/apr14-exhibit1.png)
+![Three Tiers of Sponsorship Inventory](/images/blog/apr14-exhibit1.png)
 
 ### 2. Turn Merchandise Into a Data Channel and Price It Accordingly
 
@@ -117,7 +117,7 @@ Retaining a sponsor costs a fraction of acquiring a new one. Upselling a retaine
 ---
 
 
-![5 Revenue Levers That Don.t Require New Headcount](../images/blog/apr14-exhibit2.png)
+![5 Revenue Levers That Don.t Require New Headcount](/images/blog/apr14-exhibit2.png)
 
 ## Key Takeaways
 
@@ -132,7 +132,7 @@ Retaining a sponsor costs a fraction of acquiring a new one. Upselling a retaine
 | Sponsor-funded experiences | Net-new revenue from existing assets | Logistics transferred to partner |
 
 
-![5 Steps to Revenue Growth](../images/blog/apr14-quote2.png)
+![5 Steps to Revenue Growth](/images/blog/apr14-quote2.png)
 
 *(See Exhibit 2 for a revenue-per-employee benchmarking framework across mid-market franchises.)*
 

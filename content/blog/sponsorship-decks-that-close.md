@@ -5,7 +5,7 @@ date: "2026-03-17"
 author: "Bill Riesner"
 excerpt: "Most sponsorship decks get ignored. The ones that close share 5 patterns, starting with proof, not logos. Here's what separates winners."
 description: "Most sponsorship decks get ignored. The ones that close share 5 patterns, starting with proof, not logos. Here's what separates winners."
-featuredImage: "images/blog/sponsorship-decks-that-close.png"
+featuredImage: "images/blog/sponsorship-decks-hero.png"
 tags: ["Sponsorship", "Sales"]
 keywords: "sponsorship deck, sponsorship proposal, closing sponsorship deals, sports sponsorship pitch"
 ---
