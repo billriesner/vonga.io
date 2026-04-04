@@ -124,7 +124,7 @@ function generatePostHTML(post) {
 <body class="blog-post">
     <header>
         <nav>
-            <a href="/index.html" class="logo"><img src="/images/logos/logo.svg" alt="Vonga"></a>
+            <a href="/" class="logo"><img src="/images/logos/logo.svg" alt="Vonga"></a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -134,7 +134,7 @@ function generatePostHTML(post) {
                 <li><a href="/how-it-works.html">How It Works</a></li>
                 <li><a href="/case-studies.html">Stories</a></li>
                 <li><a href="/pricing.html">Pricing</a></li>
-                <li><a href="index.html" class="active">The Tap</a></li>
+                <li><a href="/blog/" class="active">The Tap</a></li>
                 <li><a href="/contact.html" class="btn btn-primary">Let's Connect</a></li>
             </ul>
         </nav>
@@ -145,7 +145,7 @@ function generatePostHTML(post) {
         <div class="article-header">
             <div class="article-header-content">
                 <div class="breadcrumbs">
-                    <a href="index.html">← Back to The Tap</a>
+                    <a href="/blog/">← Back to The Tap</a>
                 </div>
                 <h1>${frontmatter.title}</h1>
                 ${frontmatter.featuredImage ? `<img src="/${frontmatter.featuredImage}" alt="${frontmatter.title}" class="featured-image" style="width: 100%; max-width: 800px; border-radius: 12px; margin: 24px auto; display: block;">` : ''}
@@ -191,7 +191,7 @@ function generatePostHTML(post) {
                     <li><a href="/how-it-works.html">How It Works</a></li>
                     <li><a href="/case-studies.html">Stories</a></li>
                     <li><a href="/pricing.html">Pricing</a></li>
-                    <li><a href="index.html">The Tap</a></li>
+                    <li><a href="/blog/">The Tap</a></li>
                 </ul>
             </div>
             
@@ -220,7 +220,7 @@ function generateIndexHTML(posts) {
   const featuredHTML = featuredPost ? `
     <section class="featured-section">
         <article class="featured-article">
-            <a href="${featuredPost.slug}.html" class="featured-article-link">
+            <a href="/blog/${featuredPost.slug}.html" class="featured-article-link">
                 <div class="featured-article-image">
                     <img src="/${featuredPost.frontmatter.featuredImage || 'images/blog/default-featured.png'}" alt="${featuredPost.frontmatter.title}">
                 </div>
@@ -245,7 +245,7 @@ function generateIndexHTML(posts) {
         <div class="blog-grid">
             ${otherPosts.map(post => `
                 <article class="blog-card">
-                    <a href="${post.slug}.html" class="blog-card-link">
+                    <a href="/blog/${post.slug}.html" class="blog-card-link">
                         <div class="blog-card-image">
                             <img src="/${post.frontmatter.featuredImage || 'images/blog/default-featured.png'}" alt="${post.frontmatter.title}">
                         </div>
@@ -288,7 +288,7 @@ function generateIndexHTML(posts) {
 <body>
     <header>
         <nav>
-            <a href="/index.html" class="logo"><img src="/images/logos/logo.svg" alt="Vonga"></a>
+            <a href="/" class="logo"><img src="/images/logos/logo.svg" alt="Vonga"></a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -298,7 +298,7 @@ function generateIndexHTML(posts) {
                 <li><a href="/how-it-works.html">How It Works</a></li>
                 <li><a href="/case-studies.html">Stories</a></li>
                 <li><a href="/pricing.html">Pricing</a></li>
-                <li><a href="index.html" class="active">The Tap</a></li>
+                <li><a href="/blog/" class="active">The Tap</a></li>
                 <li><a href="/contact.html" class="btn btn-primary">Let's Connect</a></li>
             </ul>
         </nav>
@@ -340,7 +340,7 @@ function generateIndexHTML(posts) {
                     <li><a href="/how-it-works.html">How It Works</a></li>
                     <li><a href="/case-studies.html">Stories</a></li>
                     <li><a href="/pricing.html">Pricing</a></li>
-                    <li><a href="index.html">The Tap</a></li>
+                    <li><a href="/blog/">The Tap</a></li>
                 </ul>
             </div>
             

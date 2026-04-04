@@ -108,7 +108,7 @@ Let's show the math.
 
 You're paying nearly $3,000 per person who actually uses your app.
 
-![Cost Comparison: App vs NFC](../images/blog/app-vs-nfc-cost.svg)
+![Cost Comparison: App vs NFC](/images/blog/app-vs-nfc-cost.svg)
 
 *Traditional team apps cost $2,983 per engaged fan. NFC-enabled merchandise generates $33 profit per engaged fan.*
 
@@ -175,7 +175,7 @@ Here's the move:
 
 **Weeks 16-24:** Measure everything. Tap rates, content views, dwell time, repeat engagement, sponsor conversions. Real data, real proof.
 
-![24-Week Pilot Timeline](../images/blog/pilot-timeline.svg)
+![24-Week Pilot Timeline](/images/blog/pilot-timeline.svg)
 
 *From onboarding to full results in 24 weeks. Platform costs $995/month during the 12-week campaign phase.*
 
