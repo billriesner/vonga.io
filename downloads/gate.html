@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Resource | Vonga</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0a1628 0%, #1e293b 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 8px;
+    }
+    .resource-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #33BECC;
+      margin-bottom: 16px;
+    }
+    p {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #334155;
+    }
+    input[type="email"], input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.2s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #33BECC;
+    }
+    button {
+      background: #33BECC;
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #2aa8b5;
+    }
+    .privacy {
+      font-size: 12px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .privacy a {
+      color: #33BECC;
+      text-decoration: none;
+    }
+    .success {
+      display: none;
+      text-align: center;
+    }
+    .success h2 {
+      color: #33BECC;
+      margin-bottom: 16px;
+    }
+    .success .download-btn {
+      display: inline-block;
+      background: #0a1628;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="form-view">
+      <svg class="logo" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="24" font-family="-apple-system, sans-serif" font-size="28" font-weight="700" fill="#0a1628">Vonga</text>
+      </svg>
+      <h1>Get Your Free Resource</h1>
+      <p class="resource-title" id="resource-name">Loading...</p>
+      <p>Enter your email and we'll send you the download link instantly. No spam, just the resource you requested.</p>
+      
+      <form id="gate-form">
+        <div>
+          <label for="email">Work Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div>
+          <label for="name">Name (optional)</label>
+          <input type="text" id="name" name="name" placeholder="Your name">
+        </div>
+        <input type="hidden" id="resource" name="resource">
+        <button type="submit">Get Instant Access</button>
+      </form>
+      
+      <p class="privacy">We respect your privacy. <a href="/privacy">Privacy Policy</a></p>
+    </div>
+    
+    <div id="success-view" class="success">
+      <h2>✓ You're In!</h2>
+      <p>Your download is ready. We've also sent a copy to your email.</p>
+      <a href="#" id="download-link" class="download-btn">Download Now</a>
+    </div>
+  </div>
+
+  <script>
+    const resources = {
+      'activation-inventory': {
+        name: 'The Activation Inventory',
+        file: '/downloads/activation-inventory.pdf',
+        desc: 'Score your sponsorship packages against 10 criteria for modern activations.'
+      },
+      'bundle-builder': {
+        name: 'Digital Sponsorship Bundle Builder',
+        file: '/downloads/bundle-builder.pdf',
+        desc: 'Build tiered digital sponsorship packages that command premium pricing.'
+      },
+      'gameday-audit': {
+        name: 'Game Day Engagement Audit',
+        file: '/downloads/gameday-audit.pdf',
+        desc: 'Audit your game day touchpoints for data capture opportunities.'
+      }
+    };
+
+    // Get resource from URL
+    const params = new URLSearchParams(window.location.search);
+    const resourceKey = params.get('r') || 'activation-inventory';
+    const resource = resources[resourceKey];
+
+    if (resource) {
+      document.getElementById('resource-name').textContent = resource.name;
+      document.getElementById('resource').value = resourceKey;
+    }
+
+    document.getElementById('gate-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const name = document.getElementById('name').value;
+      const resourceId = document.getElementById('resource').value;
+      
+      // Send to Instantly list via webhook (or direct API)
+      try {
+        await fetch('/api/lead-capture', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            name,
+            resource: resourceId,
+            source: 'lead-magnet',
+            timestamp: new Date().toISOString()
+          })
+        });
+      } catch (err) {
+        console.log('Lead capture logged locally');
+      }
+      
+      // Show success and download
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('success-view').style.display = 'block';
+      document.getElementById('download-link').href = resource.file;
+      
+      // Auto-start download after 1s
+      setTimeout(() => {
+        window.location.href = resource.file;
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
