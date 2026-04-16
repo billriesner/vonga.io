@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fan Intelligence Gap — Vonga White Paper</title>
+<meta name="description" content="Why your sports merchandise is your most undervalued data asset. Research on the $37–43B merch market, fan data gaps, and how NFC-enabled gear turns every item into a trackable touchpoint.">
+<meta property="og:title" content="The Fan Intelligence Gap — Vonga White Paper">
+<meta property="og:description" content="Why your sports merchandise is your most undervalued data asset. The $37–43B merch market is a data black box. This paper shows how to fix it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vonga.io/whitepaper/">
+<link rel="canonical" href="https://vonga.io/whitepaper/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #33BECC;
+    --dark: #303E55;
+    --darker: #232F42;
+    --black: #1A1F2E;
+    --gray: #8892A4;
+    --light-gray: #C4CBD8;
+    --white: #FFFFFF;
+    --toc-width: 260px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F8FAFB;
+    color: #1A1F2E;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    padding: 80px 40px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(51,190,204,0.15);
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(51,190,204,0.3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 800px;
+    margin: 0 auto 24px;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero-sub {
+    font-size: 1.125rem;
+    color: var(--gray);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 0.875rem;
+    color: var(--gray);
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-wave {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 48px;
+  }
+
+  /* ── TOC ── */
+  .toc-sidebar {
+    width: var(--toc-width);
+    flex-shrink: 0;
+    padding-top: 56px;
+  }
+  .toc-inner {
+    position: sticky;
+    top: 32px;
+  }
+  .toc-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+  .toc-list { list-style: none; }
+  .toc-list li { margin-bottom: 4px; }
+  .toc-list a {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gray);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-left: 2px solid transparent;
+    border-radius: 0 4px 4px 0;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+  .toc-list a:hover { color: var(--teal); border-left-color: rgba(51,190,204,0.4); }
+  .toc-list a.active { color: var(--teal); border-left-color: var(--teal); background: rgba(51,190,204,0.06); font-weight: 600; }
+
+  /* ── MAIN CONTENT ── */
+  .main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 56px 0 80px;
+  }
+
+  /* ── SECTIONS ── */
+  .wp-section { margin-bottom: 72px; }
+  .section-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .wp-section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .section-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .wp-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--black);
+    margin: 36px 0 12px;
+  }
+  .wp-section p { margin-bottom: 20px; color: #2D3748; }
+
+  /* ── STAT CARDS ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin: 36px 0;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-top: 3px solid var(--teal);
+    border-radius: 8px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .stat-card .stat-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-card .stat-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ── PULL QUOTES ── */
+  blockquote {
+    margin: 36px 0;
+    padding: 24px 28px;
+    background: #F0FDFF;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote p {
+    font-size: 1.0625rem;
+    font-style: italic;
+    color: var(--darker);
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+  blockquote cite {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gray);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  .callout-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .callout p { color: rgba(255,255,255,0.85); margin-bottom: 0; }
+
+  /* ── COMPARISON CARDS ── */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .comp-card {
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: center;
+    background: white;
+  }
+  .comp-card.featured {
+    border-color: var(--teal);
+    border-width: 2px;
+    background: #F0FDFF;
+  }
+  .comp-card .comp-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+  .comp-card h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .comp-rate {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .comp-card.featured .comp-rate { color: var(--teal); }
+  .comp-card .comp-desc {
+    font-size: 0.75rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+  .comp-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    display: flex;
+    gap: 0;
+    margin: 36px 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--dark));
+    z-index: 0;
+  }
+  .tl-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .tl-circle {
+    width: 56px;
+    height: 56px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--teal);
+  }
+  .tl-step:nth-child(2) .tl-circle { background: var(--dark); box-shadow: 0 0 0 2px var(--dark); }
+  .tl-step:nth-child(3) .tl-circle { background: var(--darker); box-shadow: 0 0 0 2px var(--darker); }
+  .tl-phase {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .tl-step:nth-child(2) .tl-phase, .tl-step:nth-child(3) .tl-phase { color: var(--dark); }
+  .tl-title { font-size: 0.875rem; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+  .tl-desc { font-size: 0.75rem; color: var(--gray); line-height: 1.5; padding: 0 8px; }
+
+  /* ── KNOW / DON'T KNOW ── */
+  .know-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+  .know-card {
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .know-card.has { background: #F0FFF4; border: 1px solid #9AE6B4; }
+  .know-card.has-not { background: #FFF5F5; border: 1px solid #FEB2B2; }
+  .know-card h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .know-card.has h4 { color: #276749; }
+  .know-card.has-not h4 { color: #C53030; }
+  .know-card ul { list-style: none; }
+  .know-card ul li {
+    font-size: 0.8rem;
+    color: #2D3748;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-left: 16px;
+    position: relative;
+  }
+  .know-card ul li::before { content: ''; position: absolute; left: 0; top: 12px; width: 8px; height: 8px; border-radius: 50%; }
+  .know-card.has ul li::before { background: #48BB78; }
+  .know-card.has-not ul li::before { background: #FC8181; }
+
+  /* ── SOURCES ── */
+  .sources-toggle {
+    background: none;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+    transition: background 0.15s;
+  }
+  .sources-toggle:hover { background: #F7FAFC; }
+  .sources-toggle .arrow { transition: transform 0.2s; font-size: 0.75rem; }
+  .sources-toggle.open .arrow { transform: rotate(180deg); }
+  .sources-list {
+    display: none;
+    padding: 16px 0;
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+  .sources-list.open { display: block; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--black);
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: 56px 0 0;
+  }
+  .cta-section h2 { color: white; font-size: 1.75rem; font-weight: 700; margin-bottom: 12px; }
+  .cta-section p { color: var(--gray); margin-bottom: 32px; font-size: 1rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .cta-email {
+    display: block;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: var(--gray);
+  }
+  .cta-email a { color: var(--teal); text-decoration: none; }
+
+  /* ── LAYERS ── */
+  .layer-list { list-style: none; margin: 24px 0; }
+  .layer-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid #EDF2F7;
+  }
+  .layer-item:last-child { border-bottom: none; }
+  .layer-num {
+    width: 36px;
+    height: 36px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .layer-body h4 { font-size: 1rem; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+  .layer-body p { font-size: 0.9rem; color: #4A5568; margin-bottom: 0; }
+
+  /* ── MOBILE ── */
+  .toc-toggle-btn {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(51,190,204,0.4);
+  }
+  .toc-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,31,46,0.95);
+    z-index: 200;
+    padding: 32px 24px;
+    overflow-y: auto;
+  }
+  .toc-mobile-overlay.open { display: block; }
+  .toc-mobile-close {
+    background: none;
+    border: none;
+    color: var(--teal);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .toc-mobile-overlay .toc-list a { color: rgba(255,255,255,0.7); font-size: 1rem; padding: 10px 16px; }
+  .toc-mobile-overlay .toc-list a.active { color: var(--teal); }
+
+  @media (max-width: 900px) {
+    .toc-sidebar { display: none; }
+    .toc-toggle-btn { display: flex; align-items: center; justify-content: center; }
+    .page-body { padding: 0 20px; }
+    .comparison-grid { grid-template-columns: 1fr; }
+    .know-grid { grid-template-columns: 1fr; }
+    .timeline { flex-direction: column; gap: 24px; }
+    .timeline::before { display: none; }
+    .tl-circle { width: 44px; height: 44px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media print {
+    .toc-sidebar, .toc-toggle-btn, .hero-wave, .cta-section { display: none !important; }
+    .page-body { display: block; padding: 0; }
+    .main-content { padding: 0; }
+    body { font-size: 12pt; color: black; background: white; }
+    .hero { background: white; color: black; padding: 20pt 0 10pt; }
+    .hero h1 { color: black; font-size: 24pt; }
+    .hero h1 span { color: #33BECC; }
+    .hero-sub, .hero-meta, .hero-eyebrow { display: none; }
+    blockquote { border-left-color: #33BECC; background: #f5f5f5; }
+    .stat-card, .comp-card, .callout { break-inside: avoid; }
+  }
+</style>
+    <!-- RB2B Website Visitor Identification -->
+    <script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("W6Z57HZ5G7OX");</script>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Vonga White Paper · March 2026</div>
+  <h1>The <span>Fan Intelligence Gap</span><br>Why Your Merchandise Is Your Most<br>Undervalued Data Asset</h1>
+  <p class="hero-sub">Sports organizations sit on a $37–43 billion merchandise market — and get almost nothing from it except revenue.</p>
+  <div class="hero-meta">
+    <span>📄 White Paper</span>
+    <span>·</span>
+    <span>March 2026</span>
+    <span>·</span>
+    <span>vonga.io</span>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#F8FAFB"/>
+  </svg>
+</div>
+
+<!-- MOBILE TOC -->
+<button class="toc-toggle-btn" onclick="document.getElementById('toc-overlay').classList.add('open')">☰</button>
+<div class="toc-mobile-overlay" id="toc-overlay">
+  <button class="toc-mobile-close" onclick="document.getElementById('toc-overlay').classList.remove('open')">✕ Close</button>
+  <p class="toc-label" style="color:rgba(255,255,255,0.4)">Contents</p>
+  <ul class="toc-list" id="toc-mobile"></ul>
+</div>
+
+<div class="page-body">
+  <!-- TOC SIDEBAR -->
+  <aside class="toc-sidebar">
+    <div class="toc-inner">
+      <p class="toc-label">Contents</p>
+      <ul class="toc-list" id="toc-desktop"></ul>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- EXEC SUMMARY -->
+    <section class="wp-section" id="exec-summary">
+      <span class="section-num">Overview</span>
+      <h2>Executive Summary</h2>
+      <div class="section-rule"></div>
+      <p>Sports organizations sit on a $37–43 billion merchandise market — and get almost nothing from it except revenue. Every jersey sold, every giveaway handed out, every hat worn to a tailgate represents a fan interaction that generates zero data. Meanwhile, sponsors are demanding proof that their partnerships actually work, and 76% of them can't calculate their ROI.</p>
+      <p>The industry has a fan intelligence problem. Not a fan <em>engagement</em> problem — an <em>intelligence</em> problem. Teams know how many people walked through the gate. They don't know who those people are, what they care about, or how they behave after the final whistle.</p>
+      <p>This paper lays out the case for why merchandise — the physical products fans already buy, wear, and take home — is the most overlooked first-party data channel in sports.</p>
+      <div class="stat-grid">
+        <div class="stat-card"><span class="stat-num">$37–43B</span><span class="stat-label">Licensed sports merch market generating almost zero fan intelligence</span></div>
+        <div class="stat-card"><span class="stat-num">76%</span><span class="stat-label">Of sponsors who cannot accurately calculate their ROI</span></div>
+        <div class="stat-card"><span class="stat-num">94%</span><span class="stat-label">Of smartphones worldwide are NFC-equipped</span></div>
+        <div class="stat-card"><span class="stat-num">0.5%</span><span class="stat-label">Industry average digital display ad click-through rate</span></div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="wp-section" id="problem">
+      <span class="section-num">Section 01</span>
+      <h2>The Problem: A $37–43 Billion Black Box</h2>
+      <div class="section-rule"></div>
+      <p>The global licensed sports merchandise market is valued at $35.7–36.4 billion (Straits Research, Grand View Research, Expert Market Research — 2024 estimates). North America accounts for over 52% of that revenue.</p>
+      <p>That's the number everyone knows. Here's the number nobody talks about: how much fan intelligence does that $37–43 billion generate? Almost none.</p>
+      <p>A fan buys a jersey. The transaction is recorded. But what happens after that? They wear it to 15 games. They wear it to a watch party in another city. They wear it to the gym on a Tuesday. Each of those moments represents intent, location, loyalty — and the team captures none of it.</p>
+
+      <h3>Why This Matters Now</h3>
+      <p>Three forces are converging to make this gap untenable:</p>
+
+      <div class="callout">
+        <div class="callout-label">Force 01 — Sponsors want proof</div>
+        <p>76% of sponsors cannot accurately calculate their ROI (Forrester). The global sports sponsorship market is valued at $60–65 billion and projected to nearly double by 2033. Sponsors aren't spending more because they're feeling generous — they expect data-driven accountability in return.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Force 02 — First-party data is no longer optional</div>
+        <p>Deloitte's 2024 Sports Industry Outlook identified "investments in fan data" as one of five major industry trends. The NFL has built a data ecosystem with over 250 attributes per fan profile. The big clubs are building fan data infrastructure. The question for everyone else: what's your plan?</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Force 03 — The cookie is dying</div>
+        <p>Nearly 90% of marketers are shifting toward first- and zero-party data in anticipation of privacy changes. Chrome holds 66.8% of global browser usage. When third-party cookies go away, so does the cheap targeting sponsors have relied on. The teams that own first-party fan data become the targeting layer.</p>
+      </div>
+    </section>
+
+    <!-- DATA GAP -->
+    <section class="wp-section" id="data-gap">
+      <span class="section-num">Section 02</span>
+      <h2>The Data Gap: What You Know vs. What You Should Know</h2>
+      <div class="section-rule"></div>
+      <p>Most sports organizations are stuck at Stage 1 or Stage 2 of fan data maturity — collecting and measuring basic metrics — but can't predict or personalize (FanCompass, Jan 2026).</p>
+
+      <div class="know-grid">
+        <div class="know-card has">
+          <h4>✓ What Teams Typically Know</h4>
+          <ul>
+            <li>Ticket sales (who bought, what section, how much)</li>
+            <li>Season ticket holder info (address, renewal history)</li>
+            <li>Concession revenue (aggregate, not per-fan)</li>
+            <li>App downloads and basic digital engagement</li>
+            <li>Social media follower counts</li>
+          </ul>
+        </div>
+        <div class="know-card has-not">
+          <h4>✗ What Teams Don't Know</h4>
+          <ul>
+            <li>Who's wearing their merch outside the stadium</li>
+            <li>Which fans engage with sponsor activations beyond a passive impression</li>
+            <li>Whether a giveaway item generated any interaction after the fan left</li>
+            <li>The identity of 40,000+ fans wearing branded gear on game day</li>
+            <li>How individual fan engagement changes across seasons and life stages</li>
+          </ul>
+        </div>
+      </div>
+
+      <blockquote>
+        <p>"Fan data is becoming not just an integral part of sponsorship agreements, but may be the primary thing brands want. Not having robust fan data could deter top sponsors and partners."</p>
+        <cite>— Deloitte, 2025 Sports Industry Outlook</cite>
+      </blockquote>
+    </section>
+
+    <!-- MERCHANDISE OPPORTUNITY -->
+    <section class="wp-section" id="opportunity">
+      <span class="section-num">Section 03</span>
+      <h2>The Merchandise Opportunity: Physical Items as Data Channels</h2>
+      <div class="section-rule"></div>
+      <p>You already have a massive first-party data collection network. It's called your merchandise program. Every jersey, every giveaway, every premium item you put into a fan's hands is a physical touchpoint. Right now, those touchpoints are one-way. They don't have to be.</p>
+      <p>NFC (Near Field Communication) technology makes it possible to turn any physical product into a two-way data channel. Embed a chip. Fan taps their phone. Content loads in their browser — no app required. And every tap generates a data point: who, where, when, what device, what they engaged with.</p>
+
+      <h3>Why NFC Over Other Methods</h3>
+      <div class="comparison-grid">
+        <div class="comp-card">
+          <div class="comp-icon">📱</div>
+          <h4>Mobile Apps</h4>
+          <div class="comp-rate" style="color:#FC8181">3–5%</div>
+          <p class="comp-desc">Download rate. Average person uses only 9 of 80+ installed apps. 25% abandon after one use. A $25K+ app that 4% of fans actually use.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-icon">⬛</div>
+          <h4>QR Codes</h4>
+          <div class="comp-rate" style="color:#F6AD55">~3%</div>
+          <p class="comp-desc">Require a camera, steady hand, good lighting. Fail on jerseys in stadiums. One-time scan — no persistent identity, no behavioral arc.</p>
+        </div>
+        <div class="comp-card featured">
+          <div class="comp-badge">BEST</div>
+          <div class="comp-icon">✦</div>
+          <h4>NFC</h4>
+          <div class="comp-rate">15–40%</div>
+          <p class="comp-desc">Fan holds phone near chip. Content loads in native browser. No camera. No app. No form. One second. Persistent identity builds across every tap.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRAMEWORK -->
+    <section class="wp-section" id="framework">
+      <span class="section-num">Section 04</span>
+      <h2>The Framework: From Transaction to Intelligence</h2>
+      <div class="section-rule"></div>
+      <p>Turning merchandise into a data channel isn't about chips. It's about building a system that converts physical fan interactions into usable intelligence.</p>
+      <ul class="layer-list">
+        <li class="layer-item"><div class="layer-num">1</div><div class="layer-body"><h4>Identity</h4><p>Every NFC tap captures device signature, location, timestamp, and behavior. After multiple taps, you build a progressive fan profile — not from form fills, but from actual behavior. Each tap makes the picture richer.</p></div></li>
+        <li class="layer-item"><div class="layer-num">2</div><div class="layer-body"><h4>Segmentation</h4><p>Not demographic buckets (male, 25–34, zip code) but behavioral segments: game-day tappers vs. all-week engagers. In-venue vs. remote. High-frequency vs. one-and-done. This is the difference between knowing fans by headcount and knowing them by name.</p></div></li>
+        <li class="layer-item"><div class="layer-num">3</div><div class="layer-body"><h4>Sponsor Proof</h4><p>Not estimated impressions. Not logo placement hours. Verified fan interactions with sponsor-branded content, traceable to individual fans, with engagement rates and behavioral data attached.</p></div></li>
+        <li class="layer-item"><div class="layer-num">4</div><div class="layer-body"><h4>Persistence</h4><p>Unlike a stadium visit or app notification, merchandise goes home with the fan. A jersey isn't a one-night engagement channel — it's a 3-year data asset. The relationship compounds every time a fan taps.</p></div></li>
+      </ul>
+    </section>
+
+    <!-- MARKET MOVING -->
+    <section class="wp-section" id="market">
+      <span class="section-num">Section 05</span>
+      <h2>The Market Is Moving — Fast</h2>
+      <div class="section-rule"></div>
+      <p>This isn't a theoretical future. Major organizations are already investing heavily in fan data infrastructure:</p>
+      <ul style="margin: 0 0 24px 20px; color: #2D3748;">
+        <li style="margin-bottom: 12px;"><strong>The NFL</strong> built a data ecosystem with 250+ attributes per fan profile (Deloitte).</li>
+        <li style="margin-bottom: 12px;"><strong>FC Bayern Munich</strong> integrated 50+ data systems into a unified "Golden Fan Record."</li>
+        <li style="margin-bottom: 12px;"><strong>MLB</strong> partnered with Adobe's Real-Time CDP across all 30 clubs. Their VP of digital: "We've started thinking about our data as something that can enhance some of the broader partnerships that we have at the league level."</li>
+        <li style="margin-bottom: 12px;"><strong>The IOC</strong> deployed a Fan Data Platform for Paris 2024, generating 12 billion+ engagements.</li>
+        <li style="margin-bottom: 12px;"><strong>Manchester City × PUMA × EA Sports</strong> shipped NFC-enabled jerseys at Premier League scale — fans tap the crest to unlock in-game content.</li>
+      </ul>
+      <div class="stat-grid">
+        <div class="stat-card"><span class="stat-num">250+</span><span class="stat-label">Fan profile attributes in the NFL's data ecosystem</span></div>
+        <div class="stat-card"><span class="stat-num">50+</span><span class="stat-label">Data systems FC Bayern integrated into their Golden Fan Record</span></div>
+        <div class="stat-card"><span class="stat-num">7–8×</span><span class="stat-label">Sponsorship revenue gap between top and bottom Premier League clubs (BCG)</span></div>
+        <div class="stat-card"><span class="stat-num">12B+</span><span class="stat-num-sub"></span><span class="stat-label">Engagements generated by IOC Fan Data Platform at Paris 2024</span></div>
+      </div>
+    </section>
+
+    <!-- COLLEGE ATHLETICS -->
+    <section class="wp-section" id="college">
+      <span class="section-num">Section 06</span>
+      <h2>The College Athletics Urgency</h2>
+      <div class="section-rule"></div>
+      <p>If you're in college athletics, the pressure is even more acute.</p>
+      <blockquote>
+        <p>"We have to realize there is donor fatigue. There is NIL-donor fatigue, ticket prices fatigue from our customers. We can't just keep going up, going up and asking donors for this and that. We're straining the whole system. This system we're sitting in today is not sustainable. Not at all."</p>
+        <cite>— Verge Ausberry, LSU Athletic Director, February 2026</cite>
+      </blockquote>
+      <p>If a blue-blood program with LSU's resources is calling the model unsustainable, every mid-major is feeling it 10x worse.</p>
+      <p>Fan data represents a new revenue layer — not replacing existing streams, but augmenting them. When you can prove to a sponsor exactly how many fans engaged with their activation, at what frequency, and with what behavioral patterns, you're not selling impressions. You're selling intelligence. That commands a premium.</p>
+      <p>And the fan data you collect doesn't expire when a student graduates. A chip in a jersey works for years. The fan profile persists. The relationship continues.</p>
+    </section>
+
+    <!-- 90-DAY PATH -->
+    <section class="wp-section" id="getting-started">
+      <span class="section-num">Section 07</span>
+      <h2>Getting Started: The 90-Day Path</h2>
+      <div class="section-rule"></div>
+      <p>The transition from merchandise-as-product to merchandise-as-data-channel doesn't require a platform overhaul or a two-year implementation timeline.</p>
+
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-circle">01</div>
+          <div class="tl-phase">Days 1–30</div>
+          <div class="tl-title">Pilot Design &amp; Procurement</div>
+          <div class="tl-desc">Select product category. Define fan experience. Order NFC tags. Brief merch supplier on embedding process.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-circle">02</div>
+          <div class="tl-phase">Days 31–60</div>
+          <div class="tl-title">Integration &amp; Embedding</div>
+          <div class="tl-desc">Tags arrive pre-encoded. Supplier embeds into products. Platform configured. Test taps verify end-to-end before items reach fans.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-circle">03</div>
+          <div class="tl-phase">Days 61–90</div>
+          <div class="tl-title">Live Data</div>
+          <div class="tl-desc">Items reach fans. Taps generate data. Fan profiles build. Sponsor dashboards populate with verified engagement metrics.</div>
+        </div>
+      </div>
+
+      <p>The pilot proves or disproves the model with your fans, your merch, your sponsors. No multi-year commitment required.</p>
+    </section>
+
+    <!-- BOTTOM LINE -->
+    <section class="wp-section" id="conclusion">
+      <span class="section-num">Conclusion</span>
+      <h2>The Bottom Line</h2>
+      <div class="section-rule"></div>
+      <p>The sports industry is sitting on a $37–43 billion merchandise market that generates almost no fan intelligence. Sponsors are demanding data-driven accountability. First-party data is becoming the primary thing brands want from partnerships. And the teams that build fan data infrastructure now will have a structural advantage over those that don't.</p>
+      <p>Every jersey, every giveaway, every premium item is an opportunity to learn something about the fan holding it. Right now, that opportunity is wasted.</p>
+      <p style="font-size: 1.25rem; font-weight: 700; color: var(--black);">It doesn't have to be.</p>
+    </section>
+
+    <!-- SOURCES -->
+    <div style="margin-bottom: 48px;">
+      <button class="sources-toggle" id="sources-btn" onclick="toggleSources()">
+        <span>Sources &amp; References</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="sources-list" id="sources-list">
+        <ul style="list-style: none; margin-top: 8px;">
+          <li>Deloitte, "2024 Sports Industry Outlook" and "2025 Sports Industry Outlook"</li>
+          <li>PwC, "Global Sports Survey 2024" and Sports Sponsorship Playbook</li>
+          <li>BCG, "Beyond Media Rights," Feb 2026</li>
+          <li>Forrester Consulting, 2024</li>
+          <li>Straits Research, Grand View Research, Expert Market Research — Licensed Sports Merchandise Market (2024)</li>
+          <li>Data Bridge Market Research — Licensed Sports Merchandise Market (2024)</li>
+          <li>Marketing Dive — MLB + Adobe Real-Time CDP (2025)</li>
+          <li>ElectroIQ — NFC Payment Statistics (2025)</li>
+          <li>Sportradar — FanID Launch (Jan 2024)</li>
+          <li>StatCounter — Browser Market Share (May 2025)</li>
+          <li>Adtelligent — Privacy and Data Landscape (2025)</li>
+          <li>FanCompass — Fan Data Maturity Curve (Jan 2026)</li>
+          <li>Pulselive — Fan Engagement and Sponsorship ROI (2024)</li>
+          <li>Mobilo Card — NFC vs QR Code Comparison (2025)</li>
+          <li>Verge Ausberry, LSU Athletic Director — Public remarks, Feb 2026</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to see what fan intelligence looks like for your program?</h2>
+      <p>We'll show you exactly what a fan intelligence platform captures from a single NFC-enabled item — and what that data is worth to your sponsors.</p>
+      <a href="https://calendly.com/bill-vonga/30min" class="cta-btn">Schedule a 20-Minute Walkthrough →</a>
+      <span class="cta-email">Or email us directly at <a href="mailto:bill@vonga.io">bill@vonga.io</a></span>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const sections = [
+  { id: 'exec-summary', label: 'Executive Summary' },
+  { id: 'problem', label: '01 · The $37–43B Black Box' },
+  { id: 'data-gap', label: '02 · The Data Gap' },
+  { id: 'opportunity', label: '03 · Merchandise Opportunity' },
+  { id: 'framework', label: '04 · The Framework' },
+  { id: 'market', label: '05 · The Market Is Moving' },
+  { id: 'college', label: '06 · College Athletics' },
+  { id: 'getting-started', label: '07 · The 90-Day Path' },
+  { id: 'conclusion', label: 'Conclusion' },
+];
+
+function buildToc(listId) {
+  const ul = document.getElementById(listId);
+  sections.forEach(s => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + s.id;
+    a.textContent = s.label;
+    a.dataset.section = s.id;
+    a.addEventListener('click', () => document.getElementById('toc-overlay').classList.remove('open'));
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+}
+buildToc('toc-desktop');
+buildToc('toc-mobile');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.toc-list a').forEach(a => a.classList.remove('active'));
+      document.querySelectorAll(`.toc-list a[data-section="${entry.target.id}"]`).forEach(a => a.classList.add('active'));
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => {
+  const el = document.getElementById(s.id);
+  if (el) observer.observe(el);
+});
+
+function toggleSources() {
+  const btn = document.getElementById('sources-btn');
+  const list = document.getElementById('sources-list');
+  btn.classList.toggle('open');
+  list.classList.toggle('open');
+}
+</script>
+</body>
+</html>

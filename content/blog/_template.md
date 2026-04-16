@@ -65,7 +65,7 @@ People love learning what NOT to do:
 
 ### Using Images
 
-![Descriptive alt text](../images/blog/example-screenshot.png)
+![Descriptive alt text](/images/blog/example-screenshot.png)
 
 *Caption: Add context for your images*
 

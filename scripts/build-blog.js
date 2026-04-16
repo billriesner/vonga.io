@@ -35,6 +35,10 @@ function getMarkdownPosts() {
       content,
       file
     };
+  }).filter(post => {
+    // Gate: exclude posts with future dates
+    const postDate = new Date(post.frontmatter.date + 'T06:00:00-04:00');
+    return postDate <= new Date();
   }).sort((a, b) => {
     // Sort by date, newest first
     return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
@@ -81,9 +85,9 @@ function generatePostHTML(post) {
     <meta property="twitter:image" content="https://vonga.io/${frontmatter.featuredImage || 'images/blog/default-featured.png'}">
     
     <link rel="canonical" href="https://vonga.io/blog/${slug}.html">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="blog.css">
-    <script src="../js/main.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/blog/blog.css">
+    <script src="/js/main.js" defer></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -120,18 +124,18 @@ function generatePostHTML(post) {
 <body class="blog-post">
     <header>
         <nav>
-            <a href="../index.html" class="logo"><img src="../images/logos/logo.svg" alt="Vonga"></a>
+            <a href="/" class="logo"><img src="/images/logos/logo.svg" alt="Vonga"></a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul>
-                <li><a href="../how-it-works.html">How It Works</a></li>
-                <li><a href="../case-studies.html">Stories</a></li>
-                <li><a href="../pricing.html">Pricing</a></li>
-                <li><a href="index.html" class="active">The Tap</a></li>
-                <li><a href="../contact.html" class="btn btn-primary">Let's Connect</a></li>
+                <li><a href="/how-it-works.html">How It Works</a></li>
+                <li><a href="/case-studies.html">Stories</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/blog/" class="active">The Tap</a></li>
+                <li><a href="/contact.html" class="btn btn-primary">Let's Connect</a></li>
             </ul>
         </nav>
     </header>
@@ -141,10 +145,10 @@ function generatePostHTML(post) {
         <div class="article-header">
             <div class="article-header-content">
                 <div class="breadcrumbs">
-                    <a href="index.html">← Back to The Tap</a>
+                    <a href="/blog/">← Back to The Tap</a>
                 </div>
                 <h1>${frontmatter.title}</h1>
-                ${frontmatter.featuredImage ? `<img src="../${frontmatter.featuredImage}" alt="${frontmatter.title}" class="featured-image" style="width: 100%; max-width: 800px; border-radius: 12px; margin: 24px auto; display: block;">` : ''}
+                ${frontmatter.featuredImage ? `<img src="/${frontmatter.featuredImage}" alt="${frontmatter.title}" class="featured-image" style="width: 100%; max-width: 800px; border-radius: 12px; margin: 24px auto; display: block;">` : ''}
                 <div class="article-meta">
                     <div class="author-info">
                         <div>
@@ -169,7 +173,7 @@ function generatePostHTML(post) {
         <div class="blog-cta-content">
             <h2>Ready to Prove Your Sponsor ROI?</h2>
             <p>Let's show you how Vonga turns merchandise into measurable engagement.</p>
-            <a href="../contact.html" class="btn btn-coral">Schedule a Demo</a>
+            <a href="/contact.html" class="btn btn-coral">Schedule a Demo</a>
         </div>
     </section>
 
@@ -177,24 +181,24 @@ function generatePostHTML(post) {
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <img src="../images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
+                <img src="/images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
                 <p style="font-weight: 600; color: white; font-size: 18px;">Live Connected.</p>
             </div>
             
             <div class="footer-section">
                 <h4>Resources</h4>
                 <ul>
-                    <li><a href="../how-it-works.html">How It Works</a></li>
-                    <li><a href="../case-studies.html">Stories</a></li>
-                    <li><a href="../pricing.html">Pricing</a></li>
-                    <li><a href="index.html">The Tap</a></li>
+                    <li><a href="/how-it-works.html">How It Works</a></li>
+                    <li><a href="/case-studies.html">Stories</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
+                    <li><a href="/blog/">The Tap</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Let's Talk</h4>
                 <ul>
-                    <li><a href="../contact.html">Get Started</a></li>
+                    <li><a href="/contact.html">Get Started</a></li>
                 </ul>
             </div>
         </div>
@@ -216,9 +220,9 @@ function generateIndexHTML(posts) {
   const featuredHTML = featuredPost ? `
     <section class="featured-section">
         <article class="featured-article">
-            <a href="${featuredPost.slug}.html" class="featured-article-link">
+            <a href="/blog/${featuredPost.slug}.html" class="featured-article-link">
                 <div class="featured-article-image">
-                    <img src="../${featuredPost.frontmatter.featuredImage || 'images/blog/default-featured.png'}" alt="${featuredPost.frontmatter.title}">
+                    <img src="/${featuredPost.frontmatter.featuredImage || 'images/blog/default-featured.png'}" alt="${featuredPost.frontmatter.title}">
                 </div>
                 <div class="featured-article-content">
                     <div class="article-tags">
@@ -241,9 +245,9 @@ function generateIndexHTML(posts) {
         <div class="blog-grid">
             ${otherPosts.map(post => `
                 <article class="blog-card">
-                    <a href="${post.slug}.html" class="blog-card-link">
+                    <a href="/blog/${post.slug}.html" class="blog-card-link">
                         <div class="blog-card-image">
-                            <img src="../${post.frontmatter.featuredImage || 'images/blog/default-featured.png'}" alt="${post.frontmatter.title}">
+                            <img src="/${post.frontmatter.featuredImage || 'images/blog/default-featured.png'}" alt="${post.frontmatter.title}">
                         </div>
                         <div class="blog-card-content">
                             <div class="article-tags">
@@ -269,9 +273,9 @@ function generateIndexHTML(posts) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tap - Vonga Blog</title>
     <meta name="description" content="Insights on athletic sponsorship, fan engagement, and sports marketing from Vonga.">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="blog.css">
-    <script src="../js/main.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/blog/blog.css">
+    <script src="/js/main.js" defer></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5005PHB8N"></script>
     <script>
@@ -284,18 +288,18 @@ function generateIndexHTML(posts) {
 <body>
     <header>
         <nav>
-            <a href="../index.html" class="logo"><img src="../images/logos/logo.svg" alt="Vonga"></a>
+            <a href="/" class="logo"><img src="/images/logos/logo.svg" alt="Vonga"></a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul>
-                <li><a href="../how-it-works.html">How It Works</a></li>
-                <li><a href="../case-studies.html">Stories</a></li>
-                <li><a href="../pricing.html">Pricing</a></li>
-                <li><a href="index.html" class="active">The Tap</a></li>
-                <li><a href="../contact.html" class="btn btn-primary">Let's Connect</a></li>
+                <li><a href="/how-it-works.html">How It Works</a></li>
+                <li><a href="/case-studies.html">Stories</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/blog/" class="active">The Tap</a></li>
+                <li><a href="/contact.html" class="btn btn-primary">Let's Connect</a></li>
             </ul>
         </nav>
     </header>
@@ -318,7 +322,7 @@ function generateIndexHTML(posts) {
         <div class="blog-cta-content">
             <h2>Ready to Prove Your Sponsor ROI?</h2>
             <p>Let's show you how Vonga turns merchandise into measurable engagement.</p>
-            <a href="../contact.html" class="btn btn-coral">Schedule a Demo</a>
+            <a href="/contact.html" class="btn btn-coral">Schedule a Demo</a>
         </div>
     </section>
 
@@ -326,24 +330,24 @@ function generateIndexHTML(posts) {
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <img src="../images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
+                <img src="/images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
                 <p style="font-weight: 600; color: white; font-size: 18px;">Live Connected.</p>
             </div>
             
             <div class="footer-section">
                 <h4>Resources</h4>
                 <ul>
-                    <li><a href="../how-it-works.html">How It Works</a></li>
-                    <li><a href="../case-studies.html">Stories</a></li>
-                    <li><a href="../pricing.html">Pricing</a></li>
-                    <li><a href="index.html">The Tap</a></li>
+                    <li><a href="/how-it-works.html">How It Works</a></li>
+                    <li><a href="/case-studies.html">Stories</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
+                    <li><a href="/blog/">The Tap</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Let's Talk</h4>
                 <ul>
-                    <li><a href="../contact.html">Get Started</a></li>
+                    <li><a href="/contact.html">Get Started</a></li>
                 </ul>
             </div>
         </div>
