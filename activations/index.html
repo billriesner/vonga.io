@@ -57,10 +57,116 @@
 
     <!-- Hero -->
     <section class="hero" style="min-height: 50vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-4xl); position: relative; overflow: hidden;">
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; z-index: 0;">
+            <source src="/images/hero-video-stadium.mp4" type="video/mp4">
+        </video>
         <div class="container" style="max-width: var(--max-width); text-align: center; position: relative; z-index: 1;">
             <h1 style="margin-bottom: var(--space-lg);">Three ways teams start.</h1>
-            <p style="font-size: 20px; max-width: 700px; margin: 0 auto var(--space-xl); color: rgba(255,255,255,0.85);">Sponsor activations, game day items, and VIP programs. Each one generates data that didn't exist before.</p>
-            <p style="font-size: 18px; max-width: 600px; margin: 0 auto var(--space-2xl); color: rgba(255,255,255,0.65);">Full activation details coming soon. In the meantime — tell us what you're planning.</p>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto var(--space-xl); color: rgba(255,255,255,0.85);">Sponsor activations, game day items, and VIP programs. Each one turns physical merchandise into fan intelligence that didn't exist before.</p>
+        </div>
+    </section>
+
+    <!-- Activation 1: Sponsor Activation -->
+    <section style="padding: var(--space-4xl) var(--space-2xl); background: var(--navy);">
+        <div class="container" style="max-width: 900px;">
+            <p style="color: var(--aqua); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--space-sm);">Activation Type 1</p>
+            <h2 style="color: white; margin-bottom: var(--space-md);">Sponsor Activation</h2>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: var(--space-2xl); line-height: 1.75;">A sponsor signs a deal. They activate at your venue or through your merch program. Vonga embeds NFC in the physical item. Every fan tap is logged, timestamped, and attributed directly to that sponsor. At renewal time, they see exactly how many fans engaged, when, and where.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl);" id="sponsor-examples">
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Branded Giveaway Night</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">Sponsor co-brands a bobblehead, towel, scarf, or jersey. NFC chip tracks every fan who taps and engages with the sponsor experience. Sponsor sees verified attendance data, not estimated reach.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">In-Venue Sponsor Experience</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">NFC touchpoint at a sponsor activation zone. Fan taps to unlock an offer, sweepstakes, or exclusive content. Sponsor gets a real count of interactions at that specific activation.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Co-Branded Apparel Program</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">Special edition jersey or apparel with sponsor branding and embedded NFC. Every tap builds engagement data tied to the sponsor's program. Fans who tap once tend to tap again.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Fan Unlock Experience</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">Tap to unlock exclusive content, a discount, or a sweepstakes entry sponsored by a brand. Sponsor sees conversion data. You see fan identity data. Both parties win at renewal.</p>
+                </div>
+            </div>
+            <div style="border-left: 3px solid var(--aqua); padding-left: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <p style="color: var(--aqua); font-weight: 600; font-size: 17px; line-height: 1.6;">Sponsors who can show verified engagement data close renewals that sponsors without data lose.</p>
+            </div>
+            <a href="/contact.html" class="btn btn-primary">Talk to us about sponsor activations</a>
+        </div>
+        <style>@media(max-width:768px){#sponsor-examples{grid-template-columns:1fr!important;}}</style>
+    </section>
+
+    <!-- Activation 2: Game Day Item -->
+    <section style="padding: var(--space-4xl) var(--space-2xl); background: #060c18;">
+        <div class="container" style="max-width: 900px;">
+            <p style="color: var(--aqua); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--space-sm);">Activation Type 2</p>
+            <h2 style="color: white; margin-bottom: var(--space-md);">Game Day Item</h2>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: var(--space-2xl); line-height: 1.75;">Every season, teams distribute millions of dollars of merchandise. Jerseys. Hats. Giveaway towels. Bobbleheads. Every item walks out the door dark — zero data on who took it or whether they ever engaged. Vonga embeds NFC during normal production. Fans tap from home, from a watch party, from the next game. Each tap builds their profile.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl);" id="gameday-examples">
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Season Giveaway Jersey</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">Special edition jersey distributed at a signature game. NFC chip inside. Fans who tap join your database. Fans who tap repeatedly become your most engaged segment.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Bobblehead or Collectible</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">High-demand giveaway item with NFC embedded. Fans tap to unlock an exclusive story, stats, or content. You capture a fan identity from an item that was already going to leave the building.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Rally Towel or Promo Item</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">High-volume giveaway items that leave with every fan. NFC turns them into ongoing touchpoints. A fan who gets a towel in April and taps in September is still engaging with your brand.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Season Ticket Holder Merch</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">Merchandise distributed to season ticket holders contains NFC. Each tap builds a richer profile of your most loyal fans — the ones sponsors actually want to reach.</p>
+                </div>
+            </div>
+            <div style="border-left: 3px solid var(--aqua); padding-left: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <p style="color: var(--aqua); font-weight: 600; font-size: 17px; line-height: 1.6;">A real fan database built from physical behavior. Not estimated demographics. Actual fans.</p>
+            </div>
+            <a href="/contact.html" class="btn btn-primary">Talk to us about game day items</a>
+        </div>
+        <style>@media(max-width:768px){#gameday-examples{grid-template-columns:1fr!important;}}</style>
+    </section>
+
+    <!-- Activation 3: VIP & Loyalty -->
+    <section style="padding: var(--space-4xl) var(--space-2xl); background: var(--navy);">
+        <div class="container" style="max-width: 900px;">
+            <p style="color: var(--aqua); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--space-sm);">Activation Type 3</p>
+            <h2 style="color: white; margin-bottom: var(--space-md);">VIP & Loyalty Program</h2>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: var(--space-2xl); line-height: 1.75;">Suite owners. Top corporate partners. Season ticket holders in your premium tier. These are your most valuable relationships. Vonga creates a physical credential — a custom NFC card — that functions as both access pass and data channel. Every tap unlocks an exclusive experience. Every interaction is logged.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl);" id="vip-examples">
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Suite Owner Card</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">Custom metal or premium card for each suite. Taps unlock curated content, ordering, or exclusive access. You know exactly how often each suite owner is engaging with your brand.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Corporate Partner Program</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">NFC credentials for a sponsor's key stakeholders. They tap to access sponsor-specific content and experiences. You get engagement data that proves the partnership is active, not just a logo.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Season Ticket Holder Tiers</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">Different NFC credentials for different loyalty tiers. Each tier unlocks different content and experiences. You see engagement by tier — which fans are most active, which need re-engagement.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: var(--space-xl);">
+                    <p style="color: var(--aqua); font-weight: 700; margin-bottom: var(--space-sm);">Multi-Event Credential</p>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7;">One card that works across a season. Fan taps at every event are tracked. By playoff time, you have a complete engagement record for your most loyal fans — a story sponsors want to pay for.</p>
+                </div>
+            </div>
+            <div style="border-left: 3px solid var(--aqua); padding-left: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <p style="color: var(--aqua); font-weight: 600; font-size: 17px; line-height: 1.6;">Premium physicality that matches the premium tier. Renewal conversations built on proof.</p>
+            </div>
+            <a href="/contact.html" class="btn btn-primary">Talk to us about VIP programs</a>
+        </div>
+        <style>@media(max-width:768px){#vip-examples{grid-template-columns:1fr!important;}}</style>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section style="padding: var(--space-4xl) var(--space-2xl); background: #060c18; text-align: center;">
+        <div class="container" style="max-width: 700px;">
+            <h2 style="color: white; margin-bottom: var(--space-md);">Tell us about your next activation.</h2>
+            <p style="color: rgba(255,255,255,0.7); font-size: 18px; margin-bottom: var(--space-2xl); line-height: 1.7;">Whether it's a single jersey night or a full season sponsor program — 15 minutes is enough to show you what the data looks like.</p>
             <a href="/contact.html" class="btn btn-primary" style="font-size: 18px; padding: var(--space-md) var(--space-2xl);">Book a 15-Min Call</a>
         </div>
     </section>
