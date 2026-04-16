@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partner Program | Vonga</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    <header>
-        <nav>
+import os
+import glob
+import re
+
+base_dir = '/Users/bob/clawd/vonga.io'
+all_files = glob.glob(os.path.join(base_dir, '**/*.html'), recursive=True)
+
+nav_html = """<nav>
             <a href="/" class="logo" style="z-index: 1001;"><img src="/images/logos/logo.svg" alt="Vonga"></a>
             <div class="nav-mobile-actions">
                 <a href="/contact.html" class="btn btn-primary mobile-cta">Book a Demo</a>
@@ -25,12 +22,22 @@
                 <li><a href="/blog/">Blog</a></li>
                 <li class="desktop-cta-li"><a href="/contact.html" class="btn btn-primary">Book a Demo</a></li>
             </ul>
-        </nav>
-    </header>
-    <main style="padding: 150px 20px; text-align: center; min-height: 60vh;">
-        <h1>Partner program coming soon.</h1>
-        <br>
-        <a href="/contact.html" class="btn btn-primary">In the meantime, let's talk.</a>
-    </main>
-</body>
-</html>
+        </nav>"""
+
+for file in all_files:
+    if "node_modules" in file:
+        continue
+    with open(file, 'r') as f:
+        content = f.read()
+    
+    # Replace nav
+    content = re.sub(r'<nav>.*?</nav>', nav_html, content, flags=re.DOTALL)
+    
+    # Remove footer links
+    content = re.sub(r'<li><a href="[^"]*?/sponsor-roi\.html">.*?</a></li>\n?', '', content)
+    content = re.sub(r'<li><a href="[^"]*?/partner\.html">.*?</a></li>\n?', '', content)
+    
+    with open(file, 'w') as f:
+        f.write(content)
+
+print("Updated nav and footer in all HTML files.")
