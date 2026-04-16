@@ -39,22 +39,8 @@ nav {
         position: relative;
         z-index: 1001;
     }
-    nav ul {
-        display: none;
-        position: absolute;
-        top: var(--header-height);
-        left: 0;
-        width: 100%;
-        background: var(--bg);
-        flex-direction: column;
-        padding: var(--space-md);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    nav.mobile-open ul {
-        display: flex;
-    }
+    /* nav ul mobile styles handled by main.css drawer — do not override here */
     nav ul li {
         margin: var(--space-xs) 0;
-        text-align: center;
     }
 }
