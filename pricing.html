@@ -7,20 +7,19 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | Vonga Fan Intelligence Platform</title>
-    <meta name="description" content="Fan intelligence platform pricing. Start with a $499/mo pilot. No per-garment costs. NFC chips priced separately based on volume.">
-    <meta property="og:title" content="Pricing | Vonga Fan Intelligence Platform">
+    <title>Vonga Pricing | Activation-Based Sports Fan Intelligence</title>
+    <meta name="description" content="Vonga pricing is scoped to your activation — one item, one season, or an annual program. No monthly fees. No platform tiers. Talk to us about your next activation.">
+    <meta property="og:title" content="Vonga Pricing | Activation-Based Sports Fan Intelligence">
     <meta property="og:image" content="https://vonga.io/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://vonga.io/images/og-image.jpg">
-    <meta property="og:description" content="You don't pay per shirt. You pay for the platform. Start with a 90-day pilot at $499/mo.">
+    <meta property="og:description" content="Vonga pricing is scoped to your activation — one item, one season, or an annual program. No monthly fees. No platform tiers. Talk to us about your next activation.">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://vonga.io/pricing">
     <meta property="og:url" content="https://vonga.io/pricing">
     <meta property="og:site_name" content="Vonga">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/main.js" defer></script>
     <!-- Google Analytics -->
@@ -33,6 +32,114 @@
     </script>
     <!-- RB2B Website Visitor Identification -->
     <script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("W6Z57HZ5G7OX");</script>
+    <style>
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+        .pricing-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(51,190,204,0.2);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .pricing-card.popular {
+            border: 2px solid var(--aqua);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--aqua);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .pricing-card h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: var(--space-sm);
+        }
+        .pricing-card .card-body {
+            color: rgba(255,255,255,0.75);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+        .pricing-card .best-for {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: var(--space-md);
+        }
+        .pricing-card .best-for strong {
+            color: var(--aqua);
+        }
+        .pricing-card .card-tag {
+            font-size: 0.85rem;
+            color: var(--aqua);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+        }
+        .pricing-card .btn {
+            margin-top: auto;
+        }
+        .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+        .includes-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .includes-grid li {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .includes-grid li::before {
+            content: "\2713";
+            color: var(--aqua);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item h4 {
+            color: white;
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+        }
+        .faq-item p {
+            color: rgba(255,255,255,0.75);
+            line-height: 1.7;
+        }
+        @media (max-width: 768px) {
+            .pricing-cards { grid-template-columns: 1fr; }
+            .includes-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -49,7 +156,7 @@
             <ul>
                 <li><a href="/how-it-works.html">How It Works</a></li>
                 <li><a href="/use-cases/sponsor-attribution.html">Sponsor ROI</a></li>
-                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/activations/">Activations</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li class="desktop-cta-li"><a href="/contact.html" class="btn btn-primary">Book a Demo</a></li>
             </ul>
@@ -57,311 +164,116 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero" style="min-height: 60vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-6xl); position: relative; overflow: hidden;">
+    <section class="hero" style="min-height: 50vh; padding: calc(var(--space-6xl) + 120px) var(--space-2xl) var(--space-4xl); position: relative; overflow: hidden;">
         <img src="/images/hero-sponsor-roi.jpg" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; z-index: 0;">
         <div class="container" style="max-width: var(--max-width); text-align: center; position: relative; z-index: 1;">
-            <p style="font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua); margin-bottom: 0.5rem;">The First NFC Fan Intelligence Platform™</p>
-            <h1 style="margin-bottom: var(--space-lg);">Pricing That Scales With You.</h1>
-            <p style="font-size: 20px; max-width: 700px; margin: 0 auto var(--space-2xl); color: rgba(255,255,255,0.85);">Start with a pilot to prove the model. Grow into a platform that transforms your entire fan engagement strategy. Simple, transparent, and built for ROI.</p>
-            <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; justify-content: center;">
-                <a href="/contact.html" class="btn btn-primary">Talk to Sales</a>
-                <a href="#faq" class="btn btn-aqua">Common Questions</a>
+            <h1 style="margin-bottom: var(--space-lg);">Activation-based pricing.</h1>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.85);">You pay for what you activate. Not a monthly platform fee. Not a per-chip cost. One invoice per activation.</p>
+        </div>
+    </section>
+
+    <!-- Three Activation Cards -->
+    <section style="background: var(--navy); padding: var(--space-4xl) var(--space-2xl);">
+        <div class="container" style="max-width: 1100px;">
+            <div class="pricing-cards">
+
+                <!-- Card 1: Single Activation -->
+                <div class="pricing-card">
+                    <h3>One Item. One Campaign.</h3>
+                    <p class="card-body">One item type. One game or event. Sponsor attribution report included.</p>
+                    <p class="best-for"><strong>Best for:</strong> Giveaway nights &middot; Sponsored jerseys &middot; VIP card programs</p>
+                    <p class="card-tag">This is where most teams start.</p>
+                    <a href="/contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Talk to us about this activation</a>
+                </div>
+
+                <!-- Card 2: Season Activation -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Full Season. Real Fan Database.</h3>
+                    <p class="card-body">One or more item types across a full season. Fan profiles build with every tap.</p>
+                    <p class="best-for"><strong>Best for:</strong> White out jerseys &middot; Season-long sponsor activations &middot; Loyalty tiers</p>
+                    <a href="/contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Talk to us about this activation</a>
+                </div>
+
+                <!-- Card 3: Annual Program -->
+                <div class="pricing-card">
+                    <h3>Unlimited Activations. One Annual Relationship.</h3>
+                    <p class="card-body">For organizations running multiple activations across a season.</p>
+                    <p class="best-for"><strong>Best for:</strong> Pro teams &middot; Multi-sport orgs &middot; Properties with multiple sponsors</p>
+                    <a href="/contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Let's talk</a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Pilot Callout -->
-    <section style="padding: var(--space-2xl) var(--space-2xl) 0;">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, var(--navy), #0d1f3c); border-radius: 16px; padding: var(--space-2xl) var(--space-xl); text-align: center; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; background: var(--aqua); opacity: 0.1; border-radius: 50%;"></div>
-                <div style="font-size: 12px; font-weight: 600; color: var(--aqua); text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--space-sm);">Start Here</div>
-                <h2 style="color: white; margin-bottom: var(--space-sm); font-size: 32px;">90-Day Pilot</h2>
-                <div class="pilot-price-display" style="display: flex; justify-content: center; align-items: baseline; gap: var(--space-xs); margin-bottom: var(--space-sm);">
-                    <span class="pilot-price-amount" style="font-size: 56px; font-weight: 700; color: white;">$499</span>
-                    <span class="pilot-price-period" style="font-size: 18px; color: rgba(255,255,255,0.7);">/month</span>
-                </div>
-                <p style="color: rgba(255,255,255,0.85); font-size: 16px; max-width: 550px; margin: 0 auto var(--space-lg);">Prove the value of connected merch with a fixed-cost, all-inclusive pilot. No long-term commitment to start.</p>
-                <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-lg);">
-                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">✓ Up to 1,000 items chipped</span>
-                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">✓ 1 unique campaign experience</span>
-                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">✓ Full Fan Intelligence Dashboard</span>
-                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">✓ Real-time analytics</span>
-                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">✓ Weekly performance reports</span>
-                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">✓ Final ROI Wrap Report</span>
-                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">✓ Onboarding + strategy support</span>
-                </div>
-                <a href="/contact.html" class="btn btn-primary" style="font-size: 18px; padding: var(--space-md) var(--space-2xl);">Start Your Pilot</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Billing Toggle -->
-    <section style="padding: var(--space-2xl) var(--space-2xl) 0;">
-        <div class="container text-center">
-            <h2 class="section-title" style="margin-bottom: var(--space-md);">After Your Pilot</h2>
-            <p style="font-size: 18px; color: var(--gray-600); max-width: 600px; margin: 0 auto var(--space-xl);">Once you've proven the value, choose the tier that fits your scale. Upgrade anytime. Your data moves with you.</p>
-            <div style="display: inline-flex; align-items: center; gap: var(--space-md); background: var(--gray-100); padding: var(--space-xs) var(--space-md); border-radius: 40px;">
-                <span id="toggle-monthly" style="font-weight: 600; color: var(--aqua); cursor: pointer; padding: var(--space-xs) var(--space-md); border-radius: 30px; background: white; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">Monthly</span>
-                <span id="toggle-annual" style="font-weight: 600; color: var(--gray-600); cursor: pointer; padding: var(--space-xs) var(--space-md); border-radius: 30px;">Annual <span style="font-size: 12px; background: var(--aqua); color: white; padding: 2px 8px; border-radius: 20px; margin-left: 4px;">Save ~15%</span></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Tiers — Compact Cards -->
-    <section class="section-muted" style="padding-top: var(--space-2xl);">
-        <div class="container">
-            <div class="grid grid-4">
-
-                <!-- Starter -->
-                <div class="card" style="display: flex; flex-direction: column; padding: var(--space-xl);">
-                    <h3 style="color: var(--aqua); margin-bottom: 4px;">Starter</h3>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">For teams ready to scale</div>
-                    <div class="price-display">
-                        <div id="starter-monthly" style="font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1;">$1,499</div>
-                        <div id="starter-annual" style="font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1; display: none;">$1,274</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-xs);">per month</div>
-                    <div id="starter-annual-note" style="font-size: 13px; color: var(--aqua); font-weight: 600; display: none;">Save ~$2,700/yr</div>
-                    <div style="border-top: 1px solid var(--gray-200); margin: var(--space-md) 0; padding-top: var(--space-md); font-size: 14px; color: var(--gray-600); line-height: 1.8;">
-                        Up to 5,000 items chipped/yr<br>
-                        3 campaign experiences<br>
-                        CRM integration<br>
-                        Monthly strategic reviews
-                    </div>
-                    <div style="margin-top: auto; padding-top: var(--space-md);">
-                        <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">Minor league • D-II/III • USL</div>
-                        <a href="/contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Talk to Sales</a>
-                    </div>
-                </div>
-
-                <!-- Growth -->
-                <div class="card" style="display: flex; flex-direction: column; padding: var(--space-xl);">
-                    <h3 style="color: var(--aqua); margin-bottom: 4px;">Growth</h3>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">For scaling fan data &amp; sponsor integrations</div>
-                    <div class="price-display">
-                        <div id="growth-monthly" style="font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1;">$2,499</div>
-                        <div id="growth-annual" style="font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1; display: none;">$2,124</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-xs);">per month</div>
-                    <div id="growth-annual-note" style="font-size: 13px; color: var(--aqua); font-weight: 600; display: none;">Save ~$4,500/yr</div>
-                    <div style="border-top: 1px solid var(--gray-200); margin: var(--space-md) 0; padding-top: var(--space-md); font-size: 14px; color: var(--gray-600); line-height: 1.8;">
-                        Up to 15,000 items chipped/yr<br>
-                        10 campaign experiences<br>
-                        CRM integration<br>
-                        Zapier &amp; Make integration<br>
-                        Quarterly strategic reviews
-                    </div>
-                    <div style="margin-top: auto; padding-top: var(--space-md);">
-                        <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">AHL/ECHL • MiLB • Mid-major D-I</div>
-                        <a href="/contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Talk to Sales</a>
-                    </div>
-                </div>
-
-                <!-- Playbook (Most Popular) -->
-                <div class="card" style="border: 3px solid var(--aqua); position: relative; display: flex; flex-direction: column; padding: var(--space-xl);">
-                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--aqua); color: white; padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; text-transform: uppercase; letter-spacing: 1px;">Most Popular</div>
-                    <h3 style="color: var(--aqua); margin-bottom: 4px;">Playbook</h3>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">For enterprise teams &amp; robust sponsor integrations</div>
-                    <div class="price-display">
-                        <div id="playbook-monthly" style="font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1;">$4,999</div>
-                        <div id="playbook-annual" style="font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1; display: none;">$4,249</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-xs);">per month</div>
-                    <div id="playbook-annual-note" style="font-size: 13px; color: var(--aqua); font-weight: 600; display: none;">Save ~$9,000/yr</div>
-                    <div style="border-top: 1px solid var(--gray-200); margin: var(--space-md) 0; padding-top: var(--space-md); font-size: 14px; color: var(--gray-600); line-height: 1.8;">
-                        Up to 25,000 items chipped/yr<br>
-                        Unlimited campaign experiences<br>
-                        Dedicated Success Manager<br>
-                        API access<br>
-                        Sponsor sub-accounts &amp; dashboards<br>
-                        Shared Slack channel support
-                    </div>
-                    <div style="margin-top: auto; padding-top: var(--space-md);">
-                        <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">G-League • NWSL • Large D-I</div>
-                        <a href="/contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Talk to Sales</a>
-                    </div>
-                </div>
-
-                <!-- Enterprise -->
-                <div class="card" style="display: flex; flex-direction: column; padding: var(--space-xl); border: 2px solid var(--aqua);">
-                    <h3 style="color: var(--aqua); margin-bottom: 4px;">Enterprise</h3>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">Leagues, conferences &amp; multi-team deployments</div>
-                    <div style="font-size: 42px; font-weight: 700; color: var(--navy); line-height: 1;">Custom</div>
-                    <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-xs);">Contact Sales</div>
-                    <div style="border-top: 1px solid var(--gray-200); margin: var(--space-md) 0; padding-top: var(--space-md); font-size: 14px; color: var(--gray-600); line-height: 1.8;">
-                        Multi-team / multi-venue deployments<br>
-                        Custom integrations &amp; data pipelines<br>
-                        White-label options<br>
-                        Dedicated engineering support
-                    </div>
-                    <div style="margin-top: auto; padding-top: var(--space-md);">
-                        <div style="font-size: 13px; color: var(--gray-500); margin-bottom: var(--space-md);">NFL • NBA • NCAA conferences</div>
-                        <a href="/contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Talk to Sales</a>
-                    </div>
-                </div>
-
-            </div>
-            <p style="text-align: center; color: var(--gray-500); font-size: 14px; margin-top: var(--space-xl);"><a href="#compare" style="color: var(--aqua); font-weight: 600;">Compare all features</a> across plans</p>
-        </div>
-    </section>
-
-    <!-- NFC chips included in platform — no separate section needed -->
-
-    <!-- Tier Comparison Table -->
-    <section style="padding: var(--space-4xl) var(--space-2xl); background: white;">
-        <div class="container">
-            <h2 class="section-title" id="compare">Compare Plans</h2>
-
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; margin: var(--space-2xl) 0;">
-                    <thead>
-                        <tr style="background: var(--gray-100);">
-                            <th style="padding: var(--space-md); text-align: left; border-bottom: 2px solid var(--gray-300);">Feature</th>
-                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300);">Starter</th>
-                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300); background: rgba(51,190,204,0.08); color: var(--aqua); font-weight: 600;">Growth</th>
-                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300);">Playbook</th>
-                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--gray-300);">Enterprise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Fan database</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">5K profiles</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">25K profiles</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">75K profiles</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Sponsor portals</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">3</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">10</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Campaign automation</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">1 trigger</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);">10 triggers</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);">Unlimited</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">A/B testing</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Von AI insights</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Benchmarking data</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">API + webhooks</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md); border-bottom: 1px solid var(--gray-200);">Dedicated CSM</td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200); background: rgba(51,190,204,0.04);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                            <td style="padding: var(--space-md); text-align: center; border-bottom: 1px solid var(--gray-200);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: var(--space-md);">White-label option</td>
-                            <td style="padding: var(--space-md); text-align: center;"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center; background: rgba(51,190,204,0.04);"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center;"><span style="color:#ccc;">—</span></td>
-                            <td style="padding: var(--space-md); text-align: center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33BECC" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Add-Ons -->
-    <section style="padding: var(--space-2xl) var(--space-2xl); background: white;">
-        <div class="container" style="max-width: 800px;">
-            <h3 class="section-title" style="font-size: 1.5rem;">Add-Ons</h3>
-            <div class="grid grid-3" style="margin-top: var(--space-xl);">
-                <div class="card" style="padding: var(--space-lg); text-align: center;">
-                    <h4 style="margin-bottom: var(--space-sm);">Additional Chipped Items</h4>
-                    <p style="font-size: 0.9rem; color: var(--gray-600);">Available in blocks of 1,000. Contact us for pricing.</p>
-                </div>
-                <div class="card" style="padding: var(--space-lg); text-align: center;">
-                    <h4 style="margin-bottom: var(--space-sm);">Managed Creative Services</h4>
-                    <p style="font-size: 0.9rem; color: var(--gray-600);">Let our team design and build your campaign experiences.</p>
-                </div>
-                <div class="card" style="padding: var(--space-lg); text-align: center;">
-                    <h4 style="margin-bottom: var(--space-sm);">Physical Merch Production</h4>
-                    <p style="font-size: 0.9rem; color: var(--gray-600);">Don't have a provider? We can manage production end-to-end.</p>
-                </div>
+    <!-- Everything Included -->
+    <section style="background: linear-gradient(180deg, var(--navy) 0%, #0d1f3c 100%); padding: var(--space-4xl) var(--space-2xl);">
+        <div class="container" style="max-width: 1000px;">
+            <h2 class="section-title" style="color: white; margin-bottom: var(--space-3xl);">Every activation includes:</h2>
+            <div class="includes-grid">
+                <ul>
+                    <li>NFC chips at cost</li>
+                    <li>Dashboard access</li>
+                    <li>Real-time tap data</li>
+                    <li>Anonymous by default</li>
+                </ul>
+                <ul>
+                    <li>Sponsor attribution report</li>
+                    <li>Fan identity capture (opt-in)</li>
+                    <li>Post-game engagement data</li>
+                    <li>CRM-ready export</li>
+                </ul>
+                <ul>
+                    <li>Onboarding support</li>
+                    <li>Bi-weekly check-ins</li>
+                    <li>End-of-activation report</li>
+                    <li>Recommendations for next</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="section-muted">
+    <section style="background: var(--navy); padding: var(--space-4xl) var(--space-2xl);">
         <div class="container">
-            <h2 class="section-title">Common Questions</h2>
-
-            <div class="grid grid-2">
-                <div class="card">
+            <h2 class="section-title" style="color: white; margin-bottom: var(--space-3xl);">Common Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How much does it cost?</h4>
+                    <p>Pricing is scoped to your specific activation — the item type, volume, and season length. Talk to us and we'll give you a number specific to what you're planning. Most teams are surprised how accessible the entry point is.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is there a long-term contract?</h4>
+                    <p>No. Single activations are one invoice, one engagement. Season packages run for your season. Annual programs renew with 30-day notice. You're never locked in before the value is proven.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How does pricing work when a sponsor is funding the activation?</h4>
+                    <p>When a sponsor co-funds an activation, pricing is structured around their program budget rather than the team's budget. We work with both parties. Talk to us about co-funded activation structures.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can we start with just one activation?</h4>
+                    <p>That's how most teams start. One item. One campaign. Real data. If it changes your next renewal conversation — and it usually does — we talk about what's next.</p>
+                </div>
+                <div class="faq-item">
                     <h4>Do we have to change our merch supplier?</h4>
-                    <p>No. We supply pre-encoded NFC chips designed to integrate into standard merch production: sew-in labels, hang tags, or heat-seal patches depending on the product. Your supplier's process stays the same. We handle the technology.</p>
-                </div>
-
-                <div class="card">
-                    <h4>Is there a setup fee?</h4>
-                    <p>No. All fees are included. All plans are billed monthly with no long-term contracts required.</p>
-                </div>
-
-                <div class="card">
-                    <h4>What does the fan see when they tap?</h4>
-                    <p>Content you configure through the dashboard: a video from your head coach, an exclusive offer, a behind-the-scenes clip. You control the experience. The fan sees your brand, not ours.</p>
-                </div>
-
-                <div class="card">
-                    <h4>How does the sponsor portal work?</h4>
-                    <p>Each sponsor gets a shareable link to their portal: live engagement data from their specific activation. Who interacted, how many times, what they did next. No more manually building reports.</p>
-                </div>
-
-                <div class="card">
-                    <h4>Can we upgrade from a Pilot to a monthly plan?</h4>
-                    <p>Yes. We'll credit your pilot payments towards your first month on a higher tier. Your data moves with you.</p>
-                </div>
-
-                <div class="card">
-                    <h4>What about CRM or ticketing integration?</h4>
-                    <p>API access and webhooks are available on Playbook and Enterprise tiers. Growth includes data export in CSV/JSON. We'll work with you to connect Vonga data into your existing systems.</p>
+                    <p>No. Vonga chips are embedded during normal production by your existing supplier. Nothing in their process changes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section style="background: var(--navy); padding: var(--space-6xl) var(--space-2xl);">
+    <!-- Bottom CTA -->
+    <section style="background: linear-gradient(180deg, #0d1f3c 0%, var(--navy) 100%); padding: var(--space-6xl) var(--space-2xl);">
         <div class="container text-center">
-            <h2 style="color: white; margin-bottom: var(--space-md);">Not Sure Which Plan Fits?</h2>
-            <p style="color: rgba(255,255,255,0.95); font-size: 20px; max-width: 600px; margin: 0 auto var(--space-2xl);">
-                Tell us about your program and we'll show you exactly what Vonga looks like for your scale. 20-minute demo. No obligation.
+            <h2 style="color: white; margin-bottom: var(--space-md);">Tell us about your next activation.</h2>
+            <p style="color: rgba(255,255,255,0.85); font-size: 20px; max-width: 700px; margin: 0 auto var(--space-2xl);">
+                Whether it's a single jersey night or a full season sponsor program — tell us what you're planning and we'll give you a specific number.
             </p>
-            <a href="/contact.html" class="btn btn-primary">Book a Demo</a>
+            <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; align-items: center;">
+                <a href="/contact.html" class="btn btn-primary" style="font-size: 18px; padding: var(--space-md) var(--space-2xl);">Book a 15-Min Call</a>
+                <a href="mailto:bill@vonga.io" style="color: rgba(255,255,255,0.7); font-size: 16px;">Or email bill@vonga.io directly</a>
+            </div>
         </div>
     </section>
 
@@ -370,14 +282,14 @@
         <div class="footer-content">
             <div class="footer-section">
                 <img src="/images/logos/logo.svg" alt="Vonga" style="height: 96px; width: auto; filter: invert(64%) sepia(88%) saturate(425%) hue-rotate(138deg) brightness(95%) contrast(92%); margin-bottom: var(--space-md);">
-                <p style="font-weight: 600; color: white; font-size: 18px;">Fan Intelligence Platform™.</p>
+                <p style="font-weight: 600; color: white; font-size: 18px;">Fan Intelligence Platform&trade;.</p>
             </div>
 
             <div class="footer-section">
                 <h4>Platform</h4>
                 <ul>
                     <li><a href="/how-it-works.html">How It Works</a></li>
-                    <li><a href="/pricing.html">Pricing</a></li>
+                    <li><a href="/activations/">Activations</a></li>
                     <li><a href="/platform.html">Platform</a></li>
                     <li><a href="/blog/">Blog</a></li>
                 </ul>
@@ -395,14 +307,14 @@
                 <h4>For Teams</h4>
                 <ul>
                     <li><a href="/contact.html">Book a Demo</a></li>
-                                        <li><a href="/pricing.html">Pricing</a></li>
+                    <li><a href="/activations/">Activations</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>For Partners</h4>
                 <ul>
-                                        <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -413,57 +325,8 @@
     </footer>
 
     <script>
-        // Fire pricing_viewed event
         gtag('event', 'pricing_viewed', { event_category: 'engagement', event_label: 'pricing_page' });
-
-        // Billing toggle
-        const monthlyBtn = document.getElementById('toggle-monthly');
-        const annualBtn = document.getElementById('toggle-annual');
-        const plans = ['starter', 'growth', 'playbook'];
-
-        function setMonthly() {
-            monthlyBtn.style.color = 'var(--aqua)';
-            monthlyBtn.style.background = 'white';
-            monthlyBtn.style.boxShadow = '0 1px 4px rgba(0,0,0,0.1)';
-            annualBtn.style.color = 'var(--gray-600)';
-            annualBtn.style.background = 'transparent';
-            annualBtn.style.boxShadow = 'none';
-            plans.forEach(p => {
-                document.getElementById(p + '-monthly').style.display = 'block';
-                document.getElementById(p + '-annual').style.display = 'none';
-                document.getElementById(p + '-annual-note').style.display = 'none';
-            });
-        }
-
-        function setAnnual() {
-            annualBtn.style.color = 'var(--aqua)';
-            annualBtn.style.background = 'white';
-            annualBtn.style.boxShadow = '0 1px 4px rgba(0,0,0,0.1)';
-            monthlyBtn.style.color = 'var(--gray-600)';
-            monthlyBtn.style.background = 'transparent';
-            monthlyBtn.style.boxShadow = 'none';
-            plans.forEach(p => {
-                document.getElementById(p + '-monthly').style.display = 'none';
-                document.getElementById(p + '-annual').style.display = 'block';
-                document.getElementById(p + '-annual-note').style.display = 'block';
-            });
-        }
-
-        monthlyBtn.addEventListener('click', setMonthly);
-        annualBtn.addEventListener('click', setAnnual);
     </script>
     <script src="/js/live-chat.js" defer></script>
-
-    <script>
-    // Mobile dropdown toggle
-    document.querySelectorAll('nav ul li.has-dropdown > a').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                this.parentElement.classList.toggle('mobile-open');
-            }
-        });
-    });
-    </script>
 </body>
 </html>
