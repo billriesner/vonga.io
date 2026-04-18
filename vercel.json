@@ -7,16 +7,32 @@
       "destination": "https://dashboard.vonga.io/tap"
     },
     {
-      "source": "/tap/:path*",
-      "destination": "https://dashboard.vonga.io/tap/:path*"
+      "source": "/tap/",
+      "destination": "https://dashboard.vonga.io/tap"
+    },
+    {
+      "source": "/tap/:path+",
+      "destination": "https://dashboard.vonga.io/tap/:path+"
+    },
+    {
+      "source": "/tap/:path+/",
+      "destination": "https://dashboard.vonga.io/tap/:path+"
     },
     {
       "source": "/peak",
       "destination": "https://dashboard.vonga.io/peak"
     },
     {
-      "source": "/peak/:path*",
-      "destination": "https://dashboard.vonga.io/peak/:path*"
+      "source": "/peak/",
+      "destination": "https://dashboard.vonga.io/peak"
+    },
+    {
+      "source": "/peak/:path+",
+      "destination": "https://dashboard.vonga.io/peak/:path+"
+    },
+    {
+      "source": "/peak/:path+/",
+      "destination": "https://dashboard.vonga.io/peak/:path+"
     },
     {
       "source": "/api/peak/:path*",
