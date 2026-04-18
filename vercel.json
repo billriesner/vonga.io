@@ -39,6 +39,10 @@
       "destination": "https://dashboard.vonga.io/api/peak/:path*"
     },
     {
+      "source": "/api/peak/:path+/",
+      "destination": "https://dashboard.vonga.io/api/peak/:path+"
+    },
+    {
       "source": "/videos/peak/:path*",
       "destination": "https://dashboard.vonga.io/videos/peak/:path*"
     },
