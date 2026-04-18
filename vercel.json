@@ -1,6 +1,48 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/tap",
+      "destination": "https://dashboard.vonga.io/tap"
+    },
+    {
+      "source": "/tap/:path*",
+      "destination": "https://dashboard.vonga.io/tap/:path*"
+    },
+    {
+      "source": "/peak",
+      "destination": "https://dashboard.vonga.io/peak"
+    },
+    {
+      "source": "/peak/:path*",
+      "destination": "https://dashboard.vonga.io/peak/:path*"
+    },
+    {
+      "source": "/api/peak/:path*",
+      "destination": "https://dashboard.vonga.io/api/peak/:path*"
+    },
+    {
+      "source": "/videos/peak/:path*",
+      "destination": "https://dashboard.vonga.io/videos/peak/:path*"
+    },
+    {
+      "source": "/images/badges/:path*",
+      "destination": "https://dashboard.vonga.io/images/badges/:path*"
+    },
+    {
+      "source": "/brand/:path*",
+      "destination": "https://dashboard.vonga.io/brand/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://dashboard.vonga.io/_next/:path*"
+    },
+    {
+      "source": "/peak-og.png",
+      "destination": "https://dashboard.vonga.io/peak-og.png"
+    }
+  ],
   "redirects": [
     {
       "source": "/about/",
